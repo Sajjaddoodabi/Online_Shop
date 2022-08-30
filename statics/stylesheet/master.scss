@@ -1,0 +1,41 @@
+.header{
+  width: 100%;
+  height: 10vh;
+  .mobileMenu{
+    cursor: pointer;
+  }
+}
+.bi-list{
+  transform: scale(2);
+}
+.emailReg{
+  margin: 40px auto;
+  .row{
+    //width: 40%;
+    height: 100%;
+    .reg{
+      width: 100%;
+      height: 60%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px gray;
+    }
+    .regType{
+      a{
+        color: rgb(129 , 189 , 117);
+      }
+    }
+  }
+  button{
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(129 , 189 , 117);
+  }
+}
+input{
+  border: none;
+  border-bottom: 2px solid gray;
+}
+.error{
+  font-size: 18px;
+  color: red;
+}
