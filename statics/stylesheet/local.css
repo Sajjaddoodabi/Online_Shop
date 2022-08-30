@@ -1,0 +1,22 @@
+@media screen and (max-width: 576px) {
+  .regByEmail, .regByPhone {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 576px) {
+  .regByEmail, .regByPhone {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .regByEmail, .regByPhone {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .regByEmail, .regByPhone {
+    width: 34%;
+  }
+}
+
+/*# sourceMappingURL=local.css.map */

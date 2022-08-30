@@ -1,0 +1,68 @@
+.header {
+  width: 100%;
+  height: 10vh;
+}
+.header .mobileMenu {
+  cursor: pointer;
+}
+
+.bi-list {
+  transform: scale(2);
+}
+
+.emailReg, .phoneReg {
+  margin: 40px auto;
+}
+.emailReg .row, .phoneReg .row {
+  height: 100%;
+}
+.emailReg .row .reg, .phoneReg .row .reg {
+  width: 100%;
+  height: 60%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px gray;
+}
+.emailReg .row .regType a, .phoneReg .row .regType a {
+  color: rgb(129, 189, 117);
+}
+.emailReg button, .phoneReg button {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+}
+.emailReg input, .phoneReg input {
+  border: none;
+  border-bottom: 2px solid gray;
+}
+.emailReg .error, .phoneReg .error {
+  font-size: 18px;
+  color: red;
+}
+
+.login {
+  margin: 100px auto;
+}
+.login button {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+}
+.login input {
+  border: none;
+  border-bottom: 2px solid gray;
+}
+.login .error {
+  font-size: 18px;
+  color: red;
+}
+.login a {
+  color: rgb(129, 189, 117);
+}
+.login .login {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px gray;
+}
+
+/*# sourceMappingURL=master.css.map */
