@@ -8,10 +8,9 @@
 .bi-list{
   transform: scale(2);
 }
-.emailReg{
+.emailReg , .phoneReg{
   margin: 40px auto;
   .row{
-    //width: 40%;
     height: 100%;
     .reg{
       width: 100%;
@@ -30,12 +29,12 @@
     border-radius: 6px;
     background-color: rgb(129 , 189 , 117);
   }
-}
-input{
-  border: none;
-  border-bottom: 2px solid gray;
-}
-.error{
-  font-size: 18px;
-  color: red;
+  input{
+    border: none;
+    border-bottom: 2px solid gray;
+  }
+  .error{
+    font-size: 18px;
+    color: red;
+  }
 }
