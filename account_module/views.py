@@ -1,6 +1,6 @@
 from random import randint
 
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
@@ -10,20 +10,17 @@ from account_module.forms import RegisterWithMobile, RegisterWithEmail
 from account_module.models import User
 
 
-class RegisterView(View):
+class RegisterEmailView(View):
     def get(self, request: HttpRequest):
-        mobile_form = RegisterWithMobile
-        email_form = RegisterWithEmail
+        email_form = RegisterWithEmail()
 
         context = {
-            'mobile_form': mobile_form,
             'email_form': email_form
         }
 
-        return render(request, '', context)
+        return render(request, 'register.html', context)
 
     def post(self, request: HttpRequest):
-        mobile_form = RegisterWithMobile(request.POST)
         email_form = RegisterWithEmail(request.POST)
 
         if email_form.is_valid():
@@ -44,7 +41,27 @@ class RegisterView(View):
 
                 # todo sending active email
 
-                return redirect(reverse(''))
+                return HttpResponse("done")
+
+        context = {
+            'email_form': email_form,
+        }
+
+        return render(request, 'register.html', context)
+
+
+class RegisterMobileView(View):
+    def get(self, request: HttpRequest):
+        mobile_form = RegisterWithMobile()
+
+        context = {
+            'mobile_form': mobile_form
+        }
+
+        return render(request, 'register.html', context)
+
+    def post(self, request: HttpRequest):
+        mobile_form = RegisterWithMobile(request.POST)
 
         if mobile_form.is_valid():
             mobile = mobile_form.cleaned_data.get('mobile')
@@ -66,11 +83,10 @@ class RegisterView(View):
 
                 # todo send sms active code
 
-                return redirect(reverse(''))
+                return HttpResponse("done")
 
         context = {
             'mobile_form': mobile_form,
-            'email_form': email_form,
         }
 
-        return render(request, '', context)
+        return render(request, 'register.html', context)

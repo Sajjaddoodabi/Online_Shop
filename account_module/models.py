@@ -16,7 +16,7 @@ class User(AbstractUser):
     email_active_code = models.CharField(max_length=100)
     mobile = PhoneNumberField(null=True, blank=True, unique=True)
     mobile_active_code = models.CharField(max_length=10)
-    addresses = models.ForeignKey(Address, on_delete=models.CASCADE)
+    addresses = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True)
     is_active = models.BooleanField()
 
     def __str__(self):
