@@ -1,12 +1,13 @@
 from random import randint
 
+from django.contrib.auth import login
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views import View
 
-from account_module.forms import RegisterWithMobile, RegisterWithEmail
+from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm
 from account_module.models import User
 
 
@@ -18,7 +19,7 @@ class RegisterEmailView(View):
             'email_form': email_form
         }
 
-        return render(request, '', context)
+        return render(request, 'account_module/email_registration.html', context)
 
     def post(self, request: HttpRequest):
         email_form = RegisterWithEmail(request.POST)
@@ -47,7 +48,7 @@ class RegisterEmailView(View):
             'email_form': email_form,
         }
 
-        return render(request, '', context)
+        return render(request, 'account_module/email_registration.html', context)
 
 
 class RegisterMobileView(View):
@@ -58,7 +59,7 @@ class RegisterMobileView(View):
             'mobile_form': mobile_form
         }
 
-        return render(request, '', context)
+        return render(request, 'account_module/phone_registration.html', context)
 
     def post(self, request: HttpRequest):
         mobile_form = RegisterWithMobile(request.POST)
@@ -87,6 +88,46 @@ class RegisterMobileView(View):
 
         context = {
             'mobile_form': mobile_form,
+        }
+
+        return render(request, 'account_module/phone_registration.html', context)
+
+
+class LoginView(View):
+    def get(self, request: HttpRequest):
+        form = LoginForm
+
+        context = {
+            'form': form
+        }
+        return render(request, '', context)
+
+    def post(self, request: HttpRequest):
+        form = LoginForm(request.POST)
+
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
+            user: User = User.objects.filter(email__iexact=email).first()
+
+            if user is not None:
+                if not user.is_active:
+                    form.add_error('email', 'this account is not active')
+                    print('email not active')
+                else:
+                    is_correct_password = user.check_password(password)
+                    if is_correct_password:
+                        login(request, user)
+                        return HttpResponse('logined')
+                    else:
+                        form.add_error('email', 'user with this details does not exists')
+                        print('pass not corr')
+            else:
+                form.add_error('email', 'user with this details does not exists')
+                print('email not found')
+
+        context = {
+            'form': form
         }
 
         return render(request, '', context)

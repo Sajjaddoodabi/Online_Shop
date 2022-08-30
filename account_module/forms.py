@@ -76,3 +76,20 @@ class RegisterWithMobile(forms.Form):
 
         else:
             raise ValidationError('password does not match')
+
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.EmailInput(),
+        validators=[
+            validators.MaxLengthValidator(100),
+            validators.EmailValidator
+        ]
+    )
+
+    password = forms.CharField(
+        widget=forms.PasswordInput(),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
+    )
