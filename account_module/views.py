@@ -18,7 +18,7 @@ class RegisterEmailView(View):
             'email_form': email_form
         }
 
-        return render(request, 'register.html', context)
+        return render(request, '', context)
 
     def post(self, request: HttpRequest):
         email_form = RegisterWithEmail(request.POST)
@@ -47,7 +47,7 @@ class RegisterEmailView(View):
             'email_form': email_form,
         }
 
-        return render(request, 'register.html', context)
+        return render(request, '', context)
 
 
 class RegisterMobileView(View):
@@ -58,7 +58,7 @@ class RegisterMobileView(View):
             'mobile_form': mobile_form
         }
 
-        return render(request, 'register.html', context)
+        return render(request, '', context)
 
     def post(self, request: HttpRequest):
         mobile_form = RegisterWithMobile(request.POST)
@@ -89,4 +89,4 @@ class RegisterMobileView(View):
             'mobile_form': mobile_form,
         }
 
-        return render(request, 'register.html', context)
+        return render(request, '', context)
