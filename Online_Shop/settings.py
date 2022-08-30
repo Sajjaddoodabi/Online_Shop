@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # internal_apps
     'account_module',
     # external_apps
-    'phone_field'
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [

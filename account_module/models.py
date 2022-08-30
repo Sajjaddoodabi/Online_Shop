@@ -17,6 +17,7 @@ class User(AbstractUser):
     mobile = PhoneNumberField(null=True, blank=True, unique=True)
     mobile_active_code = models.CharField(max_length=10)
     addresses = models.ForeignKey(Address, on_delete=models.CASCADE)
+    is_active = models.BooleanField()
 
     def __str__(self):
         if self.first_name is not '' and self.last_name is not '':

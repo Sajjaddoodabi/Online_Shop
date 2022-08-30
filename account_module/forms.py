@@ -40,6 +40,13 @@ class RegisterWithEmail(forms.Form):
 
 
 class RegisterWithMobile(forms.Form):
+    user_name = forms.CharField(
+        widget=forms.TextInput(),
+        validators=[
+            validators.MaxLengthValidator(100)
+        ]
+    )
+
     mobile = PhoneNumberField(
         validators=[
             phone_validators.PhoneNumber
