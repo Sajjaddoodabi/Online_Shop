@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # internal_apps
     'account_module',
+    'product_module',
     # external_apps
     'phonenumbers'
 ]
