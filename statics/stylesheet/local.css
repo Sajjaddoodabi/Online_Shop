@@ -1,20 +1,20 @@
 @media screen and (max-width: 576px) {
-  .regByEmail, .regByPhone {
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
   }
 }
 @media screen and (min-width: 576px) {
-  .regByEmail, .regByPhone {
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
   }
 }
 @media screen and (min-width: 768px) {
-  .regByEmail, .regByPhone {
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 60%;
   }
 }
 @media screen and (min-width: 992px) {
-  .regByEmail, .regByPhone {
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 34%;
   }
 }
