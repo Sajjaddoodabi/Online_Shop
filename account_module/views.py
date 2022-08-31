@@ -1,3 +1,4 @@
+import re
 from random import randint
 
 from django.contrib.auth import login
@@ -7,7 +8,7 @@ from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views import View
 
-from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm
+from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm, ResetPassForm
 from account_module.models import User
 
 
@@ -53,7 +54,7 @@ class RegisterEmailView(View):
 
 class RegisterMobileView(View):
     def get(self, request: HttpRequest):
-        mobile_form = RegisterWithMobile()
+        mobile_form = RegisterWithMobile
 
         context = {
             'mobile_form': mobile_form
@@ -68,23 +69,27 @@ class RegisterMobileView(View):
             mobile = mobile_form.cleaned_data.get('mobile')
             password_mobile = mobile_form.cleaned_data.get('password')
             user_name = mobile_form.cleaned_data.get('user_name')
-            user = User.objects.filter(mobile__exact=mobile).exists()
+            user_mobile = User.objects.filter(mobile__exact=mobile).exists()
+            user_username = User.objects.filter(username__iexact=user_name).exists()
 
-            if user:
-                mobile_form.add_error('mobile', 'mobile already exists')
+            if user_username:
+                mobile_form.add_error('username', 'username already exists')
             else:
-                new_user = User(
-                    mobile=mobile,
-                    mobile_active_code=randint(100000, 999999),
-                    is_active=False,
-                    username=user_name
-                )
-                new_user.set_password(password_mobile)
-                new_user.save()
+                if user_mobile:
+                    mobile_form.add_error('mobile', 'mobile already exists')
+                else:
+                    new_user = User(
+                        mobile=mobile,
+                        mobile_active_code=randint(100000, 999999),
+                        is_active=False,
+                        username=user_name
+                    )
+                    new_user.set_password(password_mobile)
+                    new_user.save()
 
-                # todo send sms active code
+                    # todo send sms active code
 
-                return HttpResponse("done")
+                    return HttpResponse("done")
 
         context = {
             'mobile_form': mobile_form,
@@ -100,34 +105,68 @@ class LoginView(View):
         context = {
             'form': form
         }
-        return render(request, '', context)
+        return render(request, 'login.html', context)
 
     def post(self, request: HttpRequest):
         form = LoginForm(request.POST)
 
         if form.is_valid():
-            email = form.cleaned_data.get('email')
+            username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user: User = User.objects.filter(email__iexact=email).first()
+            user: User = User.objects.filter(username__iexact=username).first()
 
             if user is not None:
                 if not user.is_active:
-                    form.add_error('email', 'this account is not active')
-                    print('email not active')
+                    form.add_error('username', 'this account is not active')
+                    print('account not active')
                 else:
                     is_correct_password = user.check_password(password)
                     if is_correct_password:
                         login(request, user)
                         return HttpResponse('logined')
                     else:
-                        form.add_error('email', 'user with this details does not exists')
+                        form.add_error('username', 'user with this details does not exists')
                         print('pass not corr')
             else:
-                form.add_error('email', 'user with this details does not exists')
-                print('email not found')
+                form.add_error('username', 'user with this details does not exists')
+                print('username not found')
 
         context = {
             'form': form
         }
 
+        return render(request, 'login.html', context)
+
+
+class ResetPassView(View):
+    def get(self, request: HttpRequest, active_code):
+        user = User.objects.filter(email_active_code__iexact=active_code).first()
+        if user is None:
+            return HttpResponse('login first')
+        else:
+            reset_form = ResetPassForm
+            context = {
+                'reset_form': reset_form,
+                'user': user
+            }
+            return render(request, '', context)
+
+    def post(self, request: HttpRequest, active_code):
+        reset_form = ResetPassForm(request.POST)
+        if reset_form.is_valid():
+            user = User.objects.filter(email_active_code__iexact=active_code).first()
+            if user is None:
+                return HttpResponse('user not found, login')
+
+            new_password = reset_form.cleaned_data.get('new_password')
+            user.set_password(new_password)
+            user.email_active_code = get_random_string(72)
+            user.is_active = True
+            user.save()
+
+            return HttpResponse('user activated, login')
+
+        context = {
+            'reset_form': reset_form
+        }
         return render(request, '', context)

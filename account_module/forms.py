@@ -48,9 +48,9 @@ class RegisterWithMobile(forms.Form):
     )
 
     mobile = PhoneNumberField(
-        validators=[
-            phone_validators.PhoneNumber
-        ]
+        # validators=[
+        #     phone_validators.PhoneNumber
+        # ]
     )
 
     password = forms.CharField(
@@ -79,11 +79,10 @@ class RegisterWithMobile(forms.Form):
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(
-        widget=forms.EmailInput(),
+    username = forms.CharField(
+        widget=forms.TextInput(),
         validators=[
             validators.MaxLengthValidator(100),
-            validators.EmailValidator
         ]
     )
 
@@ -93,3 +92,36 @@ class LoginForm(forms.Form):
             validators.MaxLengthValidator(100),
         ]
     )
+
+
+class ResetPassForm(forms.Form):
+    password = forms.CharField(
+        widget=forms.PasswordInput(),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
+    )
+
+    new_password = forms.CharField(
+        widget=forms.PasswordInput(),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
+    )
+
+    confirm_password = forms.CharField(
+        widget=forms.PasswordInput(),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
+    )
+
+    def password_confirm(self):
+        password = self.cleaned_data.get('new_password')
+        confirm_password = self.cleaned_data.get('confirm_password')
+
+        if password == confirm_password:
+            return confirm_password
+
+        else:
+            raise ValidationError('password does not match')
