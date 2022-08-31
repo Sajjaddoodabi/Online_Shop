@@ -10,6 +10,7 @@ from django.views import View
 
 from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm, ResetPassForm, ForgotPassForm
 from account_module.models import User
+from utils.email_service import send_email
 
 
 class RegisterEmailView(View):
@@ -41,7 +42,12 @@ class RegisterEmailView(View):
                 new_user.set_password(password_email)
                 new_user.save()
 
-                # todo sending active email
+                send_email(
+                    'account activation email',
+                    new_user.email,
+                    {'user': new_user},
+                    'emails/activate_account.html'
+                )
 
                 return HttpResponse("done")
 
@@ -144,7 +150,7 @@ class ForgotPassView(View):
         context = {
             'forget_pass_form': forget_pass_form
         }
-        return render(request, '', context)
+        return render(request, 'account_module/forgot_pass_page.html', context)
 
     def post(self, request: HttpRequest):
         forget_pass_form = ForgotPassForm(request.POST)
@@ -153,7 +159,12 @@ class ForgotPassView(View):
             user = User.objects.filter(email__iexact=email).first()
 
             if user is not None:
-                # todo send email
+                send_email(
+                    'pass word reset',
+                    user.email,
+                    {'user': user},
+                    'emails/forgot_pass.html'
+                )
                 return HttpResponse('reseted')
 
         context = {

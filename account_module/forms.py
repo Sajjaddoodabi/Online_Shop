@@ -103,6 +103,7 @@ class ForgotPassForm(forms.Form):
         ]
     )
 
+
 class ResetPassForm(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(),
