@@ -12,12 +12,10 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container-fluid login d-flex justify-content-center align-items-center">
+<div class="container-fluid verify d-flex justify-content-center align-items-center">
     <div class="container-xxl d-flex justify-content-center align-items-center">
-        <form class="loginForm d-flex justify-content-center align-items-center flex-wrap h-50 p-4" action="registry.php" method="post" name="log">
-            <input class="col-9" type="text" placeholder="enter your user name or email" name="fullName">
-            <span class="error col-9"></span>
-            <input class="col-9" type="password" placeholder="password" name="pass">
+        <form class="verifyForm d-flex justify-content-center align-items-center flex-wrap h-50 px-4 py-5" action="registry.php" method="post" name="ver">
+            <input class="col-9" type="text" placeholder="enter verification code" name="verify">
             <span class="error col-9"></span>
             <button class="col-9">send</button>
         </form>

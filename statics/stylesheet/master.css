@@ -21,48 +21,77 @@
   height: 60%;
   border-radius: 10px;
   box-shadow: 0 0 20px gray;
+  display: flex;
+  flex-wrap: wrap;
+}
+.emailReg .row .reg > *, .phoneReg .row .reg > * {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid gray;
+  padding: 6px;
+  margin: 10px;
+}
+.emailReg .row .reg button, .phoneReg .row .reg button {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+  margin: 0;
+}
+.emailReg .row .reg .error, .phoneReg .row .reg .error {
+  font-size: 18px;
+  color: red;
+  border: none;
 }
 .emailReg .row .regType a, .phoneReg .row .regType a {
   color: rgb(129, 189, 117);
 }
-.emailReg button, .phoneReg button {
-  border: none;
-  border-radius: 6px;
-  background-color: rgb(129, 189, 117);
-}
-.emailReg input, .phoneReg input {
-  border: none;
-  border-bottom: 2px solid gray;
-}
-.emailReg .error, .phoneReg .error {
-  font-size: 18px;
-  color: red;
-}
 
 .login {
-  margin: 100px auto;
+  margin: 200px auto;
 }
-.login button {
+.login .loginForm {
+  border-radius: 6px;
+  box-shadow: 0 0 20px gray;
+}
+.login .loginForm > * {
+  border: none;
+  border-bottom: 2px solid gray;
+  padding: 6px;
+  margin: 10px;
+}
+.login .loginForm button {
   border: none;
   border-radius: 6px;
   background-color: rgb(129, 189, 117);
 }
-.login input {
-  border: none;
-  border-bottom: 2px solid gray;
-}
-.login .error {
+.login .loginForm .error {
   font-size: 18px;
   color: red;
+  border: none;
 }
-.login a {
-  color: rgb(129, 189, 117);
+
+.verify {
+  margin: 200px auto;
 }
-.login .login {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
+.verify .verifyForm {
+  border-radius: 6px;
   box-shadow: 0 0 20px gray;
+}
+.verify .verifyForm > * {
+  border: none;
+  border-bottom: 2px solid gray;
+  padding: 6px;
+  margin: 10px;
+}
+.verify .verifyForm button {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+}
+.verify .verifyForm .error {
+  font-size: 18px;
+  color: red;
+  border: none;
 }
 
 /*# sourceMappingURL=master.css.map */

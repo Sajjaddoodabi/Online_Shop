@@ -23,31 +23,31 @@
                         href="{% url 'register_mobile_page' %}">registration by phone</a></div>
             </div>
             <form class="reg d-flex justify-content-center align-items-center flex-wrap h-50 p-4"
-                  action="{% url 'register_email_page' %}" method="post" onsubmit="return validateEmail()" name="reg">
+                  action="{% url 'register_email_page' %}" method="post" name="reg">
                 {% csrf_token %}
 
-                {% comment %}<input class="col-9 p-2 m-4" type="text" placeholder="email address" name="email">
-                <span class="error col-9"></span>
-
-                <input class="col-9 p-2 m-4" type="password" placeholder="password" name="pass">
-                <span class="error col-9"></span>
-
-                <input class="col-9 p-2 m-4" type="password" placeholder="repeat password" name="pass">
-                <span class="error col-9"></span>{% endcomment %}
-
                 {{ email_form.email.label_tag }}
+                <br><br>
                 {{ email_form.email }}
+                <br><br>
                 {{ email_form.email.errors }}
+                <br><br>
 
                 {{ email_form.password.label_tag }}
+                <br><br>
                 {{ email_form.password }}
+                <br><br>
                 {{ email_form.password.errors }}
+                <br><br>
 
                 {{ email_form.confirm_password.label_tag }}
+                <br><br>
                 {{ email_form.confirm_password }}
+                <br><br>
                 {{ email_form.confirm_password.errors }}
+                <br><br>
 
-                <button type="submit" class="col-9 p-2">send</button>
+                <button type="submit" class="col-6 p-2">send</button>
             </form>
         </div>
     </div>

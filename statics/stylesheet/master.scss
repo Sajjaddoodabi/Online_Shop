@@ -17,6 +17,28 @@
       height: 60%;
       border-radius: 10px;
       box-shadow: 0 0 20px gray;
+      display: flex;
+      flex-wrap: wrap;
+      // ////////////////////////////
+      >*{
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid gray;
+        padding: 6px;
+        margin: 10px;
+      }
+      button{
+        border: none;
+        border-radius: 6px;
+        background-color: rgb(129 , 189 , 117);
+        margin: 0;
+      }
+      .error{
+        font-size: 18px;
+        color: red;
+        border: none;
+      }
+      // ////////////////////////////////////
     }
     .regType{
       a{
@@ -24,42 +46,63 @@
       }
     }
   }
-  button{
-    border: none;
-    border-radius: 6px;
-    background-color: rgb(129 , 189 , 117);
-  }
-  input{
-    border: none;
-    border-bottom: 2px solid gray;
-  }
-  .error{
-    font-size: 18px;
-    color: red;
-  }
+  //button{
+  //  border: none;
+  //  border-radius: 6px;
+  //  background-color: rgb(129 , 189 , 117);
+  //}
+  //input{
+  //  border: none;
+  //  border-bottom: 2px solid gray;
+  //}
+  //.error{
+  //  font-size: 18px;
+  //  color: red;
+  //}
 }
 .login{
-  margin: 100px auto;
-  button{
-    border: none;
+  margin: 200px auto;
+  .loginForm{
     border-radius: 6px;
-    background-color: rgb(129 , 189 , 117);
-  }
-  input{
-    border: none;
-    border-bottom: 2px solid gray;
-  }
-  .error{
-    font-size: 18px;
-    color: red;
-  }
-  a{
-    color: rgb(129 , 189 , 117);
-  }
-  .login{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
     box-shadow: 0 0 20px gray;
+    >*{
+      border: none;
+      border-bottom: 2px solid gray;
+      padding: 6px;
+      margin: 10px;
+    }
+    button{
+      border: none;
+      border-radius: 6px;
+      background-color: rgb(129 , 189 , 117);
+    }
+    .error{
+      font-size: 18px;
+      color: red;
+      border: none;
+    }
+  }
+}
+.verify{
+  margin: 200px auto;
+  .verifyForm{
+    border-radius: 6px;
+    box-shadow: 0 0 20px gray;
+    >*{
+      border: none;
+      border-bottom: 2px solid gray;
+      padding: 6px;
+      margin: 10px;
+    }
+    button{
+      border: none;
+      border-radius: 6px;
+      background-color: rgb(129 , 189 , 117);
+    }
+    .error{
+      font-size: 18px;
+      color: red;
+      border: none;
+    }
   }
 }
