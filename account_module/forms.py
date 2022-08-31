@@ -48,9 +48,9 @@ class RegisterWithMobile(forms.Form):
     )
 
     mobile = PhoneNumberField(
-        validators=[
-            phone_validators.PhoneNumber
-        ]
+        # validators=[
+        #     phone_validators.PhoneNumber
+        # ]
     )
 
     password = forms.CharField(
@@ -79,11 +79,10 @@ class RegisterWithMobile(forms.Form):
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(
-        widget=forms.EmailInput(),
+    username = forms.CharField(
+        widget=forms.TextInput(),
         validators=[
             validators.MaxLengthValidator(100),
-            validators.EmailValidator
         ]
     )
 
