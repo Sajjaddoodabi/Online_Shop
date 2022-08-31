@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="{% url 'reset_pass_page' active_code=user.email_active_code %}" method="post">
+    {% csrf_token %}
+    {{ reset_form }}
+    <button class="col-9 p-2">send</button>
+</form>
+
+</body>
+</html>
