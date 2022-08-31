@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views import View
 
-from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm, ResetPassForm
+from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm, ResetPassForm, ForgotPassForm
 from account_module.models import User
 
 
@@ -138,6 +138,30 @@ class LoginView(View):
         return render(request, 'login.html', context)
 
 
+class ForgotPassView(View):
+    def get(self, request: HttpRequest):
+        forget_pass_form = ForgotPassForm
+        context = {
+            'forget_pass_form': forget_pass_form
+        }
+        return render(request, '', context)
+
+    def post(self, request: HttpRequest):
+        forget_pass_form = ForgotPassForm(request.POST)
+        if forget_pass_form.is_valid():
+            email = forget_pass_form.cleaned_data.get('email')
+            user = User.objects.filter(email__iexact=email).first()
+
+            if user is not None:
+                # todo send email
+                return HttpResponse('reseted')
+
+        context = {
+            'forget_pass_form': forget_pass_form
+        }
+        return render(request, '', context)
+
+
 class UserActivation(View):
     def get(self, request: HttpRequest, active_code):
         user = User.objects.filter(email_active_code__iexact=active_code).first()
@@ -180,4 +204,3 @@ class ResetPassView(View):
             user.save()
 
             return HttpResponse('user activated, login')
-
