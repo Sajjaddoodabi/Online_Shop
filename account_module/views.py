@@ -2,13 +2,13 @@ import re
 from random import randint
 
 from django.contrib.auth import login
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views import View
 
-from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm, ResetPassForm
+from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm, ResetPassForm, ForgotPassForm
 from account_module.models import User
 
 
@@ -105,7 +105,7 @@ class LoginView(View):
         context = {
             'form': form
         }
-        return render(request, 'login.html', context)
+        return render(request, 'account_module/login_page.html', context)
 
     def post(self, request: HttpRequest):
         form = LoginForm(request.POST)
@@ -135,21 +135,60 @@ class LoginView(View):
             'form': form
         }
 
-        return render(request, 'login.html', context)
+        return render(request, 'account_module/login_page.html', context)
+
+
+class ForgotPassView(View):
+    def get(self, request: HttpRequest):
+        forget_pass_form = ForgotPassForm
+        context = {
+            'forget_pass_form': forget_pass_form
+        }
+        return render(request, '', context)
+
+    def post(self, request: HttpRequest):
+        forget_pass_form = ForgotPassForm(request.POST)
+        if forget_pass_form.is_valid():
+            email = forget_pass_form.cleaned_data.get('email')
+            user = User.objects.filter(email__iexact=email).first()
+
+            if user is not None:
+                # todo send email
+                return HttpResponse('reseted')
+
+        context = {
+            'forget_pass_form': forget_pass_form
+        }
+        return render(request, 'account_module/forgot_pass_page.html', context)
+
+
+class UserActivation(View):
+    def get(self, request: HttpRequest, active_code):
+        user = User.objects.filter(email_active_code__iexact=active_code).first()
+        if user is not None:
+            if not user.is_active:
+                user.is_active = True
+                user.email_active_code = get_random_string(72)
+                user.save()
+                return HttpResponse('account activated')
+            else:
+                return HttpResponse('account is already activated')
+
+        raise Http404
 
 
 class ResetPassView(View):
     def get(self, request: HttpRequest, active_code):
         user = User.objects.filter(email_active_code__iexact=active_code).first()
         if user is None:
-            return HttpResponse('login first')
+            return HttpResponse('register first')
         else:
             reset_form = ResetPassForm
             context = {
                 'reset_form': reset_form,
                 'user': user
             }
-            return render(request, '', context)
+            return render(request, 'reset_pass.html', context)
 
     def post(self, request: HttpRequest, active_code):
         reset_form = ResetPassForm(request.POST)
@@ -165,8 +204,3 @@ class ResetPassView(View):
             user.save()
 
             return HttpResponse('user activated, login')
-
-        context = {
-            'reset_form': reset_form
-        }
-        return render(request, '', context)
