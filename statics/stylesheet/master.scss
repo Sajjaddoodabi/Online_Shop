@@ -11,7 +11,9 @@
     //position: relative;
     padding-inline-end: 10px;
     >li{
-      a{
+      padding: 0;
+      margin: 0;
+      .objects{
         color: black;
         padding: 0;
         margin: 0;
@@ -27,25 +29,57 @@
           z-index: 1;
           opacity: 1;
           bottom: 16px;
-          left: 0%;
+          left: 5%;
           transition: 0.4s;
         }
         &:hover{
           &::after{
-            width: 100%;
+            width: 90%;
           }
         }
       }
+      &:hover{
+        .box1{
+          display: block;
+        }
+      }
       >ul{
+        transition: 1s;
         >li{
-          //div{
-          //  width: 100%;
-          //  background-color: purple;
-          //  height: 200px;
-          //  position: absolute;
-          //  top: 20vh;
-          //  left: 0;
-          //}
+          .box1{
+            transition: 1s;
+            display: none;
+            background-color: purple;
+            position: absolute;
+            top: 20vh;
+            left: 0;
+            >ul{
+              >li{
+                >a{
+                  display: block;
+                  width: 100%;
+                  padding: 10px;
+                  color: black;
+                  >svg{
+                    width: 20px;
+                    height: 20px;
+                    padding: 0;
+                  }
+                  &:hover{
+                    color: rgb(129 , 189 , 117);
+                  }
+                }
+                .box2{
+                  width: 400%;
+                  background-color: yellow;
+                  height: 100%;
+                  position: absolute;
+                  top: 0;
+                  left: 100%;
+                }
+              }
+            }
+          }
         }
       }
     }

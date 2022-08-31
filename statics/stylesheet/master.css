@@ -12,13 +12,17 @@
 .header > .desktopMenu > ul {
   padding-inline-end: 10px;
 }
-.header > .desktopMenu > ul > li a {
+.header > .desktopMenu > ul > li {
+  padding: 0;
+  margin: 0;
+}
+.header > .desktopMenu > ul > li .objects {
   color: black;
   padding: 0;
   margin: 0;
   position: relative;
 }
-.header > .desktopMenu > ul > li a::after {
+.header > .desktopMenu > ul > li .objects::after {
   padding: 0;
   margin: 0;
   content: "";
@@ -29,12 +33,49 @@
   z-index: 1;
   opacity: 1;
   bottom: 16px;
-  left: 0%;
+  left: 5%;
   transition: 0.4s;
 }
-.header > .desktopMenu > ul > li a:hover::after {
-  width: 100%;
+.header > .desktopMenu > ul > li .objects:hover::after {
+  width: 90%;
 }
+.header > .desktopMenu > ul > li:hover .box1 {
+  display: block;
+}
+.header > .desktopMenu > ul > li > ul {
+  transition: 1s;
+}
+.header > .desktopMenu > ul > li > ul > li .box1 {
+  transition: 1s;
+  display: none;
+  background-color: purple;
+  position: absolute;
+  top: 20vh;
+  left: 0;
+}
+.header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: black;
+}
+.header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a > svg {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+}
+.header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a:hover {
+  color: rgb(129, 189, 117);
+}
+.header > .desktopMenu > ul > li > ul > li .box1 > ul > li .box2 {
+  width: 400%;
+  background-color: yellow;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
 .bi-list {
   transform: scale(2);
 }
