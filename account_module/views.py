@@ -144,7 +144,7 @@ class ForgotPassView(View):
         context = {
             'forget_pass_form': forget_pass_form
         }
-        return render(request, '', context)
+        return render(request, 'account_module/forgot_pass_page.html', context)
 
     def post(self, request: HttpRequest):
         forget_pass_form = ForgotPassForm(request.POST)
