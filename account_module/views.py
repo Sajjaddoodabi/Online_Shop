@@ -105,7 +105,7 @@ class LoginView(View):
         context = {
             'form': form
         }
-        return render(request, 'login.html', context)
+        return render(request, 'account_module/login_page.html', context)
 
     def post(self, request: HttpRequest):
         form = LoginForm(request.POST)
@@ -135,7 +135,7 @@ class LoginView(View):
             'form': form
         }
 
-        return render(request, 'login.html', context)
+        return render(request, 'account_module/login_page.html', context)
 
 
 class ForgotPassView(View):
@@ -159,7 +159,7 @@ class ForgotPassView(View):
         context = {
             'forget_pass_form': forget_pass_form
         }
-        return render(request, '', context)
+        return render(request, 'account_module/forgot_pass_page.html', context)
 
 
 class UserActivation(View):
