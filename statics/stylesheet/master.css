@@ -232,11 +232,12 @@
   display: flex;
   transition: 1s;
 }
-.slide .slider #bus > figure, .slide .slider .thumbnail > figure {
+.slide .slider #bus > figure {
+  width: 100%;
   height: 100%;
   cursor: pointer;
 }
-.slide .slider #bus > figure > img, .slide .slider .thumbnail > figure > img {
+.slide .slider #bus > figure > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -282,6 +283,16 @@
 .slide .slider .thumbnail > .thumb:nth-of-type(6) {
   bottom: 5%;
   right: 120px;
+}
+
+.classification {
+  border: 2px solid black;
+  min-height: 400px;
+  background-color: rgb(129, 189, 117);
+}
+
+.classify {
+  background-color: rgb(129, 189, 117);
 }
 
 /*# sourceMappingURL=master.css.map */
