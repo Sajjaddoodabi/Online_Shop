@@ -215,6 +215,10 @@
   cursor: pointer;
   opacity: 1;
   z-index: 10;
+  color: gray;
+}
+.slide .slider > .window > span:hover {
+  color: black;
 }
 .slide .slider #right {
   right: 4%;
@@ -238,7 +242,7 @@
   object-fit: cover;
 }
 .slide .slider .thumbnail {
-  width: 50%;
+  width: 150px;
   height: 20px;
   display: flex;
   position: absolute;
@@ -257,27 +261,27 @@
 }
 .slide .slider .thumbnail > .thumb:nth-of-type(1) {
   bottom: 5%;
-  right: 5%;
+  right: 20px;
 }
 .slide .slider .thumbnail > .thumb:nth-of-type(2) {
   bottom: 5%;
-  right: 8%;
+  right: 40px;
 }
 .slide .slider .thumbnail > .thumb:nth-of-type(3) {
   bottom: 5%;
-  right: 11%;
+  right: 60px;
 }
 .slide .slider .thumbnail > .thumb:nth-of-type(4) {
   bottom: 5%;
-  right: 14%;
+  right: 80px;
 }
 .slide .slider .thumbnail > .thumb:nth-of-type(5) {
   bottom: 5%;
-  right: 17%;
+  right: 100px;
 }
 .slide .slider .thumbnail > .thumb:nth-of-type(6) {
   bottom: 5%;
-  right: 20%;
+  right: 120px;
 }
 
 /*# sourceMappingURL=master.css.map */
