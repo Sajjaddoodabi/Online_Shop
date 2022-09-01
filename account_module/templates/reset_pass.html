@@ -12,14 +12,11 @@
     <link rel="stylesheet" href="../../../statics/stylesheet/local.css">
     <title>Document</title>
 </head>
-<body onmousemove="move()">
-<span class="circleB"></span>
-<span class="circleS"></span>
+<body>
 <form action="{% url 'reset_pass_page' active_code=user.email_active_code %}" method="post">
     {% csrf_token %}
     {{ reset_form }}
     <button class="col-9 p-2">send</button>
 </form>
-<script src="../../../statics/js/mouse_move.js"></script>
 </body>
 </html>
