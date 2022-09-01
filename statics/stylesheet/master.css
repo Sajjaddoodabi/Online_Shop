@@ -1,26 +1,3 @@
-.circleB {
-  width: 40px;
-  height: 40px;
-  border: 2px solid black;
-  display: block;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-}
-
-.circleS {
-  width: 4px;
-  height: 4px;
-  background-color: black;
-  transition: 0.4s ease-in-out;
-  display: block;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-}
-
 .header {
   width: 100%;
   height: 20vh;
@@ -79,6 +56,8 @@
   top: 20vh;
   left: 0;
   padding: 10px 0;
+  background-color: white;
+  z-index: 1;
 }
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a {
   display: block;
@@ -103,12 +82,14 @@
   border: 2px solid black;
   width: 0;
   transition: 1s;
+  background-color: white;
   height: 100%;
   position: absolute;
   top: 0;
   left: 100%;
   column-count: 4;
   padding: 20px 10px;
+  z-index: 1;
 }
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li .box2 > * {
   z-index: 996;
@@ -141,8 +122,6 @@
   width: 100%;
   border: none;
   border-bottom: 2px solid gray;
-  padding: 6px;
-  margin: 10px;
 }
 .emailReg .row .reg button, .phoneReg .row .reg button {
   border: none;
@@ -205,6 +184,100 @@
   font-size: 18px;
   color: red;
   border: none;
+}
+
+.label_tag {
+  border: none;
+}
+
+.slide {
+  padding-top: 20px;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slide .slider {
+  width: 80%;
+  height: 40%;
+}
+.slide .slider > .window {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.slide .slider > .window > span {
+  position: absolute;
+  top: 44%;
+  font-size: 40px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 10;
+}
+.slide .slider #right {
+  right: 4%;
+}
+.slide .slider #left {
+  left: 4%;
+  display: none;
+}
+.slide .slider #bus {
+  height: 100%;
+  display: flex;
+  transition: 1s;
+}
+.slide .slider #bus > figure, .slide .slider .thumbnail > figure {
+  height: 100%;
+  cursor: pointer;
+}
+.slide .slider #bus > figure > img, .slide .slider .thumbnail > figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slide .slider .thumbnail {
+  width: 50%;
+  height: 20px;
+  display: flex;
+  position: absolute;
+  bottom: 2%;
+  right: 20%;
+  cursor: pointer;
+}
+.slide .slider .thumbnail > .thumb {
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+}
+.slide .slider .thumbnail > .thumb:nth-of-type(1) {
+  bottom: 5%;
+  right: 5%;
+}
+.slide .slider .thumbnail > .thumb:nth-of-type(2) {
+  bottom: 5%;
+  right: 8%;
+}
+.slide .slider .thumbnail > .thumb:nth-of-type(3) {
+  bottom: 5%;
+  right: 11%;
+}
+.slide .slider .thumbnail > .thumb:nth-of-type(4) {
+  bottom: 5%;
+  right: 14%;
+}
+.slide .slider .thumbnail > .thumb:nth-of-type(5) {
+  bottom: 5%;
+  right: 17%;
+}
+.slide .slider .thumbnail > .thumb:nth-of-type(6) {
+  bottom: 5%;
+  right: 20%;
 }
 
 /*# sourceMappingURL=master.css.map */
