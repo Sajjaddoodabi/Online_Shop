@@ -152,8 +152,8 @@
 
       > * {
         width: 100%;
-        border: none;
-        border-bottom: 2px solid gray;
+        //border: none;
+        //border-bottom: 2px solid gray;
       }
 
       button {
@@ -201,7 +201,7 @@
 
     > * {
       border: none;
-      border-bottom: 2px solid gray;
+      //border-bottom: 2px solid gray;
       padding: 6px;
       margin: 10px;
     }
@@ -248,9 +248,9 @@
   }
 }
 
-.label_tag {
-  border: none;
-}
+//.label_tag {
+//  border: none;
+//}
 
 .slide {
   padding-top: 20px;
@@ -453,4 +453,18 @@
       border: 2px solid black;
     }
   }
+}
+.icon{
+  font-size: 30px;
+  transition: 1s;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #adadad;
+  &:hover{
+    transform: rotateY(180deg);
+  }
+}
+.footer{
+  background-color: rgb(129, 189, 117);
 }

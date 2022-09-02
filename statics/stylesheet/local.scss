@@ -2,11 +2,17 @@
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
   }
+  .footerS{
+    border-bottom: 2px solid #282828;
+  }
 }
 
 @media screen and (min-width: 576px) {
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
+  }
+  .footerS{
+    border-bottom: 2px solid #282828;
   }
 }
 
@@ -21,7 +27,13 @@
     width: 34%;
   }
   .head {
-    border-bottom: 2px solid #a5a5a5;
+    border-bottom: 2px solid #282828;
+  }
+  .footer{
+    height: 60vh;
+  }
+  .footerS{
+    border-bottom: none;
   }
 }
 

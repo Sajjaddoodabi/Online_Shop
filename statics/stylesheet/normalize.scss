@@ -1,26 +1,31 @@
-* , *::before , *::after{
+*, *::before, *::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   width: 100%;
 }
-.container-fluid , .container-xxl{
+
+.container-fluid, .container-xxl {
   width: 100%;
   padding-left: 0;
   padding-right: 0;
   margin-right: 0;
   margin-left: 0;
 }
-img{
+
+img {
   object-fit: cover;
   background-size: cover;
 }
-a{
+
+a {
   text-decoration: none;
   color: black;
 }
-li{
+
+li {
   list-style-type: none;
 }

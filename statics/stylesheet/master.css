@@ -120,8 +120,6 @@
 }
 .emailReg .row .reg > *, .phoneReg .row .reg > * {
   width: 100%;
-  border: none;
-  border-bottom: 2px solid gray;
 }
 .emailReg .row .reg button, .phoneReg .row .reg button {
   border: none;
@@ -147,7 +145,6 @@
 }
 .login .loginForm > * {
   border: none;
-  border-bottom: 2px solid gray;
   padding: 6px;
   margin: 10px;
 }
@@ -183,10 +180,6 @@
 .verify .verifyForm .error {
   font-size: 18px;
   color: red;
-  border: none;
-}
-
-.label_tag {
   border: none;
 }
 
@@ -360,6 +353,22 @@
   margin: 4% 10%;
   object-fit: cover;
   border: 2px solid black;
+}
+
+.icon {
+  font-size: 30px;
+  transition: 1s;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #adadad;
+}
+.icon:hover {
+  transform: rotateY(180deg);
+}
+
+.footer {
+  background-color: rgb(129, 189, 117);
 }
 
 /*# sourceMappingURL=master.css.map */
