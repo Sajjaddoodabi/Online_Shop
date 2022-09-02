@@ -1,29 +1,34 @@
 @media screen and (max-width: 576px) {
-  .regByEmail , .regByPhone , .loginForm , .verifyForm{
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
   }
 }
+
 @media screen and (min-width: 576px) {
-  .regByEmail , .regByPhone , .loginForm , .verifyForm{
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
   }
 }
-@media screen and (min-width:768px){
-  .regByEmail , .regByPhone , .loginForm , .verifyForm{
+
+@media screen and (min-width: 768px) {
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 60%;
   }
 }
+
 @media screen and (min-width: 992px) {
-  .regByEmail , .regByPhone , .loginForm , .verifyForm{
+  .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 34%;
   }
-  .head{
+  .head {
     border-bottom: 2px solid #a5a5a5;
   }
 }
+
 @media screen and (min-width: 1200px) {
 
 }
-@media screen and (min-width: 1400px){
+
+@media screen and (min-width: 1400px) {
 
 }

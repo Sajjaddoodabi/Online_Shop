@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="../../../statics/stylesheet/local.css">
     <title>Document</title>
 </head>
-<body onmousemove="move()">
-<span class="circleB"></span>
-<span class="circleS"></span>
+<body>
 <div class="container-fluid emailReg d-flex justify-content-center align-items-center">
     <div class="container-xxl d-flex justify-content-center align-items-center">
         <div class="row regByEmail flex-wrap">
@@ -29,31 +27,30 @@
                 {% csrf_token %}
 
                 {{ email_form.email.label_tag }}
-                <br><br>
+                <br>
                 {{ email_form.email }}
-                <br><br>
+                <br>
                 {{ email_form.email.errors }}
-                <br><br>
+                <br>
 
                 {{ email_form.password.label_tag }}
-                <br><br>
+                <br>
                 {{ email_form.password }}
-                <br><br>
+                <br>
                 {{ email_form.password.errors }}
-                <br><br>
+                <br>
 
                 {{ email_form.confirm_password.label_tag }}
-                <br><br>
+                <br>
                 {{ email_form.confirm_password }}
-                <br><br>
+                <br>
                 {{ email_form.confirm_password.errors }}
-                <br><br>
+                <br>
 
                 <button type="submit" class="col-6 p-2">send</button>
             </form>
         </div>
     </div>
 </div>
-<script src="../../../statics/js/mouse_move.js"></script>
 </body>
 </html>
