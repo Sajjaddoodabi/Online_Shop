@@ -183,17 +183,19 @@
   border: none;
 }
 
+.slideC {
+  height: auto;
+}
+
 .slide {
-  padding-top: 20px;
   width: 100%;
-  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .slide .slider {
-  width: 80%;
-  height: 40%;
+  width: 100%;
+  position: relative;
 }
 .slide .slider > .window {
   width: 100%;
@@ -230,18 +232,23 @@
   height: 100%;
   cursor: pointer;
 }
-.slide .slider #bus > figure > img {
+.slide .slider #bus > figure > div {
+  border: 2px solid black;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.slide .slider #bus > figure > div > img {
+  width: 100%;
+  height: 100%;
 }
 .slide .slider .thumbnail {
   width: 150px;
   height: 20px;
   display: flex;
   position: absolute;
-  bottom: 2%;
-  right: 20%;
+  right: 40px;
+  bottom: 40px;
   cursor: pointer;
 }
 .slide .slider .thumbnail > .thumb {
