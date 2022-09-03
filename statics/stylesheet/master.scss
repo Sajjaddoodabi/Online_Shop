@@ -404,7 +404,7 @@
         top: 44%;
         font-size: 40px;
         cursor: pointer;
-        opacity: 1;
+        //opacity: 1;
         z-index: 10;
         color: gray;
 
@@ -647,4 +647,21 @@
 .txt{
   display: none;
   z-index: 990;
+}
+
+.moveR{
+  opacity: 0;
+  right: 10%;
+  animation: moveToRight 1.4s linear infinite alternate;
+}
+@keyframes moveToRight {
+  to{right: 0;opacity: 1;}
+}
+.moveL{
+  opacity: 0;
+  left: 10%;
+  animation: moveToLeft 1.4s linear infinite alternate;
+}
+@keyframes moveToLeft {
+  to{left: 0;opacity: 1;}
 }
