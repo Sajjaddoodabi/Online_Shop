@@ -16,9 +16,10 @@
                         {% for slider in sliders %}
                             <figure class="col-12">
                                 <div>
-                                    {% thumbnail slider.image "1000x1000" crop='center' as im %}
+                                    {% comment %}{% thumbnail slider.image "1000x1000" crop='center' as im %}
                                         <img src="{{ im.url }}" alt="">
-                                    {% endthumbnail %}
+                                    {% endthumbnail %}{% endcomment %}
+                                    <img src="{{ slider.image.url }}" alt="" width="1000" height="1000">
                                 </div>
                             </figure>
                         {% endfor %}
