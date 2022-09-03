@@ -12,6 +12,7 @@ class ProductBrand(models.Model):
 
 class ProductCategory(models.Model):
     title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images/categories', null=True, blank=True)
     url_title = models.CharField(max_length=200)
     is_active = models.BooleanField()
     is_delete = models.BooleanField()

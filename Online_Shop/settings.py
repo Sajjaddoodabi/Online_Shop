@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'product_module',
     # external_apps
     'phonenumbers',
-    'django_render_partial'
+    'django_render_partial',
+    'sorl.thumbnail'
 ]
 
 MIDDLEWARE = [

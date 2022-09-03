@@ -1,4 +1,5 @@
 {% extends 'shared/_layout.html' %}
+{% load thumbnail %}
 
 {% block title %}
     home page
@@ -70,38 +71,18 @@
             <div class="row h-100 w-100 justify-content-center align-items-center">
                 <h2 class="d-flex justify-content-center align-items-center p-4">classification of goods</h2>
                 <div class="d-flex justify-content-center align-items-center flex-wrap">
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
-                    <div class="classification col-6 col-md-4 col-lg-3">
-                        <a class="w-100 h-100 d-block" href="">براساس طول عکست ارتفاعش عوض میشه اندازه های عکسات باید
-                            یکی باشه</a>
-                    </div>
+                    {% for category in categories %}
+                        <div class="classification col-6 col-md-4 col-lg-3">
+                            <a class="w-100 h-100 d-block" href="">
+                                {% thumbnail category.image "320x100" crop='center' as im %}
+                                    <img src="{{ im.url }}" alt="">
+                                {% endthumbnail %}
+                                {{ category.title }}
+                            </a>
+                        </div>
+                    {% endfor %}
+
+
                 </div>
             </div>
         </div>
