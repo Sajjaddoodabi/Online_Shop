@@ -13,55 +13,23 @@
                     <span onclick="_right()" id="right"><i class="bi bi-arrow-right-short"></i></span>
                     <span onclick="_left()" id="left"><i class="bi bi-arrow-left-short"></i></span>
                     <div id="bus" class="w-100 h-100 p-0 m-0">
-                        <figure class="col-12">
-                            <div> هر عکس با هر سایز میتونی بزاری ولی طول و عرض همه عکساتو یکی کن ترجیحا هم طول عکسا نسبت
-                                ب
-                                عرضشون خیییلی باشه فقط نسبت طول ب عرض مهمه نه پیکسشالشون نگران بهم ریختگی اینا نباش عکسو
-                                بزاری درست میشه
-                            </div>
-                        </figure>
-                        <figure class="col-12">
-                            <div>هر عکس با هر سایز میتونی بزاری ولی طول و عرض همه عکساتو یکی کن ترجیحا هم طول عکسا نسبت
-                                ب
-                                عرضشون خیییلی باشه فقط نسبت طول ب عرض مهمه نه پیکسشالشون
-                            </div>
-                        </figure>
-                        <figure class="col-12">
-                            <div>هر عکس با هر سایز میتونی بزاری ولی طول و عرض همه عکساتو یکی کن ترجیحا هم طول عکسا نسبت
-                                ب
-                                عرضشون خیییلی باشه فقط نسبت طول ب عرض مهمه نه پیکسشالشون
-                            </div>
-                        </figure>
-                        <figure class="col-12">
-                            <div>هر عکس با هر سایز میتونی بزاری ولی طول و عرض همه عکساتو یکی کن ترجیحا هم طول عکسا نسبت
-                                ب
-                                عرضشون خیییلی باشه فقط نسبت طول ب عرض مهمه نه پیکسشالشون
-                            </div>
+                        {% for slider in sliders %}
+                            <figure class="col-12">
+                                <div>
+                                    {% thumbnail slider.image "1000x1000" crop='center' as im %}
+                                        <img src="{{ im.url }}" alt="">
+                                    {% endthumbnail %}
+                                </div>
+                            </figure>
+                        {% endfor %}
 
-                        </figure>
-                        <figure class="col-12">
-                            <div>هر عکس با هر سایز میتونی بزاری ولی طول و عرض همه عکساتو یکی کن ترجیحا هم طول عکسا نسبت
-                                ب
-                                عرضشون خیییلی باشه فقط نسبت طول ب عرض مهمه نه پیکسشالشون
-                            </div>
-
-                        </figure>
-                        <figure class="col-12">
-                            <div>هر عکس با هر سایز میتونی بزاری ولی طول و عرض همه عکساتو یکی کن ترجیحا هم طول عکسا نسبت
-                                ب
-                                عرضشون خیییلی باشه فقط نسبت طول ب عرض مهمه نه پیکسشالشون
-                            </div>
-
-                        </figure>
                     </div>
                 </div>
                 <div class="thumbnail">
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
-                    <div class="thumb"></div>
+                    {% for slider in sliders %}
+                        <div class="thumb"></div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
@@ -102,16 +70,17 @@
                         </section>
                         {% for product in newest_products %}
                             <figure>
-                            <div>
-                                {% thumbnail product.image "248x199" crop='center' as im %}
-                                    <img src="{{ im.url }}" alt="">
-                                {% endthumbnail %}
-                            </div>
-                            <figcaption class="d-flex justify-content-center align-items-center">{{ product.title }}</figcaption>
-                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
-                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
-                                    class="bi bi-cart-plus"></i></a>
-                        </figure>
+                                <div>
+                                    {% thumbnail product.image "248x199" crop='center' as im %}
+                                        <img src="{{ im.url }}" alt="">
+                                    {% endthumbnail %}
+                                </div>
+                                <figcaption
+                                        class="d-flex justify-content-center align-items-center">{{ product.title }}</figcaption>
+                                <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                                <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                        class="bi bi-cart-plus"></i></a>
+                            </figure>
                         {% endfor %}
                     </div>
                 </div>
@@ -315,16 +284,17 @@
                         </section>
                         {% for product in most_views %}
                             <figure>
-                            <div>
-                                {% thumbnail product.image "248x199" crop='center' as im %}
-                                    <img src="{{ im.url }}" alt="">
-                                {% endthumbnail %}
-                            </div>
-                            <figcaption class="d-flex justify-content-center align-items-center">{{ product.title }}</figcaption>
-                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
-                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
-                                    class="bi bi-cart-plus"></i></a>
-                        </figure>
+                                <div>
+                                    {% thumbnail product.image "248x199" crop='center' as im %}
+                                        <img src="{{ im.url }}" alt="">
+                                    {% endthumbnail %}
+                                </div>
+                                <figcaption
+                                        class="d-flex justify-content-center align-items-center">{{ product.title }}</figcaption>
+                                <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                                <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                        class="bi bi-cart-plus"></i></a>
+                            </figure>
                         {% endfor %}
 
 

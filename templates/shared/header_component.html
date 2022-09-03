@@ -4,7 +4,9 @@
 
             <section class="col-3 col-lg-3 h-50">
                 <figure class="w-100 h-100">
-                    <img alt="" class="h-100" src="../../../statics/images/logo.png">
+                    <a href="{% url 'home_page' %}">
+                        <img alt="" class="h-100" src="{{ site_setting.logo.url }}">
+                    </a>
                 </figure>
             </section>
 
@@ -25,7 +27,7 @@
                         <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href=""><i class="bi bi-bell"></i></a>
                     </li>
                     <li class="h-100 px-1">
-                        <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="">login <i
+                        <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="{% url 'login_page' %}">login <i
                                 class="bi bi-box-arrow-in-left"></i></a>
                     </li>
                 </ul>
@@ -63,7 +65,9 @@
                                                         {% if sub_category.productcategory_set.all %}
                                                             <ul>
                                                                 {% for sub_sub_category in sub_category.productcategory_set.all %}
-                                                                    <a href="">{{ sub_sub_category.title }}</a>
+                                                                    <li>
+                                                                        <a href="">{{ sub_sub_category.title }}</a>
+                                                                    </li>
                                                                 {% endfor %}
                                                             </ul>
                                                         {% endif %}
