@@ -522,11 +522,11 @@
     }
 
     #right3 {
-      right: 20%;
+      right: 14%;
     }
 
     #left3 {
-      left: 20%;
+      left: 14%;
       display: none;
       z-index: 900;
     }
@@ -563,16 +563,17 @@
       height: 20px;
       display: flex;
       position: absolute;
-      left: 40px;
-      bottom: 40px;
-      cursor: pointer;
+      left: 16%;
+      bottom: 8%;
+      //cursor: pointer;
+      //border: 2px solid black;
 
       > .thumb {
         width: 10px;
         height: 10px;
         background-color: gray;
         position: absolute;
-        cursor: pointer;
+        //cursor: pointer;
         z-index: 1;
         border-radius: 50%;
 
@@ -621,6 +622,7 @@
   }
   >div{
     font-size: 30px;
+    cursor: pointer;
   }
   .bi{
     font-size: 16px;

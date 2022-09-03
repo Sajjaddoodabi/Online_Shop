@@ -410,10 +410,10 @@
   color: rgb(129, 189, 117);
 }
 .slide3 .slider3 #right3 {
-  right: 20%;
+  right: 14%;
 }
 .slide3 .slider3 #left3 {
-  left: 20%;
+  left: 14%;
   display: none;
   z-index: 900;
 }
@@ -443,16 +443,14 @@
   height: 20px;
   display: flex;
   position: absolute;
-  left: 40px;
-  bottom: 40px;
-  cursor: pointer;
+  left: 16%;
+  bottom: 8%;
 }
 .slide3 .slider3 .thumbnail > .thumb {
   width: 10px;
   height: 10px;
   background-color: gray;
   position: absolute;
-  cursor: pointer;
   z-index: 1;
   border-radius: 50%;
 }
@@ -494,6 +492,7 @@
 }
 .counter > div {
   font-size: 30px;
+  cursor: pointer;
 }
 .counter .bi {
   font-size: 16px;

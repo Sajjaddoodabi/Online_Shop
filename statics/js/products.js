@@ -8,21 +8,22 @@ for (let i = 0; i < _fig3.length; i++) {
 }
 
 let y3 = document.querySelectorAll('.thumbnail>.thumb')
-y3.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        for (let i = 0; i < y3.length; i++) {
-            y3[i].style.transform = 'scaleX(1)'
-            // y[i].style.backgroundColor = 'grey'
-        }
-        index--
-        turn = index
-        _right3()
-        item.style.transform = 'scaleX(2)'
-        // item.style.backgroundColor = 'black'
-    })
-})
+y3[0].style.backgroundColor = 'rgb(129, 189, 117)'
+// y3.forEach((item, index) => {
+//     item.addEventListener('click', () => {
+//         for (let i = 0; i < y3.length; i++) {
+//             y3[i].style.backgroundColor = 'grey'
+//             // y[i].style.backgroundColor = 'grey'
+//         }
+//         index--
+//         turn = index
+//         _right3()
+//         item.style.backgroundColor = 'rgb(129, 189, 117)'
+//     })
+// })
 
 function _right3() {
+    y3[turn].style.backgroundColor = 'grey'
     turn++
     document.getElementById('bus3').style.transform = 'translateX(-' + (turn * x3) + 'px)'
     if (turn == (_fig3.length - 1)) {
@@ -35,9 +36,11 @@ function _right3() {
     } else if (turn > 0) {
         document.getElementById('left3').style.display = 'block'
     }
+    y3[turn].style.backgroundColor = 'rgb(129, 189, 117)'
 }
 
 function _left3() {
+    y3[turn].style.backgroundColor = 'grey'
     turn--
     document.getElementById('bus3').style.transform = 'translateX(-' + (turn * x3) + 'px)'
     // check3()
@@ -51,12 +54,13 @@ function _left3() {
     } else {
         document.getElementById('right3').style.display = 'block'
     }
+    y3[turn].style.backgroundColor = 'rgb(129, 189, 117)'
 }
 
 let num = 1
 document.getElementsByClassName('addToCart')[0].addEventListener('click' , ()=>{
     document.getElementsByClassName('addToCart')[0].parentElement.style.display = 'none'
-    document.getElementsByClassName('count')[0].style.display = 'flex'
+    document.getElementsByClassName('count')[0].style.display = 'block'
 })
 
 document.getElementsByClassName('counter')[0].children[0].addEventListener('click' , ()=>{
