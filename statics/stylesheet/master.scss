@@ -633,3 +633,18 @@
   display: none;
   //background-color: plum;
 }
+
+.details{
+  background-color: rgb(129, 189, 117);
+  >li{
+    cursor: pointer;
+    &:hover{
+    background-color: gray;
+  }
+  }
+}
+
+.txt{
+  display: none;
+  z-index: 990;
+}

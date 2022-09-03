@@ -502,4 +502,19 @@
   display: none;
 }
 
+.details {
+  background-color: rgb(129, 189, 117);
+}
+.details > li {
+  cursor: pointer;
+}
+.details > li:hover {
+  background-color: gray;
+}
+
+.txt {
+  display: none;
+  z-index: 990;
+}
+
 /*# sourceMappingURL=master.css.map */

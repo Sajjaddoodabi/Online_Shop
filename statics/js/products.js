@@ -9,18 +9,6 @@ for (let i = 0; i < _fig3.length; i++) {
 
 let y3 = document.querySelectorAll('.thumbnail>.thumb')
 y3[0].style.backgroundColor = 'rgb(129, 189, 117)'
-// y3.forEach((item, index) => {
-//     item.addEventListener('click', () => {
-//         for (let i = 0; i < y3.length; i++) {
-//             y3[i].style.backgroundColor = 'grey'
-//             // y[i].style.backgroundColor = 'grey'
-//         }
-//         index--
-//         turn = index
-//         _right3()
-//         item.style.backgroundColor = 'rgb(129, 189, 117)'
-//     })
-// })
 
 function _right3() {
     y3[turn].style.backgroundColor = 'grey'
@@ -85,4 +73,16 @@ document.getElementsByClassName('counter')[0].children[2].addEventListener('clic
     num++
     document.getElementsByClassName('counter')[0].children[1].innerHTML = num
     document.getElementsByClassName('counter')[0].children[0].innerHTML = '-'
+})
+
+let _show = document.querySelectorAll('.details>.show')
+let _txt = document.querySelectorAll('.txt')
+// alert(_txt.length)
+    _show.forEach((item , index)=>{
+    item.addEventListener('click' , ()=>{
+        for(let i = 0 ; i < _show.length ; i ++){
+            _txt[i].style.display = 'none'
+        }
+        _txt[index].style.display = 'block'
+    })
 })
