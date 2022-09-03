@@ -1,0 +1,310 @@
+{% extends 'shared/_layout.html' %}
+{% load thumbnail %}
+
+{% block title %}
+    home page
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid slideC d-flex justify-content-center align-items-center p-0 m-0">
+        <div class="container-xxxl slide d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">
+            <div class="row slider h-100 w-100 p-0 m-0">
+                <div class="window p-0 m-0 w-100 h-100">
+                    <span onclick="_right()" id="right"><i class="bi bi-arrow-right-short"></i></span>
+                    <span onclick="_left()" id="left"><i class="bi bi-arrow-left-short"></i></span>
+                    <div id="bus" class="w-100 h-100 p-0 m-0">
+                        {% for slider in sliders %}
+                            <figure class="col-12">
+                                <div>
+                                    {% comment %}{% thumbnail slider.image "1000x1000" crop='center' as im %}
+                                        <img src="{{ im.url }}" alt="">
+                                    {% endthumbnail %}{% endcomment %}
+                                    <img src="{{ slider.image.url }}" alt="" width="1000" height="1000">
+                                </div>
+                            </figure>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    {% for slider in sliders %}
+                        <div class="thumb"></div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid classify d-flex justify-content-center align-items-center my-5 pb-5">
+        <div class="container-xxl d-flex justify-content-center align-items-center">
+            <div class="row h-100 w-100 justify-content-center align-items-center">
+                <h2 class="d-flex justify-content-center align-items-center p-4">classification of goods</h2>
+                <div class="d-flex justify-content-center align-items-center flex-wrap">
+                    {% for category in categories %}
+                        <div class="classification col-6 col-md-4 col-lg-3">
+                            <a class="w-100 h-100 d-block" href="">
+                                {% thumbnail category.image "320x100" crop='center' as im %}
+                                    <img src="{{ im.url }}" alt="">
+                                {% endthumbnail %}
+                                {{ category.title }}
+                            </a>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="d-flex justify-content-center align-items-center p-4">Newest Products</h2>
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="container-xxl slide2 d-flex justify-content-center align-items-center">
+            <div class="row slider2 h-100 w-100">
+                <div class="window2 h-100 p-0 m-0">
+                    <span id="right2" onclick="_right2()"><i class="bi bi-arrow-right-short"></i></span>
+                    <span id="left2" onclick="_left2()"><i class="bi bi-arrow-left-short"></i></span>
+                    <div class="d-flex justify-content-space-start align-items-center m-0 p-4" id="bus2">
+                        <section>
+                            اینجا میتونه لیست کالا هاباشه یا لیست کالاهای تخفیف خورده یا هرچی . بسته به کاراییش متن این
+                            قسمتو عوض کن :)
+                        </section>
+                        {% for product in newest_products %}
+                            <figure>
+                                <div>
+                                    {% thumbnail product.image "248x199" crop='center' as im %}
+                                        <img src="{{ im.url }}" alt="">
+                                    {% endthumbnail %}
+                                </div>
+                                <figcaption
+                                        class="d-flex justify-content-center align-items-center">{{ product.title }}</figcaption>
+                                <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                                <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                        class="bi bi-cart-plus"></i></a>
+                            </figure>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <h2 class="d-flex justify-content-center align-items-center p-4">Best Seller Products</h2>
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="container-xxl slide2 d-flex justify-content-center align-items-center">
+            <div class="row slider2 h-100 w-100">
+                <div class="window2 h-100 p-0 m-0">
+                    <span id="right2" onclick="_right2()"><i class="bi bi-arrow-right-short"></i></span>
+                    <span id="left2" onclick="_left2()"><i class="bi bi-arrow-left-short"></i></span>
+                    <div class="d-flex justify-content-space-start align-items-center m-0 p-4" id="bus2">
+                        <section>
+                            اینجا میتونه لیست کالا هاباشه یا لیست کالاهای تخفیف خورده یا هرچی . بسته به کاراییش متن این
+                            قسمتو عوض کن :)
+                        </section>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                        <figure>
+                            <div>
+                                ی دانه عکس با طول 199 و عرض 248
+                            </div>
+                            <figcaption class="d-flex justify-content-center align-items-center">اسم کالا</figcaption>
+                            <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                            <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                    class="bi bi-cart-plus"></i></a>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <h2 class="d-flex justify-content-center align-items-center p-4">Most Viewed Products</h2>
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="container-xxl slide2 d-flex justify-content-center align-items-center">
+            <div class="row slider2 h-100 w-100">
+                <div class="window2 h-100 p-0 m-0">
+                    <span id="right2" onclick="_right2()"><i class="bi bi-arrow-right-short"></i></span>
+                    <span id="left2" onclick="_left2()"><i class="bi bi-arrow-left-short"></i></span>
+                    <div class="d-flex justify-content-space-start align-items-center m-0 p-4" id="bus2">
+                        <section>
+                            اینجا میتونه لیست کالا هاباشه یا لیست کالاهای تخفیف خورده یا هرچی . بسته به کاراییش متن این
+                            قسمتو عوض کن :)
+                        </section>
+                        {% for product in most_views %}
+                            <figure>
+                                <div>
+                                    {% thumbnail product.image "248x199" crop='center' as im %}
+                                        <img src="{{ im.url }}" alt="">
+                                    {% endthumbnail %}
+                                </div>
+                                <figcaption
+                                        class="d-flex justify-content-center align-items-center">{{ product.title }}</figcaption>
+                                <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                                <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
+                                        class="bi bi-cart-plus"></i></a>
+                            </figure>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

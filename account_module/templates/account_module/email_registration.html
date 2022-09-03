@@ -1,56 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../../statics/stylesheet/normalize.css">
-    <link rel="stylesheet" href="../../../statics/stylesheet/master.css">
-    <link rel="stylesheet" href="../../../statics/stylesheet/local.css">
-    <title>Document</title>
-</head>
-<body>
-<div class="container-fluid emailReg d-flex justify-content-center align-items-center">
-    <div class="container-xxl d-flex justify-content-center align-items-center">
-        <div class="row regByEmail flex-wrap">
-            <div class="regType d-flex flex-wrap px-0 h-50">
-                <div class="col-6 d-flex justify-content-center align-items-center my-3 p-lg-4"><a href="">registration
-                    by email</a></div>
-                <div class="col-6 d-flex justify-content-center align-items-center my-3 p-lg-4"><a
-                        href="{% url 'register_mobile_page' %}">registration by phone</a></div>
+{% extends 'shared/_layout.html' %}
+
+{% block title %}
+    forget pass
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid emailReg d-flex justify-content-center align-items-center">
+        <div class="container-xxl d-flex justify-content-center align-items-center">
+            <div class="row regByEmail flex-wrap">
+                <div class="regType d-flex flex-wrap px-0 h-50">
+                    <div class="col-6 d-flex justify-content-center align-items-center my-3 p-lg-4"><a href="">registration
+                        by email</a></div>
+                    <div class="col-6 d-flex justify-content-center align-items-center my-3 p-lg-4"><a
+                            href="{% url 'register_mobile_page' %}">registration by phone</a></div>
+                </div>
+                <form class="reg d-flex justify-content-center align-items-center flex-wrap h-50 p-4"
+                      action="{% url 'register_email_page' %}" method="post" name="reg">
+                    {% csrf_token %}
+
+                    {{ email_form.email.label_tag }}
+                    <br>
+                    {{ email_form.email }}
+                    <br>
+                    {{ email_form.email.errors }}
+                    <br>
+
+                    {{ email_form.password.label_tag }}
+                    <br>
+                    {{ email_form.password }}
+                    <br>
+                    {{ email_form.password.errors }}
+                    <br>
+
+                    {{ email_form.confirm_password.label_tag }}
+                    <br>
+                    {{ email_form.confirm_password }}
+                    <br>
+                    {{ email_form.confirm_password.errors }}
+                    <br>
+
+                    <button type="submit" class="col-6 p-2">send</button>
+                </form>
             </div>
-            <form class="reg d-flex justify-content-center align-items-center flex-wrap h-50 p-4"
-                  action="{% url 'register_email_page' %}" method="post" name="reg">
-                {% csrf_token %}
-
-                {{ email_form.email.label_tag }}
-                <br>
-                {{ email_form.email }}
-                <br>
-                {{ email_form.email.errors }}
-                <br>
-
-                {{ email_form.password.label_tag }}
-                <br>
-                {{ email_form.password }}
-                <br>
-                {{ email_form.password.errors }}
-                <br>
-
-                {{ email_form.confirm_password.label_tag }}
-                <br>
-                {{ email_form.confirm_password }}
-                <br>
-                {{ email_form.confirm_password.errors }}
-                <br>
-
-                <button type="submit" class="col-6 p-2">send</button>
-            </form>
         </div>
     </div>
-</div>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,41 @@
+<footer class="container-fluid d-flex justify-content-center align-items-center mt-5 footer">
+    <div class="container-xxl d-flex justify-content-center align-items-center h-100">
+        <div class="row w-100 h-100 justify-content-center align-items-center p-0 m-0">
+
+            <div class="row col-12 col-md-6 col-lg-3 h-100 p-0 m-0 align-content-start footerS py-4">
+                <h4 class="col-12 py-2 py-lg-4">be with us!</h4>
+                <div class="col-12 col-md-4 d-flex justify-content-center align-items-center icon mx-2 mt-4"><a
+                        href=""><i
+                        class="bi bi-instagram"></i></a></div>
+                <div class="col-12 col-md-4 d-flex justify-content-center align-items-center icon mx-2 mt-4"><a
+                        href=""><i class="bi bi-linkedin"></i></a></div>
+                <div class="col-12 col-md-4 d-flex justify-content-center align-items-center icon mx-2 mt-4"><a
+                        href=""><i
+                        class="bi bi-github"></i></a></div>
+            </div>
+
+            {% for footer_link_box in footer_link_boxes %}
+                <div class="row col-12 col-md-6 col-lg-3 h-100 p-0 m-0 align-content-start footerS py-4">
+                    <h4 class="col-12 py-2 py-lg-4">{{ footer_link_box.title }}</h4>
+                    {% for footerlink in footer_link_box.footerlink_set.all %}
+                        <a class="col-12 p-2 ps-4" href="{{ footerlink.url }}">{{ footerlink.title }}</a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <p class="pull-right">Copyright © 2022
+                            {{ site_setting.copy_right }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</footer>
+
+

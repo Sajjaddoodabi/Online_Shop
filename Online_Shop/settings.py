@@ -37,9 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # internal_apps
     'account_module',
+    'home_module',
     'product_module',
+    'site_module',
     # external_apps
-    'phonenumbers'
+    'phonenumbers',
+    'django_render_partial',
+    'sorl.thumbnail'
 ]
 
 MIDDLEWARE = [
