@@ -49,213 +49,29 @@
                             <li>
                                 <div class="box1">
                                     <ul>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M640 162.8c0 6.917-2.293 13.88-7.012 19.7l-49.96 61.63c-6.32 7.796-15.62 11.85-25.01 11.85c-7.01 0-14.07-2.262-19.97-6.919L480 203.3V464c0 26.51-21.49 48-48 48H208C181.5 512 160 490.5 160 464V203.3L101.1 249.1C96.05 253.7 88.99 255.1 81.98 255.1c-9.388 0-18.69-4.057-25.01-11.85L7.012 182.5C2.292 176.7-.0003 169.7-.0003 162.8c0-9.262 4.111-18.44 12.01-24.68l135-106.6C159.8 21.49 175.7 16 191.1 16H225.6C233.3 61.36 272.5 96 320 96s86.73-34.64 94.39-80h33.6c16.35 0 32.22 5.49 44.99 15.57l135 106.6C635.9 144.4 640 153.6 640 162.8z"/>
-                                                </svg>
-                                                fashion and clothing</a>
-                                            <div class="box2">
-                                                <a href="">Men's wear</a>
-                                                <ul>
-                                                    <li><a href="">T-shirt</a></li>
-                                                    <li><a href="">Shirt</a></li>
-                                                    <li><a href="">Pants</a></li>
-                                                    <li><a href="">Under wear</a></li>
-                                                </ul>
+                                        {% for category in categories %}
+                                            <li>
+                                                <a href="">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                                        <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                        <path d="M640 162.8c0 6.917-2.293 13.88-7.012 19.7l-49.96 61.63c-6.32 7.796-15.62 11.85-25.01 11.85c-7.01 0-14.07-2.262-19.97-6.919L480 203.3V464c0 26.51-21.49 48-48 48H208C181.5 512 160 490.5 160 464V203.3L101.1 249.1C96.05 253.7 88.99 255.1 81.98 255.1c-9.388 0-18.69-4.057-25.01-11.85L7.012 182.5C2.292 176.7-.0003 169.7-.0003 162.8c0-9.262 4.111-18.44 12.01-24.68l135-106.6C159.8 21.49 175.7 16 191.1 16H225.6C233.3 61.36 272.5 96 320 96s86.73-34.64 94.39-80h33.6c16.35 0 32.22 5.49 44.99 15.57l135 106.6C635.9 144.4 640 153.6 640 162.8z"/>
+                                                    </svg>
+                                                    {{ category.title }}</a>
+                                                <div class="box2">
+                                                    {% for sub_category in category.productcategory_set.all %}
+                                                        <a href="">{{ sub_category.title }}</a>
+                                                        {% if sub_category.productcategory_set.all %}
+                                                            <ul>
+                                                                {% for sub_sub_category in sub_category.productcategory_set.all %}
+                                                                    <a href="">{{ sub_sub_category.title }}</a>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </li>
+                                        {% endfor %}
 
-                                                <a href="">Women's wear</a>
-                                                <ul>
-                                                    <li><a href="">T-shirt</a></li>
-                                                    <li><a href="">Pants</a></li>
-                                                    <li><a href="">Dress</a></li>
-                                                    <li><a href="">Scarf</a></li>
-                                                    <li><a href="">Top</a></li>
-                                                    <li><a href="">Skirt</a></li>
-                                                    <li><a href="">Scarf</a></li>
-                                                    <li><a href="">Under wear</a></li>
-                                                </ul>
-
-                                                <a href="">Men's shoes</a>
-                                                <ul>
-                                                    <li><a href="">Everyday shoes</a></li>
-                                                    <li><a href="">Formal shoes</a></li>
-                                                </ul>
-
-                                                <a href="">Women's shoes</a>
-                                                <ul>
-                                                    <li><a href="">Everyday shoes</a></li>
-                                                    <li><a href="">Flat shoes</a></li>
-                                                </ul>
-
-                                                <a href="">Men's accessory</a>
-                                                <ul>
-                                                    <li><a href="">Bag</a></li>
-                                                    <li><a href="">Belt</a></li>
-                                                    <li><a href="">Watch</a></li>
-                                                </ul>
-
-                                                <a href="">Women's accessory</a>
-                                                <ul>
-                                                    <li><a href="">Bag</a></li>
-                                                    <li><a href="">Watch</a></li>
-                                                </ul>
-
-                                                <a href="">Women's jewerly</a>
-                                                <ul>
-                                                    <li><a href="">Bracelet</a></li>
-                                                    <li><a href="">Ring</a></li>
-                                                    <li><a href="">Necklace</a></li>
-                                                    <li><a href="">Earring</a></li>
-                                                    <li><a href="">Pendant</a></li>
-                                                </ul>
-
-                                                <a href="">Women's sunglasses</a>
-                                                <a href="">Men's sunglasses</a>
-                                                <a href="">Women's sports shoes</a>
-                                                <a href="">Men's sports shoes</a>
-                                                <a href="">Women's sports wear</a>
-                                                <a href="">Men's sports wear</a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M255.1 192H.1398C2.741 117.9 41.34 52.95 98.98 14.1C112.2 5.175 129.8 9.784 138.9 22.92L255.1 192zM384 160C384 124.7 412.7 96 448 96H480C497.7 96 512 110.3 512 128C512 145.7 497.7 160 480 160H448V224C448 249.2 442.2 274.2 430.9 297.5C419.7 320.8 403.2 341.9 382.4 359.8C361.6 377.6 336.9 391.7 309.7 401.4C282.5 411 253.4 416 223.1 416C194.6 416 165.5 411 138.3 401.4C111.1 391.7 86.41 377.6 65.61 359.8C44.81 341.9 28.31 320.8 17.05 297.5C5.794 274.2 0 249.2 0 224H384L384 160zM31.1 464C31.1 437.5 53.49 416 79.1 416C106.5 416 127.1 437.5 127.1 464C127.1 490.5 106.5 512 79.1 512C53.49 512 31.1 490.5 31.1 464zM416 464C416 490.5 394.5 512 368 512C341.5 512 320 490.5 320 464C320 437.5 341.5 416 368 416C394.5 416 416 437.5 416 464z"/>
-                                                </svg>
-                                                toys, children and babies</a>
-                                            <div class="box2">
-                                                <a href="">Men's wear</a>
-                                                <ul>
-                                                    <li><a href="">T-shirt</a></li>
-                                                    <li><a href="">Shirt</a></li>
-                                                    <li><a href="">Pants</a></li>
-                                                    <li><a href="">Under wear</a></li>
-                                                </ul>
-
-                                                <a href="">Women's wear</a>
-                                                <ul>
-                                                    <li><a href="">T-shirt</a></li>
-                                                    <li><a href="">Pants</a></li>
-                                                    <li><a href="">Dress</a></li>
-                                                    <li><a href="">Scarf</a></li>
-                                                    <li><a href="">Top</a></li>
-                                                    <li><a href="">Skirt</a></li>
-                                                    <li><a href="">Scarf</a></li>
-                                                    <li><a href="">Under wear</a></li>
-                                                </ul>
-
-                                                <a href="">Men's shoes</a>
-                                                <ul>
-                                                    <li><a href="">Everyday shoes</a></li>
-                                                    <li><a href="">Formal shoes</a></li>
-                                                </ul>
-
-                                                <a href="">Women's shoes</a>
-                                                <ul>
-                                                    <li><a href="">Everyday shoes</a></li>
-                                                    <li><a href="">Flat shoes</a></li>
-                                                </ul>
-
-                                                <a href="">Men's accessory</a>
-                                                <ul>
-                                                    <li><a href="">Bag</a></li>
-                                                    <li><a href="">Belt</a></li>
-                                                    <li><a href="">Watch</a></li>
-                                                </ul>
-
-                                                <a href="">Women's accessory</a>
-                                                <ul>
-                                                    <li><a href="">Bag</a></li>
-                                                    <li><a href="">Watch</a></li>
-                                                </ul>
-
-                                                <a href="">Women's jewerly</a>
-                                                <ul>
-                                                    <li><a href="">Bracelet</a></li>
-                                                    <li><a href="">Ring</a></li>
-                                                    <li><a href="">Necklace</a></li>
-                                                    <li><a href="">Earring</a></li>
-                                                    <li><a href="">Pendant</a></li>
-                                                </ul>
-
-                                                <a href="">Women's sunglasses</a>
-                                                <a href="">Men's sunglasses</a>
-                                                <a href="">Women's sports shoes</a>
-                                                <a href="">Men's sports shoes</a>
-                                                <a href="">Women's sports wear</a>
-                                                <a href="">Men's sports wear</a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M592 224C565.5 224 544 245.5 544 272V352H96V272C96 245.5 74.51 224 48 224S0 245.5 0 272v192C0 472.8 7.164 480 16 480h64c8.836 0 15.1-7.164 15.1-16L96 448h448v16c0 8.836 7.164 16 16 16h64c8.836 0 16-7.164 16-16v-192C640 245.5 618.5 224 592 224zM128 272V320h384V272c0-38.63 27.53-70.95 64-78.38V160c0-70.69-57.31-128-128-128H191.1c-70.69 0-128 57.31-128 128L64 193.6C100.5 201.1 128 233.4 128 272z"/>
-                                                </svg>
-                                                home and kitchen</a>
-                                            <div class="box2">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM143.1 128h192C344.8 128 352 135.2 352 144C352 152.8 344.8 160 336 160H143.1C135.2 160 128 152.8 128 144C128 135.2 135.2 128 143.1 128zM143.1 192h192C344.8 192 352 199.2 352 208C352 216.8 344.8 224 336 224H143.1C135.2 224 128 216.8 128 208C128 199.2 135.2 192 143.1 192zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"/>
-                                                </svg>
-                                                books, stationery and art</a>
-                                            <div class="box2">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M192 16c-106 0-192 182-192 288c0 106 85.1 192 192 192c105.1 0 192-85.1 192-192C384 198 297.1 16 192 16zM160.1 138C128.6 177.1 96 249.8 96 304C96 312.8 88.84 320 80 320S64 312.8 64 304c0-63.56 36.7-143.3 71.22-186c5.562-6.906 15.64-7.969 22.5-2.406C164.6 121.1 165.7 131.2 160.1 138z"/>
-                                                </svg>
-                                                supermarket goods</a>
-                                            <div class="box2">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M128 96h384v256h64v-272c0-26.38-21.62-48-48-48h-416c-26.38 0-48 21.62-48 48V352h64V96zM624 383.1h-608c-8.75 0-16 7.25-16 16v16c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.2 632.8 383.1 624 383.1z"/>
-                                                </svg>
-                                                digital goods
-                                            </a>
-                                            <div class="box2">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M200.3 106C185.4 80.24 165.2 53.9 137.4 29.26C55.75 72.05 0 157.4 0 256c0 21.33 2.898 41.94 7.814 61.75C53.59 182.1 155.1 124.9 200.3 106zM381.7 281.1c1.24-9.223 2.414-22.08 2.414-37.65c0-59.1-16.93-157.2-111.5-242.6C267.1 .4896 261.6 0 256 0C225.5 0 196.5 5.591 169.4 15.36c93.83 90.15 102.6 198.5 102.8 231.7C287.8 255.9 327.3 275.1 381.7 281.1zM240.1 246.5C239.1 228.5 236.9 184.7 214.9 134.6C173.6 151.6 60.4 211.7 26.67 369.2c15.66 31.64 37.52 59.66 64.22 82.23C122 325.1 211.5 263.3 240.1 246.5zM326.5 10.07c74.79 84.9 89.5 175.9 89.5 234c0 15.45-1.042 28.56-2.27 38.61l.5501 .0005c29.54 0 62.2-4.325 97.16-15.99C511.6 263.1 512 259.6 512 256C512 139.1 433.6 40.72 326.5 10.07zM255.7 274.5c-15.43 9.086-51.89 33.63-84.32 77.86c26.34 20.33 93.51 63.27 189.5 63.27c32.83 0 69.02-5.021 108.1-17.69c19.08-28.59 32.41-61.34 38.71-96.47C474.5 311.1 443 315 414.4 315C334.6 315 276.5 286.3 255.7 274.5zM153.1 379.3c-14.91 25.71-27.62 56.33-35.03 92.72C158.6 497.2 205.5 512 256 512c69 0 131.5-27.43 177.5-71.82c-25.42 5.105-49.71 7.668-72.38 7.668C258.6 447.8 185.5 402.1 153.1 379.3z"/>
-                                                </svg>
-                                                sports and travel</a>
-                                            <div class="box2">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                    <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                    <path d="M331.8 224.1c28.29 0 54.88 10.99 74.86 30.97l19.59 19.59c40.01-17.74 71.25-53.3 81.62-96.65c5.725-23.92 5.34-47.08 .2148-68.4c-2.613-10.88-16.43-14.51-24.34-6.604l-68.9 68.9h-75.6V97.2l68.9-68.9c7.912-7.912 4.275-21.73-6.604-24.34c-21.32-5.125-44.48-5.51-68.4 .2148c-55.3 13.23-98.39 60.22-107.2 116.4C224.5 128.9 224.2 137 224.3 145l82.78 82.86C315.2 225.1 323.5 224.1 331.8 224.1zM384 278.6c-23.16-23.16-57.57-27.57-85.39-13.9L191.1 158L191.1 95.99l-127.1-95.99L0 63.1l96 127.1l62.04 .0077l106.7 106.6c-13.67 27.82-9.251 62.23 13.91 85.39l117 117.1c14.62 14.5 38.21 14.5 52.71-.0016l52.75-52.75c14.5-14.5 14.5-38.08-.0016-52.71L384 278.6zM227.9 307L168.7 247.9l-148.9 148.9c-26.37 26.37-26.37 69.08 0 95.45C32.96 505.4 50.21 512 67.5 512s34.54-6.592 47.72-19.78l119.1-119.1C225.5 352.3 222.6 329.4 227.9 307zM64 472c-13.25 0-24-10.75-24-24c0-13.26 10.75-24 24-24S88 434.7 88 448C88 461.3 77.25 472 64 472z"/>
-                                                </svg>
-                                                cars and tools</a>
-                                            <div class="box2">
-
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </li>
