@@ -9,6 +9,7 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data()
+        context['categories'] = ProductCategory.objects.filter(is_active=True, is_delete=False)
         context['categories'] = ProductCategory.objects.all()
         return context
 
