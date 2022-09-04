@@ -25,8 +25,8 @@ class ProductCategory(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='images/products', null=True, blank=True)
     price = models.IntegerField()
+    image = models.ImageField(upload_to='images/products', null=True, blank=True)
     category = models.ManyToManyField(ProductCategory)
     brand = models.ForeignKey(ProductBrand, on_delete=models.CASCADE)
     short_description = models.TextField(max_length=500, null=True, blank=True)
@@ -46,3 +46,11 @@ class ProductVisit(models.Model):
 
     def __str__(self):
         return f'{self.product.title} - {self.user.username}'
+
+
+class ProductGallery(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/products', null=True, blank=True)
+
+    def __str__(self):
+        return self.product.title

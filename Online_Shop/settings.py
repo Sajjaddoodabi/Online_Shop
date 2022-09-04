@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home_module',
     'product_module',
     'site_module',
+    'polls',
     # external_apps
     'phonenumbers',
     'django_render_partial',
