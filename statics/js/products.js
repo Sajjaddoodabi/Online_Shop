@@ -77,10 +77,13 @@ let _show = document.querySelectorAll('.details>.show')
 let _txt = document.querySelectorAll('.txt')
 // alert(_txt.length)
 _show.forEach((item, index) => {
+
     item.addEventListener('click', () => {
         for (let i = 0; i < _show.length; i++) {
             _txt[i].style.display = 'none'
+            _show[i].style.backgroundColor = 'rgb(129, 189, 117)'
         }
+        item.style.backgroundColor = 'grey'
         _txt[index].style.display = 'block'
     })
 })

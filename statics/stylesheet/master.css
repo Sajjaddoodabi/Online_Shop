@@ -391,7 +391,6 @@
 .slide3 .slider3 > .window3 {
   width: 400px;
   height: 300px;
-  border: 2px solid black;
   overflow: hidden;
   position: relative;
   margin: 20px auto;
