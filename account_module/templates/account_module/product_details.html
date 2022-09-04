@@ -70,40 +70,27 @@
             <div class="col-12 col-lg-3 p-4">
                 <div class="col-12 d-flex justify-content-between align-items-center px-2">
                     <h4 class="h-100 col-6">brand </h4>
-                    <div class="h-100 col-3"><i class="bi bi-check"></i></div>
-                    <div class="h-100 col-3"><i class="bi bi-x"></i></div>
                 </div>
                 <form class="col-12 d-flex justify-content-between align-items-center px-4 py-2 flex-wrap"
                       action="registerForm.php" method="post" name="filter">
-                    <label class="col-4" for="yes1"><h5>brand1: </h5></label>
-                    <input class="col-4" id="yes1" type="radio" name="brand1" value="yes" checked>
-                    <label for="no1"></label>
-                    <input class="col-4" id="no1" type="radio" name="brand1" value="no">
+                    <input class="col-1" id="yes1" type="radio" name="brand1">
+                    <label class="col-11" for="yes1"><h5>brand1</h5></label>
 
-                    <label class="col-4" for="yes2"><h5>brand2: </h5></label>
-                    <input class="col-4" id="yes2" type="radio" name="brand2" value="yes" checked>
-                    <label for="no2"></label>
-                    <input class="col-4" id="no2" type="radio" name="brand2" value="no">
+                    <input class="col-1" id="yes2" type="radio" name="brand2">
+                    <label class="col-11" for="yes2"><h5>brand2</h5></label>
 
-                    <label class="col-4" for="yes3"><h5>brand3: </h5></label>
-                    <input class="col-4" id="yes3" type="radio" name="brand3" value="yes" checked>
-                    <label for="no3"></label>
-                    <input class="col-4" id="no3" type="radio" name="brand3" value="no">
+                    <input class="col-1" id="yes3" type="radio" name="brand3">
+                    <label class="col-11" for="yes3"><h5>brand3</h5></label>
 
-                    <label class="col-4" for="yes4"><h5>brand4: </h5></label>
-                    <input class="col-4" id="yes4" type="radio" name="brand4" value="yes" checked>
-                    <label for="no4"></label>
-                    <input class="col-4" id="no4" type="radio" name="brand4" value="no">
+                    <input class="col-1" id="yes4" type="radio" name="brand4">
+                    <label class="col-11" for="yes4"><h5>brand4</h5></label>
 
-                    <label class="col-4" for="yes5"><h5>brand5: </h5></label>
-                    <input class="col-4" id="yes5" type="radio" name="brand5" value="yes" checked>
-                    <label for="no5"></label>
-                    <input class="col-4" id="no5" type="radio" name="brand5" value="no">
+                    <input class="col-1" id="yes5" type="radio" name="brand5">
+                    <label class="col-11" for="yes5"><h5>brand5</h5></label>
 
-                    <label class="col-4" for="yes6"><h5>brand6: </h5></label>
-                    <input class="col-4" id="yes6" type="radio" name="brand6" value="yes" checked>
-                    <label for="no6"></label>
-                    <input class="col-4" id="no6" type="radio" name="brand6" value="no">
+                    <input class="col-1" id="yes6" type="radio" name="brand6">
+                    <label class="col-11" for="yes6"><h5>brand6</h5></label>
+
                     <div>فیلتر قیمت . کل این خطو پاک کن</div>
                     <button class="sendDetails">send</button>
                 </form>
@@ -124,12 +111,7 @@
                     </div>
                     <form class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
                           action="registerForm.php" method="post" autocomplete="off">
-                        <input class="col-10 col-lg-4" id="field1" name="name" type="text" placeholder="enter your name"
-                               tabindex="1" required>
 
-                        <input class="col-10 col-lg-4" id="field2" name="email" type="email"
-                               placeholder="enter your email address" required
-                               tabindex="2" autocomplete="on">
 
 
                         <textarea class="col-10 col-lg-6 me-5" name="comment" id="" cols="30" rows="10"
@@ -156,8 +138,8 @@
     <div class="container-xxl slide2 d-flex justify-content-center align-items-center">
         <div class="row slider2 h-100 w-100">
             <div class="window2 h-100 p-0 m-0  bg-white">
-                <span class="moveR" id="right2" onclick="_right2()"><i class="bi bi-arrow-right-short"></i></span>
-                <span class="moveL" id="left2" onclick="_left2()"><i class="bi bi-arrow-left-short"></i></span>
+                <span class="moveR" id="right2" onclick="_moveR()"><i class="bi bi-arrow-right-short"></i></span>
+                <span class="moveL" id="left2" onclick="_moveL()"><i class="bi bi-arrow-left-short"></i></span>
                 <div class="d-flex justify-content-space-start align-items-center m-0 p-4  bg-white" id="bus2">
                     <figure>
                         <div>

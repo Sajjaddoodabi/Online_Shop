@@ -711,7 +711,7 @@
   border: 0.6px solid #2d2d2d;
   border-radius: 6px;
 
-  > input, textarea {
+  textarea {
     padding: 6px;
     margin: 20px;
     border-radius: 6px;
@@ -723,6 +723,6 @@
     border-radius: 6px;
     background-color: rgb(129, 189, 117);
     padding: 6px 20px;
-    margin: 8px 10%;
+    margin: 8px 6% 16px 10%;
   }
 }
