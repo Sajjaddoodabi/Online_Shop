@@ -13,9 +13,9 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container-fluid slideC3 d-flex justify-content-center align-items-center p-0 m-0 pb-4">
-    <div class="container-xxl slide3 d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">
-        <div class="row slider3 h-100 w-100 p-0 m-0">
+<div class="container-fluid slideC3 d-flex justify-content-center p-0 m-0 pb-4 bg-danger">
+    <div class="container-xxl slide3 d-flex justify-content-start h-100 p-0 m-0 w-100 bg-warning flex-wrap">
+        <div class="slider3 col-12 col-lg-8 h-100 productSection p-0 m-0 bg-success d-flex justify-content-start flex-wrap">
             <div class="window3 p-0 m-0 col-12 col-lg-6 h-100">
                 <span onclick="_right3()" id="right3"><i class="bi bi-arrow-right-circle-fill"></i></span>
                 <span onclick="_left3()" id="left3"><i class="bi bi-arrow-left-circle-fill"></i></span>
@@ -42,7 +42,7 @@
                     <div class="thumb"></div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 text p-4 mt-4">
+            <div class="col-12 col-lg-6 text p-4 mt-4">
                 <h2 class="pt-3">name: </h2>
                 <h6 class="py-2">id: </h6>
                 <h4 class="py-2">price: </h4>
@@ -67,7 +67,92 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 p-4">
+
+
+            <div class="col-12 p-0 m-0">
+                <ul class="col-12 p-0 m-0 d-flex justify-content-start align-items-center details">
+                    <li class="d-block p-4 show">مشخصات</li>
+                    <li class="d-block p-4 show">یادم نیست اینو</li>
+                    <li class="d-block p-4 show">نظرات</li>
+                </ul>
+                <div class="col-12 p-4 txt">eetreffevf</div>
+                <div class="col-12 p-4 txt">reeredcfffbb</div>
+                <div class="col-12 p-4 txt">
+                    <div class="row ps-4">
+                        <h6 class="commentTitle col-4 col-md-2 "><i class="bi bi-person"></i>اسم مشتری </h6>
+                        <h6 class="commentTitle col-4 col-md-2 day"></h6>
+                        <h6 class="commentTitle col-4 col-md-2 time"></h6>
+                    </div>
+                    <div class="row ps-5 py-4 recentComment">
+                        <div class="customer col-3 p-0 m-0">
+                            <a>
+                            100 * 100
+                        </a>
+                        </div>
+                        <div class="customerComment col-6 d-flex flex-wrap">
+                            <h6 class="commentTitle col-4"><i class="bi bi-person"></i>اسم مشتری</h6>
+                            <h6 class="commentTitle col-4"><i class="bi bi-calendar2"></i>تاریخ</h6>
+                            <h6 class="commentTitle col-4"><i class="bi bi-watch"></i>ساعت</h6>
+                            <p class="col-12">نظر</p>
+                        </div>
+                    </div>
+                    <form class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
+                          action="registerForm.php" method="post" autocomplete="off">
+                        <textarea class="col-10 col-lg-6 me-5" name="comment" id="" cols="30" rows="10"
+                                  placeholder="write here..."></textarea>
+                        <button class="col-4 me-5">send</button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="bg-info col-12 col-lg-4 productCategory h-100 p-0 m-0 pt-4">
+            <div class="col-12 py-2 bg-danger">
+                <ul class="acc">
+                    <li data-status='off'>
+                        <div class="row1">
+                            <h6>محصول 1</h6>
+                            <span><i>&gt;</i></span>
+                        </div>
+                        <div class="row2">
+                            <a href="">کالای 1</a>
+                            <a href="">کالای 2</a>
+                            <a href="">کالای 3</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="acc">
+                    <li data-status='off'>
+                        <div class="row1">
+                            <h6>محصول 2</h6>
+                            <span><i>&gt;</i></span>
+                        </div>
+                        <div class="row2">
+                            <a href="">کالای 1</a>
+                            <a href="">کالای 2</a>
+                            <a href="">کالای 3</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="acc">
+                    <li data-status='off'>
+                        <div class="row1">
+                            <h6>محصول 3</h6>
+                            <span><i>&gt;</i></span>
+                        </div>
+                        <div class="row2">
+                            <a href="">کالای 1</a>
+                            <a href="">کالای 2</a>
+                            <a href="">کالای 3</a>
+                        </div>
+                    </li>
+                </ul>
+                <a class="d-block px-5 pb-1" href="">کالای 1</a>
+                <a class="d-block px-5 pb-1" href="">کالای 2</a>
+                <a class="d-block px-5 pb-1" href="">کالای 3</a>
+            </div>
+            <div class="col-12 p-4 bg-warning">
                 <div class="col-12 d-flex justify-content-between align-items-center px-2">
                     <h4 class="h-100 col-6">brand </h4>
                 </div>
@@ -94,31 +179,6 @@
                     <div>فیلتر قیمت . کل این خطو پاک کن</div>
                     <button class="sendDetails">send</button>
                 </form>
-            </div>
-            <div class="col-12 p-0 m-0">
-                <ul class="col-12 p-0 m-0 d-flex justify-content-start align-items-center details">
-                    <li class="d-block p-4 show">مشخصات</li>
-                    <li class="d-block p-4 show">یادم نیست اینو</li>
-                    <li class="d-block p-4 show">نظرات</li>
-                </ul>
-                <div class="col-12 p-4 txt">eetreffevf</div>
-                <div class="col-12 p-4 txt">reeredcfffbb</div>
-                <div class="col-12 p-4 txt">
-                    <div class="row ps-4">
-                        <h6 class="commentTitle col-4 col-md-2 "><i class="bi bi-person"></i>اسم مشتری </h6>
-                        <h6 class="commentTitle col-4 col-md-2 day"></h6>
-                        <h6 class="commentTitle col-4 col-md-2 time"></h6>
-                    </div>
-                    <form class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
-                          action="registerForm.php" method="post" autocomplete="off">
-
-
-
-                        <textarea class="col-10 col-lg-6 me-5" name="comment" id="" cols="30" rows="10"
-                                  placeholder="write here..."></textarea>
-                        <button class="col-4 me-5">send</button>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
