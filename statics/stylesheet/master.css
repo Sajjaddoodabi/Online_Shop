@@ -558,4 +558,26 @@
   color: red;
 }
 
+.commentTitle {
+  color: rgb(129, 189, 117);
+}
+
+.comment {
+  border: 0.6px solid #2d2d2d;
+  border-radius: 6px;
+}
+.comment textarea {
+  padding: 6px;
+  margin: 20px;
+  border-radius: 6px;
+  border: 0.6px solid #2d2d2d;
+}
+.comment button {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+  padding: 6px 20px;
+  margin: 8px 6% 16px 10%;
+}
+
 /*# sourceMappingURL=master.css.map */

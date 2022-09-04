@@ -1,4 +1,4 @@
-let turn = 0
+let b = 0
 let x3 = document.getElementsByClassName('window3')[0].clientWidth
 let _fig3 = document.querySelectorAll('#bus3>figure')
 document.getElementById('bus3').style.width = x3 * (_fig3.length) + 'px'
@@ -11,38 +11,38 @@ let y3 = document.querySelectorAll('.thumbnail>.thumb')
 y3[0].style.backgroundColor = 'rgb(129, 189, 117)'
 
 function _right3() {
-    y3[turn].style.backgroundColor = 'grey'
-    turn++
-    document.getElementById('bus3').style.transform = 'translateX(-' + (turn * x3) + 'px)'
-    if (turn == (_fig3.length - 1)) {
+    y3[b].style.backgroundColor = 'grey'
+    b++
+    document.getElementById('bus3').style.transform = 'translateX(-' + (b * x3) + 'px)'
+    if (b == (_fig3.length - 1)) {
         document.getElementById('right3').style.display = 'none'
     } else {
         document.getElementById('right3').style.display = 'block'
     }
-    if (turn == 0) {
+    if (b == 0) {
         document.getElementById('left3').style.display = 'none'
-    } else if (turn > 0) {
+    } else if (b > 0) {
         document.getElementById('left3').style.display = 'block'
     }
-    y3[turn].style.backgroundColor = 'rgb(129, 189, 117)'
+    y3[b].style.backgroundColor = 'rgb(129, 189, 117)'
 }
 
 function _left3() {
-    y3[turn].style.backgroundColor = 'grey'
-    turn--
-    document.getElementById('bus3').style.transform = 'translateX(-' + (turn * x3) + 'px)'
+    y3[b].style.backgroundColor = 'grey'
+    b--
+    document.getElementById('bus3').style.transform = 'translateX(-' + (b * x3) + 'px)'
     // check3()
-    if (turn == 0) {
+    if (b == 0) {
         document.getElementById('left3').style.display = 'none'
-    } else if (turn > 0) {
+    } else if (b > 0) {
         document.getElementById('left3').style.display = 'block'
     }
-    if (turn == (_fig3.length - 1)) {
+    if (b == (_fig3.length - 1)) {
         document.getElementById('right3').style.display = 'none'
     } else {
         document.getElementById('right3').style.display = 'block'
     }
-    y3[turn].style.backgroundColor = 'rgb(129, 189, 117)'
+    y3[b].style.backgroundColor = 'rgb(129, 189, 117)'
 }
 
 let num = 1
@@ -99,19 +99,19 @@ let _bus2 = document.getElementById('bus2')
 let temp = 0
 _bus2.style.width = (_fig2.length * 220 ) + 'px'
 
-function _right2() {
+function _moveR() {
     temp += 200
     _bus2.style.left = -temp + 'px'
-    check2()
+    checkMove()
 }
 
-function _left2() {
+function _moveL() {
     temp -= 200
     _bus2.style.left = -temp + 'px'
-    check2()
+    checkMove()
 }
 
-function check2() {
+function checkMove() {
     if (temp >= 200) {
         document.getElementById('left2').style.display = 'block'
     } else {
@@ -124,3 +124,11 @@ function check2() {
         document.getElementById('right2').style.display = 'block'
     }
 }
+
+let _h = new Date().getHours()
+let _m = new Date().getMinutes()
+let _y = new Date().getFullYear()
+let _month = new Date().getMonth()
+let _d = new Date().getDate()
+document.getElementsByClassName('time')[0].innerHTML = "<i class=\"bi bi-watch\"></i> " + _h + ":" + _m
+document.getElementsByClassName('day')[0].innerHTML = "<i class=\"bi bi-calendar2\"></i> " + _y + "/" + _d + "/" + _month

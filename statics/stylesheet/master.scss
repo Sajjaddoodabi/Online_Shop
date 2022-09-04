@@ -593,93 +593,136 @@
         }
       }
     }
-    .text{
+
+    .text {
       height: 100%;
       //border: 2px solid black;
     }
   }
 }
-.addToCart{
-    //width: 40px;
-    //height: 20px;
+
+.addToCart {
+  //width: 40px;
+  //height: 20px;
   padding: 6px 30px;
-    border-radius: 6px;
+  border-radius: 6px;
   background-color: rgb(129, 189, 117);
   cursor: pointer;
 }
-.counter{
+
+.counter {
   border-radius: 6px;
   //padding: 6px;
   border: 0.6px solid gray;
-  >*{
+
+  > * {
     width: 40px;
     height: 40px;
     color: rgb(129, 189, 117);
   }
-  >h4{
+
+  > h4 {
     width: 50px;
     background-color: white;
   }
-  >div{
+
+  > div {
     font-size: 30px;
     cursor: pointer;
   }
-  .bi{
+
+  .bi {
     font-size: 16px;
   }
 }
-.count{
+
+.count {
   //opacity: 0;
   display: none;
   //background-color: plum;
 }
 
-.details{
+.details {
   background-color: rgb(129, 189, 117);
-  >li{
+
+  > li {
     cursor: pointer;
-    &:hover{
-    background-color: gray;
-  }
+
+    &:hover {
+      background-color: gray;
+    }
   }
 }
 
-.txt{
+.txt {
   display: none;
   z-index: 990;
 }
 
-.moveR{
+.moveR {
   opacity: 0;
   right: 10%;
   animation: moveToRight 1.4s linear infinite alternate;
 }
+
 @keyframes moveToRight {
-  to{right: 0;opacity: 1;}
+  to {
+    right: 0;
+    opacity: 1;
+  }
 }
-.moveL{
+
+.moveL {
   opacity: 0;
   left: 10%;
   animation: moveToLeft 1.4s linear infinite alternate;
 }
+
 @keyframes moveToLeft {
-  to{left: 0;opacity: 1;}
+  to {
+    left: 0;
+    opacity: 1;
+  }
 }
 
-    .sendDetails {
-      border: none;
-      border-radius: 6px;
-      background-color: rgb(129, 189, 117);
-      padding: 6px 20px;
-      margin: 8px 4px 4px 4px;
-    }
+.sendDetails {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+  padding: 6px 20px;
+  margin: 8px 4px 4px 4px;
+}
 
-    .bi-check{
-      font-size: 30px;
-      color: green;
-    }
+.bi-check {
+  font-size: 30px;
+  color: green;
+}
 
-        .bi-x{
-      font-size: 30px;
-      color: red;
-    }
+.bi-x {
+  font-size: 30px;
+  color: red;
+}
+
+.commentTitle {
+  color: rgb(129, 189, 117);
+}
+
+.comment {
+  border: 0.6px solid #2d2d2d;
+  border-radius: 6px;
+
+  textarea {
+    padding: 6px;
+    margin: 20px;
+    border-radius: 6px;
+    border: 0.6px solid #2d2d2d;
+  }
+
+  button {
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(129, 189, 117);
+    padding: 6px 20px;
+    margin: 8px 6% 16px 10%;
+  }
+}
