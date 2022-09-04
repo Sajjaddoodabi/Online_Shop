@@ -116,7 +116,27 @@
                 </ul>
                 <div class="col-12 p-4 txt">eetreffevf</div>
                 <div class="col-12 p-4 txt">reeredcfffbb</div>
-                <div class="col-12 p-4 txt">mm,o,ppp</div>
+                <div class="col-12 p-4 txt">
+                    <div class="row ps-4">
+                        <h6 class="commentTitle col-4 col-md-2 "><i class="bi bi-person"></i>اسم مشتری </h6>
+                        <h6 class="commentTitle col-4 col-md-2 day"></h6>
+                        <h6 class="commentTitle col-4 col-md-2 time"></h6>
+                    </div>
+                    <form class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
+                          action="registerForm.php" method="post" autocomplete="off">
+                        <input class="col-10 col-lg-4" id="field1" name="name" type="text" placeholder="enter your name"
+                               tabindex="1" required>
+
+                        <input class="col-10 col-lg-4" id="field2" name="email" type="email"
+                               placeholder="enter your email address" required
+                               tabindex="2" autocomplete="on">
+
+
+                        <textarea class="col-10 col-lg-6 me-5" name="comment" id="" cols="30" rows="10"
+                                  placeholder="write here..."></textarea>
+                        <button class="col-4 me-5">send</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

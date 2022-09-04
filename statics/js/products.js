@@ -124,3 +124,11 @@ function check2() {
         document.getElementById('right2').style.display = 'block'
     }
 }
+
+let _h = new Date().getHours()
+let _m = new Date().getMinutes()
+let _y = new Date().getFullYear()
+let _month = new Date().getMonth()
+let _d = new Date().getDate()
+document.getElementsByClassName('time')[0].innerHTML = "<i class=\"bi bi-watch\"></i> " + _h + ":" + _m
+document.getElementsByClassName('day')[0].innerHTML = "<i class=\"bi bi-calendar2\"></i> " + _y + "/" + _d + "/" + _month
