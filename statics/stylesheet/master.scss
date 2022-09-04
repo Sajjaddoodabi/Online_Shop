@@ -665,3 +665,21 @@
 @keyframes moveToLeft {
   to{left: 0;opacity: 1;}
 }
+
+    .sendDetails {
+      border: none;
+      border-radius: 6px;
+      background-color: rgb(129, 189, 117);
+      padding: 6px 20px;
+      margin: 8px 4px 4px 4px;
+    }
+
+    .bi-check{
+      font-size: 30px;
+      color: green;
+    }
+
+        .bi-x{
+      font-size: 30px;
+      color: red;
+    }

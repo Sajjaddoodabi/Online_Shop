@@ -42,7 +42,7 @@
                     <div class="thumb"></div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 text p-4 mt-4 bg-danger">
+            <div class="col-12 col-lg-3 text p-4 mt-4">
                 <h2 class="pt-3">name: </h2>
                 <h6 class="py-2">id: </h6>
                 <h4 class="py-2">price: </h4>
@@ -67,7 +67,47 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 p-4 mt-4 bg-warning">ml;l;</div>
+            <div class="col-12 col-lg-3 p-4">
+                <div class="col-12 d-flex justify-content-between align-items-center px-2">
+                    <h4 class="h-100 col-6">brand </h4>
+                    <div class="h-100 col-3"><i class="bi bi-check"></i></div>
+                    <div class="h-100 col-3"><i class="bi bi-x"></i></div>
+                </div>
+                <form class="col-12 d-flex justify-content-between align-items-center px-4 py-2 flex-wrap"
+                      action="registerForm.php" method="post" name="filter">
+                    <label class="col-4" for="yes1"><h5>brand1: </h5></label>
+                    <input class="col-4" id="yes1" type="radio" name="brand1" value="yes" checked>
+                    <label for="no1"></label>
+                    <input class="col-4" id="no1" type="radio" name="brand1" value="no">
+
+                    <label class="col-4" for="yes2"><h5>brand2: </h5></label>
+                    <input class="col-4" id="yes2" type="radio" name="brand2" value="yes" checked>
+                    <label for="no2"></label>
+                    <input class="col-4" id="no2" type="radio" name="brand2" value="no">
+
+                    <label class="col-4" for="yes3"><h5>brand3: </h5></label>
+                    <input class="col-4" id="yes3" type="radio" name="brand3" value="yes" checked>
+                    <label for="no3"></label>
+                    <input class="col-4" id="no3" type="radio" name="brand3" value="no">
+
+                    <label class="col-4" for="yes4"><h5>brand4: </h5></label>
+                    <input class="col-4" id="yes4" type="radio" name="brand4" value="yes" checked>
+                    <label for="no4"></label>
+                    <input class="col-4" id="no4" type="radio" name="brand4" value="no">
+
+                    <label class="col-4" for="yes5"><h5>brand5: </h5></label>
+                    <input class="col-4" id="yes5" type="radio" name="brand5" value="yes" checked>
+                    <label for="no5"></label>
+                    <input class="col-4" id="no5" type="radio" name="brand5" value="no">
+
+                    <label class="col-4" for="yes6"><h5>brand6: </h5></label>
+                    <input class="col-4" id="yes6" type="radio" name="brand6" value="yes" checked>
+                    <label for="no6"></label>
+                    <input class="col-4" id="no6" type="radio" name="brand6" value="no">
+                    <div>فیلتر قیمت . کل این خطو پاک کن</div>
+                    <button class="sendDetails">send</button>
+                </form>
+            </div>
             <div class="col-12 p-0 m-0">
                 <ul class="col-12 p-0 m-0 d-flex justify-content-start align-items-center details">
                     <li class="d-block p-4 show">مشخصات</li>
