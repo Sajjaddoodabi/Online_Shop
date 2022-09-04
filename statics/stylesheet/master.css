@@ -382,19 +382,18 @@
 }
 
 .slide3 {
-  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .slide3 .slider3 {
-  width: 100%;
   position: relative;
 }
 .slide3 .slider3 > .window3 {
-  height: 100%;
+  width: 400px;
+  height: 300px;
   overflow: hidden;
   position: relative;
+  margin: 20px auto;
 }
 .slide3 .slider3 > .window3 > span {
   position: absolute;
@@ -422,16 +421,16 @@
   transition: 1s;
 }
 .slide3 .slider3 #bus3 > figure {
-  width: 100%;
-  height: 100%;
-  margin: 20px 0;
+  width: 400px;
+  height: 400px;
+  padding: 50px 0;
 }
 .slide3 .slider3 #bus3 > figure > div {
   border: 2px solid black;
-  width: 80%;
-  height: 80%;
+  width: 360px;
+  height: 300px;
   object-fit: cover;
-  margin: 0 10%;
+  margin: 0 auto;
 }
 .slide3 .slider3 #bus3 > figure > div > img {
   width: 100%;
@@ -443,7 +442,7 @@
   display: flex;
   position: absolute;
   left: 16%;
-  bottom: 8%;
+  bottom: 20%;
 }
 .slide3 .slider3 .thumbnail > .thumb {
   width: 10px;
@@ -515,6 +514,9 @@
   display: none;
   z-index: 990;
 }
+.txt:nth-of-type(1) {
+  display: block;
+}
 
 .moveR {
   opacity: 0;
@@ -578,6 +580,86 @@
   background-color: rgb(129, 189, 117);
   padding: 6px 20px;
   margin: 8px 6% 16px 10%;
+}
+
+.acc {
+  width: 100%;
+}
+
+.acc > li {
+  width: 100%;
+  list-style-type: none;
+  border-bottom: 20px;
+}
+
+.acc > li > .row1 {
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.acc > li > .row1 > * {
+  transition: 1s;
+}
+
+.acc > li > .row1 > h2 {
+  width: 90%;
+  height: 100%;
+  background-color: wheat;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.acc > li > .row1 > span {
+  width: 10%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.acc > li > .row2 {
+  text-align: justify;
+  display: none;
+  margin-left: 20px;
+}
+.acc > li > .row2 > * {
+  width: 100%;
+  display: block;
+  padding: 2px;
+}
+
+.recentComment {
+  display: flex;
+}
+
+.customer {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+}
+.customer img {
+  width: 100px;
+  height: 100px;
+}
+
+.answer {
+  position: relative;
+  height: 40px;
+}
+.answer > a {
+  position: absolute;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+  width: 80px;
+  height: 100%;
+  right: 5%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=master.css.map */
