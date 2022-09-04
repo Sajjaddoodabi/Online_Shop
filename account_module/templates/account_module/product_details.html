@@ -13,26 +13,26 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container-fluid slideC3 d-flex justify-content-center p-0 m-0 pb-4 bg-danger">
-    <div class="container-xxl slide3 d-flex justify-content-start h-100 p-0 m-0 w-100 bg-warning flex-wrap">
-        <div class="slider3 col-12 col-lg-8 h-100 productSection p-0 m-0 bg-success d-flex justify-content-start flex-wrap">
+<div class="container-fluid slideC3 d-flex justify-content-center p-0 m-0 pb-4">
+    <div class="container-xxl slide3 d-flex justify-content-start h-100 p-0 m-0 w-100 flex-wrap">
+        <div class="slider3 col-12 col-lg-8 h-100 productSection p-0 m-0 d-flex justify-content-start flex-wrap">
             <div class="window3 p-0 m-0 col-12 col-lg-6 h-100">
                 <span onclick="_right3()" id="right3"><i class="bi bi-arrow-right-circle-fill"></i></span>
                 <span onclick="_left3()" id="left3"><i class="bi bi-arrow-left-circle-fill"></i></span>
                 <div id="bus3" class="w-100 h-100 p-0 m-0">
                     <figure class="col-12">
                         <div>
-                            سایز عکسا مهم نیست ولی طول و عرض همه عکسا رو یکی کن
+                            طول 360 عرض 300
                         </div>
                     </figure>
                     <figure class="col-12">
                         <div>
-                            <img alt="" class="h-100" src="../../../statics/images/logo.png">
+                            طول 360 عرض 300
                         </div>
                     </figure>
                     <figure class="col-12">
                         <div>
-                            <img alt="" class="h-100" src="../../../statics/images/logo.png">
+                            طول 360 عرض 300
                         </div>
                     </figure>
                 </div>
@@ -75,13 +75,24 @@
                     <li class="d-block p-4 show">یادم نیست اینو</li>
                     <li class="d-block p-4 show">نظرات</li>
                 </ul>
-                <div class="col-12 p-4 txt">eetreffevf</div>
-                <div class="col-12 p-4 txt">reeredcfffbb</div>
+                <div class="col-12 p-4 txt">
+                    <p><b>name: </b>kdkplp</p>
+                    <p><b>name: </b>kdkplp</p>
+                    <p><b>name: </b>kdkplp</p>
+                    <p><b>name: </b>kdkplp</p>
+                    <p><b>name: </b>kdkplp</p>
+                    <p><b>name: </b>kdkplp</p>
+                </div>
+                <div class="col-12 p-4 txt">
+                    <p><b>name: </b>kdkplp</p>
+                    <p><b>name: </b>kdkplp</p>
+                    <p><b>name: </b>kdkplp</p>
+                </div>
                 <div class="col-12 p-4 txt">
                     <div class="row ps-4">
-                        <h6 class="commentTitle col-4 col-md-2 "><i class="bi bi-person"></i>اسم مشتری </h6>
-                        <h6 class="commentTitle col-4 col-md-2 day"></h6>
-                        <h6 class="commentTitle col-4 col-md-2 time"></h6>
+                        <h6 class="commentTitle col-4"><i class="bi bi-person"></i>اسم مشتری </h6>
+                        <h6 class="commentTitle col-4 day"></h6>
+                        <h6 class="commentTitle col-4 time"></h6>
                     </div>
                     <div class="row ps-5 py-4 recentComment">
                         <div class="customer col-3 p-0 m-0">
@@ -94,6 +105,7 @@
                             <h6 class="commentTitle col-4"><i class="bi bi-calendar2"></i>تاریخ</h6>
                             <h6 class="commentTitle col-4"><i class="bi bi-watch"></i>ساعت</h6>
                             <p class="col-12">نظر</p>
+                            <div class="col-12 answer"><a href="">پاسخ</a></div>
                         </div>
                     </div>
                     <form class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
@@ -107,8 +119,9 @@
 
 
         </div>
-        <div class="bg-info col-12 col-lg-4 productCategory h-100 p-0 m-0 pt-4">
-            <div class="col-12 py-2 bg-danger">
+        <div class="col-12 col-lg-4 productCategory h-100 p-0 m-0 pt-5">
+            <h5 class="pb-2 pt-4 ps-2">category</h5>
+            <div class="col-12 py-2">
                 <ul class="acc">
                     <li data-status='off'>
                         <div class="row1">
@@ -152,31 +165,31 @@
                 <a class="d-block px-5 pb-1" href="">کالای 2</a>
                 <a class="d-block px-5 pb-1" href="">کالای 3</a>
             </div>
-            <div class="col-12 p-4 bg-warning">
+            <div class="col-12 p-4">
                 <div class="col-12 d-flex justify-content-between align-items-center px-2">
                     <h4 class="h-100 col-6">brand </h4>
                 </div>
                 <form class="col-12 d-flex justify-content-between align-items-center px-4 py-2 flex-wrap"
                       action="registerForm.php" method="post" name="filter">
-                    <input class="col-1" id="yes1" type="radio" name="brand1">
+                    <input class="col-1" id="yes1" type="checkbox" name="brand1">
                     <label class="col-11" for="yes1"><h5>brand1</h5></label>
 
-                    <input class="col-1" id="yes2" type="radio" name="brand2">
+                    <input class="col-1" id="yes2" type="checkbox" name="brand2">
                     <label class="col-11" for="yes2"><h5>brand2</h5></label>
 
-                    <input class="col-1" id="yes3" type="radio" name="brand3">
+                    <input class="col-1" id="yes3" type="checkbox" name="brand3">
                     <label class="col-11" for="yes3"><h5>brand3</h5></label>
 
-                    <input class="col-1" id="yes4" type="radio" name="brand4">
+                    <input class="col-1" id="yes4" type="checkbox" name="brand4">
                     <label class="col-11" for="yes4"><h5>brand4</h5></label>
 
-                    <input class="col-1" id="yes5" type="radio" name="brand5">
+                    <input class="col-1" id="yes5" type="checkbox" name="brand5">
                     <label class="col-11" for="yes5"><h5>brand5</h5></label>
 
-                    <input class="col-1" id="yes6" type="radio" name="brand6">
+                    <input class="col-1" id="yes6" type="checkbox" name="brand6">
                     <label class="col-11" for="yes6"><h5>brand6</h5></label>
 
-                    <div>فیلتر قیمت . کل این خطو پاک کن</div>
+                    <div class="col-12 rangeOfPrice">فیلتر قیمت</div>
                     <button class="sendDetails">send</button>
                 </form>
             </div>

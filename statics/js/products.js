@@ -144,6 +144,7 @@ _row1.forEach((item, index) => {
             for (let i = 0; i < _row2.length; i++) {
                 _row2[i].style.display = 'none'
                 _row1[i].parentElement.setAttribute('data-status' , 'off')
+                _row1[i].children[1].style.transform = 'rotate(0deg)'
         }
         _row2[index].style.display = 'block'
         _row1[index].parentElement.setAttribute('data-status' , 'on')
@@ -153,6 +154,7 @@ _row1.forEach((item, index) => {
             for (let i = 0; i < _row2.length; i++) {
                 _row2[i].style.display = 'none'
                 _row1[i].parentElement.setAttribute('data-status' , 'off')
+                _row1[i].children[1].style.transform = 'rotate(0deg)'
         }
             _row1[index].parentElement.setAttribute('data-status' , 'off')
             _row1[index].children[1].style.transform = 'rotate(0deg)'
