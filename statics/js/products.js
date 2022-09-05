@@ -169,3 +169,19 @@ _color.forEach((item, index) => {
         item.children[0].style.display = 'block'
     })
 })
+
+let _showList = document.querySelectorAll('.showList')
+let _productList = document.querySelectorAll('.productList')
+_showList.forEach((item, index) => {
+
+    item.addEventListener('click', () => {
+        for (let i = 0; i < _showList.length; i++) {
+            _showList[i].style.backgroundColor = 'white'
+            _productList[i].style.display = 'none'
+            // _color[i].children[0].style.display = 'none'
+        }
+        item.style.backgroundColor = 'rgb(129, 189, 117)'
+        _productList[index].style.display = 'flex'
+        // item.children[0].style.display = 'block'
+    })
+})
