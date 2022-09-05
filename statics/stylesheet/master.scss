@@ -709,15 +709,15 @@
   margin: 8px 4px 4px 4px;
 }
 
-.bi-check {
-  font-size: 30px;
-  color: green;
-}
+//.bi-check {
+//  font-size: 30px;
+//  color: green;
+//}
 
-.bi-x {
-  font-size: 30px;
-  color: red;
-}
+//.bi-x {
+//  font-size: 30px;
+//  color: red;
+//}
 
 .commentTitle {
   color: rgb(129, 189, 117);
@@ -849,16 +849,30 @@
 //  color: rgb(129, 189, 117);
 //}
 .color{
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: none;
+  border: 0.4px solid #2d2d2d;
   outline: 0.6px solid #2d2d2d;
-  outline-offset: 2px;
+  outline-offset: 3px;
   //padding: 2px;
   cursor: pointer;
+  position: relative;
+  >.choose{
+    position: absolute;
+    left: -2px;
+    top: -6px;
+    color: rgb(129, 189, 117);
+    font-size: 20px;
+    display: none;
+  }
   &:nth-of-type(1){
     background-color: black;
+    display: block;
+    outline: 2px solid rgb(129, 189, 117);
+    >.choose{
+      display: block;
+    }
   }
     &:nth-of-type(2){
     background-color: white;
@@ -876,3 +890,6 @@
     background-color: plum;
   }
 }
+//.chooseColor{
+//  overflow-x: scroll;
+//}

@@ -49,13 +49,25 @@
                     <h4 class="py-2">price: {{ product.price|three_digits_price }} </h4>
                     <h4 class="py-2">موجودی: available </h4>
                     <div class="py-2 d-flex chooseColor">
-                        <h5>color: </h5>
-                        <div class="color m-2"></div>
-                        <div class="color m-2"></div>
-                        <div class="color m-2"></div>
-                        <div class="color m-2"></div>
-                        <div class="color m-2"></div>
-                        <div class="color m-2"></div>
+                        <h5 class="me-4">color: </h5>
+                        <div class="color m-2">
+                            <i class="bi bi-check choose"></i>
+                        </div>
+                        <div class="color m-2">
+                            <i class="bi bi-check choose"></i>
+                        </div>
+                        <div class="color m-2">
+                            <i class="bi bi-check choose"></i>
+                        </div>
+                        <div class="color m-2">
+                            <i class="bi bi-check choose"></i>
+                        </div>
+                        <div class="color m-2">
+                            <i class="bi bi-check choose"></i>
+                        </div>
+                        <div class="color m-2">
+                            <i class="bi bi-check choose"></i>
+                        </div>
                     </div>
                     {% if product.brand %}
                         <h4 class="py-2 pb-3">brand: {{ product.brand }} </h4>

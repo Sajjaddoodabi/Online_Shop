@@ -136,7 +136,6 @@ let _row2 = document.querySelectorAll('.row2')
 _row1.forEach((item, index) => {
     item.addEventListener('click', () => {
         if (_row1[index].parentElement.getAttribute('data-status') == 'off'){
-            // alert(1)
             for (let i = 0; i < _row2.length; i++) {
                 _row2[i].style.display = 'none'
                 _row1[i].parentElement.setAttribute('data-status' , 'off')
@@ -163,8 +162,10 @@ _color.forEach((item, index) => {
 
     item.addEventListener('click', () => {
         for (let i = 0; i < _color.length; i++) {
-            _color[i].style.outline = '0.6px solid #2d2d2d'
+            _color[i].style.outline= '0.6px solid #2d2d2d'
+            _color[i].children[0].style.display = 'none'
         }
-        item.style.outline = '10px solid #2d2d2d'
+        item.style.outline= '2px solid rgb(129, 189, 117)'
+        item.children[0].style.display = 'block'
     })
 })
