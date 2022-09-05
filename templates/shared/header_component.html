@@ -61,12 +61,12 @@
                                                     {{ category.title }}</a>
                                                 <div class="box2">
                                                     {% for sub_category in category.productcategory_set.all %}
-                                                        <a href="">{{ sub_category.title }}</a>
+                                                        <a href="{% url 'product_list' category=sub_category.url_title %}">{{ sub_category.title }}</a>
                                                         {% if sub_category.productcategory_set.all %}
                                                             <ul>
                                                                 {% for sub_sub_category in sub_category.productcategory_set.all %}
                                                                     <li>
-                                                                        <a href="">{{ sub_sub_category.title }}</a>
+                                                                        <a href="{% url 'product_list' category=sub_sub_category.url_title %}">{{ sub_sub_category.title }}</a>
                                                                     </li>
                                                                 {% endfor %}
                                                             </ul>

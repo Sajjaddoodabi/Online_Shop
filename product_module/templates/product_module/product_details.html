@@ -2,7 +2,6 @@
 {% load thumbnail %}
 {% load poll_extras %}
 
-
 {% block title %}
     {{ product.title }}
 {% endblock %}
@@ -170,7 +169,7 @@
                                 </div>
                                 <figcaption
                                         class="d-flex justify-content-center align-items-center">{{ similar_product.title }}</figcaption>
-                                <a href="" class="d-flex justify-content-center align-items-center">show details</a>
+                                <a href="{% url 'product_detail' slug=similar_product.slug %}" class="d-flex justify-content-center align-items-center">show details</a>
                                 <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
                                         class="bi bi-cart-plus"></i></a>
                             </figure>
@@ -181,6 +180,5 @@
             </div>
         </div>
     </div>
-
     <script src="/statics/js/products.js"></script>
 {% endblock %}

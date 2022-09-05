@@ -21,7 +21,7 @@ from Online_Shop import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account_module.urls')),
-    path('products/', include('product_module.urls')),
+    path('product', include('product_module.urls')),
     path('', include('home_module.urls')),
 ]
 
