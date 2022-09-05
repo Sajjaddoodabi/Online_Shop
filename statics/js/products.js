@@ -75,9 +75,7 @@ document.getElementsByClassName('counter')[0].children[2].addEventListener('clic
 
 let _show = document.querySelectorAll('.details>.show')
 let _txt = document.querySelectorAll('.txt')
-// alert(_txt.length)
 _show.forEach((item, index) => {
-
     item.addEventListener('click', () => {
         for (let i = 0; i < _show.length; i++) {
             _txt[i].style.display = 'none'
@@ -135,11 +133,6 @@ document.getElementsByClassName('day')[0].innerHTML = "<i class=\"bi bi-calendar
 
 let _row1 = document.querySelectorAll('.row1')
 let _row2 = document.querySelectorAll('.row2')
-//     row1.forEach((item , index)=>{
-//     item.addEventListener('click' , ()=>{
-//         _row2[index].style.display = 'block'
-//     })
-// })
 _row1.forEach((item, index) => {
     item.addEventListener('click', () => {
         if (_row1[index].parentElement.getAttribute('data-status') == 'off'){
@@ -161,7 +154,17 @@ _row1.forEach((item, index) => {
         }
             _row1[index].parentElement.setAttribute('data-status' , 'off')
             _row1[index].children[1].style.transform = 'rotate(0deg)'
-            // alert(2)
         }
+    })
+})
+
+let _color = document.querySelectorAll('.chooseColor>.color')
+_color.forEach((item, index) => {
+
+    item.addEventListener('click', () => {
+        for (let i = 0; i < _color.length; i++) {
+            _color[i].style.outline = '0.6px solid #2d2d2d'
+        }
+        item.style.outline = '10px solid #2d2d2d'
     })
 })

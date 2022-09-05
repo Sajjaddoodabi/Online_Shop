@@ -9,9 +9,9 @@
 
 {% block content %}
     <div class="container-fluid slideC3 d-flex justify-content-center p-0 m-0 pb-4">
-        <div class="container-xxl slide3 d-flex justify-content-start h-100 p-0 m-0 w-100 flex-wrap">
-            <div class="slider3 col-12 col-lg-8 h-100 productSection p-0 m-0 d-flex justify-content-start flex-wrap">
-                <div class="window3 p-0 m-0 col-12 col-lg-6 h-100">
+        <div class="container-xxl slide3 d-flex justify-content-center h-100 p-0 m-0 w-100 flex-wrap">
+            <div class="slider3 w-100 h-100 productSection p-0 m-0 d-flex justify-content-start flex-wrap">
+                <div class="window3 p-0 m-0 col-12 col-lg-6 h-100 mx-5">
                     <span onclick="_right3()" id="right3"><i class="bi bi-arrow-right-circle-fill"></i></span>
                     <span onclick="_left3()" id="left3"><i class="bi bi-arrow-left-circle-fill"></i></span>
                     <div id="bus3" class="w-100 h-100 p-0 m-0">
@@ -43,11 +43,20 @@
 
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 text p-4 mt-4">
+                <div class="col-12 col-lg-5 text p-4 ms-5">
                     <h2 class="pt-3">name: {{ product.title }}</h2>
                     <h6 class="py-2">id: {{ product.id }}</h6>
                     <h4 class="py-2">price: {{ product.price|three_digits_price }} </h4>
-                    <h4 class="py-2 pb-3">موجودی: available </h4>
+                    <h4 class="py-2">موجودی: available </h4>
+                    <div class="py-2 d-flex chooseColor">
+                        <h5>color: </h5>
+                        <div class="color m-2"></div>
+                        <div class="color m-2"></div>
+                        <div class="color m-2"></div>
+                        <div class="color m-2"></div>
+                        <div class="color m-2"></div>
+                        <div class="color m-2"></div>
+                    </div>
                     {% if product.brand %}
                         <h4 class="py-2 pb-3">brand: {{ product.brand }} </h4>
                     {% endif %}
@@ -73,7 +82,7 @@
                 </div>
 
 
-                <div class="col-12 p-0 m-0">
+                <div class="col-12 p-0 m-0 mt-4">
                     <ul class="col-12 p-0 m-0 d-flex justify-content-start align-items-center details">
                         <li class="d-block p-4 show">description</li>
                         <li class="d-block p-4 show">یادم نیست اینو</li>
@@ -118,43 +127,8 @@
 
 
             </div>
-            <div class="col-12 col-lg-4 productCategory h-100 p-0 m-0 pt-5">
-                <h5 class="pb-2 pt-4 ps-2">category</h5>
-                <div class="col-12 py-2">
-                    {% for category in categories %}
-                        <ul class="acc">
-                            <li data-status='off'>
-                                <div class="row1">
-                                    <h6>{{ category.title }}</h6>
-                                    <span><i>&gt;</i></span>
-                                </div>
-                                <div class="row2">
-                                    {% for sub_category in category.productcategory_set.all %}
-                                        <a href="">{{ sub_category.title }}</a>
-                                    {% endfor %}
-                                </div>
-                            </li>
-                        </ul>
-                    {% endfor %}
-
-                </div>
-                <div class="col-12 p-4">
-                    <div class="col-12 d-flex justify-content-between align-items-center px-2">
-                        <h4 class="h-100 col-6">brand </h4>
-                    </div>
-                    <form class="col-12 d-flex justify-content-between align-items-center px-4 py-2 flex-wrap"
-                          action="registerForm.php" method="post" name="filter">
-                        {% for brand in brands %}
-                            <input class="col-1" id="yes_{{ brand.id }}" type="checkbox" name="brand1">
-                            <label class="col-11" for="yes_{{ brand.id }}"><h5>{{ brand.title }}</h5></label>
-                        {% endfor %}
 
 
-                        <div class="col-12 rangeOfPrice">فیلتر قیمت</div>
-                        <button class="sendDetails">send</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 

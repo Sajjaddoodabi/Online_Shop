@@ -58,9 +58,9 @@ function check() {
 // ///////////////////////////////////////////////////////////////
 
 
-let x2 = document.getElementsByClassName('window2')[0].clientWidth
-let _fig2 = document.querySelectorAll('#bus2>figure')
-let _bus2 = document.getElementById('bus2')
+x2 = document.getElementsByClassName('window2')[0].clientWidth
+_fig2 = document.querySelectorAll('#bus2>figure')
+_bus2 = document.getElementById('bus2')
 let temp = 0
 _bus2.style.width = (_fig2.length * 220 + 320) + 'px'
 
