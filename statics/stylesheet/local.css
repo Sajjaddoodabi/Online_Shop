@@ -26,11 +26,17 @@
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 34%;
   }
-  .head {
-    border-bottom: 2px solid #282828;
+  .about {
+    height: 200px;
   }
-  .footer {
-    height: 300px;
+  .about {
+    height: 200px;
+  }
+  .link {
+    height: 200px;
+  }
+  .copy {
+    height: 100px;
   }
 }
 

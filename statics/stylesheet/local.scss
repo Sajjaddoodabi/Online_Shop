@@ -14,6 +14,9 @@
   //.productSection{
   //  width: 100%;
   //}
+  //  .mobileMenu {
+  //  border-bottom: 2px solid #282828;
+  //}
 }
 
 @media screen and (min-width: 576px) {
@@ -31,6 +34,9 @@
   //}
   //.productSection{
   //  width: 100%;
+  //}
+  //  .mobileMenu {
+  //  border-bottom: 2px solid #282828;
   //}
 }
 
@@ -50,22 +56,24 @@
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 34%;
   }
-  .head {
-    border-bottom: 2px solid #282828;
+  .about{
+    height: 200px;
   }
-  .footer{
-    height: 300px;
+  .about{
+    height: 200px;
   }
-  //  .productCategory{
-  //  width: 30%;
-  //}
-  //.productSection{
-  //  width: 70%;
-  //}
+  .link{
+    height: 200px;
+  }
+  .copy{
+    height: 100px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
-
+  //  .footer{
+  //  height: 600px;
+  //}
 }
 
 @media screen and (min-width: 1400px) {

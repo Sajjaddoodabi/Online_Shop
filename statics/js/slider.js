@@ -1,4 +1,4 @@
-let turn = 0
+let turn
 let x = document.getElementsByClassName('window')[0].clientWidth
 let _fig = document.querySelectorAll('#bus>figure')
 document.getElementById('bus').style.width = x * (_fig.length) + 'px'

@@ -130,42 +130,44 @@ document.getElementsByClassName('day')[0].innerHTML = "<i class=\"bi bi-calendar
 // /////////////////////////////////////////////////////////////////////
 
 
-
-let _row1 = document.querySelectorAll('.row1')
-let _row2 = document.querySelectorAll('.row2')
-_row1.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        if (_row1[index].parentElement.getAttribute('data-status') == 'off'){
-            for (let i = 0; i < _row2.length; i++) {
-                _row2[i].style.display = 'none'
-                _row1[i].parentElement.setAttribute('data-status' , 'off')
-                _row1[i].children[1].style.transform = 'rotate(0deg)'
-        }
-        _row2[index].style.display = 'block'
-        _row1[index].parentElement.setAttribute('data-status' , 'on')
-            _row1[index].children[1].style.transform = 'rotate(90deg)'
-        }
-        else {
-            for (let i = 0; i < _row2.length; i++) {
-                _row2[i].style.display = 'none'
-                _row1[i].parentElement.setAttribute('data-status' , 'off')
-                _row1[i].children[1].style.transform = 'rotate(0deg)'
-        }
-            _row1[index].parentElement.setAttribute('data-status' , 'off')
-            _row1[index].children[1].style.transform = 'rotate(0deg)'
-        }
-    })
-})
+// let _row1 = document.querySelectorAll('.row1')
+// for(let i = 0 ; i < _row1.length ; i ++){
+//     _row1[i].parentElement.setAttribute('data-status' , 'off')
+// }
+// let _row2 = document.querySelectorAll('.row2')
+// _row1.forEach((item, index) => {
+//     item.addEventListener('click', () => {
+//         alert(1)
+//         if (_row1[index].parentElement.getAttribute('data-status') == 'off') {
+//             for (let i = 0; i < _row2.length; i++) {
+//                 _row2[i].style.display = 'none'
+//                 _row1[i].parentElement.setAttribute('data-status', 'off')
+//                 _row1[i].children[1].style.transform = 'rotate(0deg)'
+//             }
+//             _row2[index].style.display = 'block'
+//             _row1[index].parentElement.setAttribute('data-status', 'on')
+//             _row1[index].children[1].style.transform = 'rotate(90deg)'
+//         } else {
+//             for (let i = 0; i < _row2.length; i++) {
+//                 _row2[i].style.display = 'none'
+//                 _row1[i].parentElement.setAttribute('data-status', 'off')
+//                 _row1[i].children[1].style.transform = 'rotate(0deg)'
+//             }
+//             _row1[index].parentElement.setAttribute('data-status', 'off')
+//             _row1[index].children[1].style.transform = 'rotate(0deg)'
+//         }
+//     })
+// })
 
 let _color = document.querySelectorAll('.chooseColor>.color')
 _color.forEach((item, index) => {
 
     item.addEventListener('click', () => {
         for (let i = 0; i < _color.length; i++) {
-            _color[i].style.outline= '0.6px solid #2d2d2d'
+            _color[i].style.outline = '0.6px solid #2d2d2d'
             _color[i].children[0].style.display = 'none'
         }
-        item.style.outline= '2px solid rgb(129, 189, 117)'
+        item.style.outline = '2px solid rgb(129, 189, 117)'
         item.children[0].style.display = 'block'
     })
 })
@@ -185,3 +187,13 @@ _showList.forEach((item, index) => {
         // item.children[0].style.display = 'block'
     })
 })
+// alert(document.getElementsByTagName('body')[0].)
+// document.getElementsByClassName('line')[0].addEventListener('click', (event) => {
+//     alert(1)
+//     num = ((event.screenX))
+//     console.log(num)
+//         /// (m.clientWidth))
+//     // document.getElementsByClassName('line')[0].style.width = event. + '%'
+//     // num = (num * height) / 100
+//     // m.scrollTo(0, num)
+// })
