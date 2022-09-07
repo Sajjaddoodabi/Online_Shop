@@ -7,104 +7,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid d-flex justify-content-center p-0 m-0 bg-danger screenF">
-        <div class="container-xxl d-flex justify-content-center h-100 p-0 m-0 w-100 flex-wrap bg-warning">
-            <div class="col-12 col-lg-8 p-0 m-0 d-flex justify-content-evenly flex-wrap bg-success pt-5">
+    <div class="container-fluid d-flex justify-content-center p-0 m-0 screenF">
+        <div class="container-xxl d-flex justify-content-center h-100 p-0 m-0 w-100 flex-wrap">
+            <div class="col-12 col-lg-8 p-0 m-0 d-flex justify-content-evenly flex-wrap pt-5">
                 {% include 'product_module/includes/product_list_component.html' %}
-
-                <div class="col-12 bg-info bg-success productList">
-                    <div class="col-12 d-flex justify-content-evenly flex-wrap">
-                        <figure class="list">
-                            <div>
-                                طول 220 و عرض200
-                            </div>
-                            <h4 class="d-flex justify-content-center align-items-center">قیمت : 587970$</h4>
-                            <a class="d-flex justify-content-center align-items-center" href="">مشاهده ی جزییات</a>
-                            <a class="d-flex justify-content-center align-items-center" href="">add to cart<i
-                                    class="bi bi-cart-plus"></i></a>
-                        </figure>
-                        <figure class="list">
-                            <div>2</div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                    </div>
-                </div>
-
-                <div class="col-12 bg-info bg-success productList">
-                    <div class="col-12">
-                        <figure class="list">
-                            <div>
-                                طول 220 و عرض200
-                            </div>
-                            <h4 class="d-flex justify-content-center align-items-center">قیمت : 587970$</h4>
-                            <a class="d-flex justify-content-center align-items-center" href="">مشاهده ی جزییات</a>
-                            <a class="d-flex justify-content-center align-items-center" href="">add to cart<i
-                                    class="bi bi-cart-plus"></i></a>
-                        </figure>
-                        <figure class="list">
-                            <div>3</div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                        <figure class="list">
-                            <div></div>
-                        </figure>
-                    </div>
-                </div>
 
                 <div class="col-12 bg-white d-flex justify-content-center align-items-center">
                     <span class="showList d-flex justify-content-center align-items-center" href="">1</span>
@@ -146,9 +52,9 @@
                         {% endfor %}
 
 
-                        <div class="col-12 rangeOfPrice bg-danger">
-                            <h6 class="col-12 bg-warning">price filter</h6>
-                            <div class="col-12 bg-success line1">
+                        <div class="col-12 rangeOfPrice">
+                            <h6 class="col-12">price filter</h6>
+                            <div class="col-12 line1">
                                 <div class="line"></div>
                                 <h2 class="col-12 txtFilter"></h2>
                             </div>

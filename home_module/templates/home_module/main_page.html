@@ -10,8 +10,8 @@
         <div class="container-xxxl slide d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">
             <div class="row slider h-100 w-100 p-0 m-0">
                 <div class="window p-0 m-0 w-100 h-100">
-                    <span onclick="_right()" id="right"><i class="bi bi-arrow-right-short"></i></span>
-                    <span onclick="_left()" id="left"><i class="bi bi-arrow-left-short"></i></span>
+                    <span id="right"><i class="bi bi-arrow-right-short"></i></span>
+                    <span id="left"><i class="bi bi-arrow-left-short"></i></span>
                     <div id="bus" class="w-100 h-100 p-0 m-0">
                         {% for slider in sliders %}
                             <figure class="col-12">
@@ -72,7 +72,7 @@
                         {% for product in newest_products %}
                             <figure>
                                 <div>
-                                    {% thumbnail product.image "248x199" crop='center' as im %}
+                                    {% thumbnail product.image "260x200" crop='center' as im %}
                                         <img src="{{ im.url }}" alt="">
                                     {% endthumbnail %}
                                 </div>

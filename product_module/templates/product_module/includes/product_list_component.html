@@ -1,7 +1,7 @@
 {% load poll_extras %}
 {% load thumbnail %}
 
-<div class="col-12 bg-info bg-success productList">
+<div class="col-12 productList">
     <div class="col-12 d-flex justify-content-evenly flex-wrap">
         {% for product in products %}
             {% for category in product.category.all %}

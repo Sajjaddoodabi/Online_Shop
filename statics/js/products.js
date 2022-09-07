@@ -161,7 +161,6 @@ document.getElementsByClassName('day')[0].innerHTML = "<i class=\"bi bi-calendar
 
 let _color = document.querySelectorAll('.chooseColor>.color')
 _color.forEach((item, index) => {
-
     item.addEventListener('click', () => {
         for (let i = 0; i < _color.length; i++) {
             _color[i].style.outline = '0.6px solid #2d2d2d'

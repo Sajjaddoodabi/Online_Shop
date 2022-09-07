@@ -1,58 +1,56 @@
-let turn
-let x = document.getElementsByClassName('window')[0].clientWidth
-let _fig = document.querySelectorAll('#bus>figure')
-document.getElementById('bus').style.width = x * (_fig.length) + 'px'
-for (let i = 0; i < _fig.length; i++) {
-    _fig[i].style.width = x + 'px'
+let mainSliderWidth = document.getElementsByClassName('window')[0].clientWidth
+let _figure = document.querySelectorAll('#bus>figure')
+document.getElementById('bus').style.width = mainSliderWidth * (_figure.length) + 'px'
+let numberOfSlide = 0
+for (let i = 0; i < _figure.length; i++) {
+    _figure[i].style.width = mainSliderWidth + 'px'
 }
 
-let y = document.querySelectorAll('.thumbnail>.thumb')
-y.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        for (let i = 0; i < y.length; i++) {
-            y[i].style.transform = 'scaleX(1)'
-            // y[i].style.backgroundColor = 'grey'
-        }
-        index--
-        turn = index
-        _right()
-        item.style.transform = 'scaleX(2)'
-        // item.style.backgroundColor = 'black'
-    })
+let _mainSliderThumbnail = document.querySelectorAll('.thumbnail>.thumb')
+
+document.getElementById('right').addEventListener('click', () => {
+    numberOfSlide++
+    document.getElementById('bus').style.transform = 'translateX(-' + (numberOfSlide * mainSliderWidth) + 'px)'
+    checkNumberOfSlide()
 })
 
-function _right() {
-    turn++
-    move()
-}
+document.getElementById('left').addEventListener('click', () => {
+    numberOfSlide--
+    document.getElementById('bus').style.transform = 'translateX(-' + (numberOfSlide * mainSliderWidth) + 'px)'
+    checkNumberOfSlide()
+})
 
-function _left() {
-    turn--
-    move()
-}
-
-function move() {
-    for (let i = 0; i < y.length; i++) {
-        y[i].style.transform = 'scaleX(1)'
-        // y[i].style.backgroundColor = 'grey'
-    }
-    document.getElementById('bus').style.transform = 'translateX(-' + (turn * x) + 'px)'
-    y[turn].style.transform = 'scaleX(2)'
-    check()
-}
-
-function check() {
-    if (turn == 0) {
+function checkNumberOfSlide() {
+    if (numberOfSlide == 0) {
         document.getElementById('left').style.display = 'none'
     } else {
-        if (turn >= 0 && turn < (_fig.length - 1)) {
-            document.getElementById('right').style.display = 'block'
-        } else {
-            document.getElementById('right').style.display = 'none'
-        }
+        document.getElementById('left').style.display = 'block'
     }
-    document.getElementById('left').style.display = 'block'
+    if (numberOfSlide == _figure.length - 1) {
+        document.getElementById('right').style.display = 'none'
+    } else {
+        document.getElementById('right').style.display = 'block'
+    }
+    for (let i = 0; i < _figure.length; i++) {
+        _mainSliderThumbnail[i].style.backgroundColor = 'grey'
+    }
+    _mainSliderThumbnail[numberOfSlide].style.backgroundColor = 'rgb(129, 189, 117)'
 }
+
+_mainSliderThumbnail.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        if (index > numberOfSlide) {
+            numberOfSlide = index
+            document.getElementById('bus').style.transform = 'translateX(-' + (numberOfSlide * mainSliderWidth) + 'px)'
+            checkNumberOfSlide()
+        } else {
+            numberOfSlide = index
+            document.getElementById('bus').style.transform = 'translateX(-' + (numberOfSlide * mainSliderWidth) + 'px)'
+            checkNumberOfSlide()
+        }
+    })
+
+})
 
 
 // ///////////////////////////////////////////////////////////////
