@@ -362,8 +362,8 @@
 
 .classification {
   border: 2px solid black;
-  //min-height: 400px;
-  //background-color: rgb(129, 189, 117);
+  width: 324px;
+  height: 160px;
 }
 
 .slide2 {
@@ -937,4 +937,10 @@
   background-color: rgb(129, 189, 117);
   height: 16px;
   width: 0;
+}
+
+.aboutImage{
+  width: 474px;
+  height: 160px;
+  border: 2px solid black;
 }

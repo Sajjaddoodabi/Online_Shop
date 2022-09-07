@@ -41,7 +41,7 @@
                 <h2 class="d-flex justify-content-center align-items-center p-4">classification of goods</h2>
                 <div class="d-flex justify-content-center align-items-center flex-wrap">
                     {% for category in categories %}
-                        <div class="classification col-6 col-md-4 col-lg-3">
+                        <div class="classification">
                             <a class="w-100 h-100 d-block" href="">
                                 {% thumbnail category.image "320x100" crop='center' as im %}
                                     <img src="{{ im.url }}" alt="">
