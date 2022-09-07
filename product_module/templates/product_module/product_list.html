@@ -9,7 +9,7 @@
 {% block content %}
     <div class="container-fluid d-flex justify-content-center p-0 m-0 screenF">
         <div class="container-xxl d-flex justify-content-center h-100 p-0 m-0 w-100 flex-wrap">
-            <div class="col-12 col-lg-8 p-0 m-0 d-flex justify-content-evenly flex-wrap pt-5">
+            <div class="col-12 col-lg-8 p-0 m-0 d-flex justify-content-between flex-wrap pt-5">
                 {% include 'product_module/includes/product_list_component.html' %}
 
                 <div class="col-12 bg-white d-flex justify-content-center align-items-center">
@@ -21,8 +21,8 @@
 
 
             <div class="col-12 col-lg-4 productCategory h-100 p-0 m-0 pt-5">
-                <h5 class="pb-2 ps-2">category</h5>
-                <div class="col-12 py-2">
+                <h5 class="pb-1">category</h5>
+                <div class="col-12">
                     {% for category in categories %}
                         <ul class="acc">
                             <li data-status='off'>
@@ -40,7 +40,7 @@
                     {% endfor %}
 
                 </div>
-                <div class="col-12 py-4">
+                <div class="col-12 py-2">
                     <div class="col-12 d-flex justify-content-between align-items-center">
                         <h4 class="h-100 col-6">brand </h4>
                     </div>
@@ -52,11 +52,14 @@
                         {% endfor %}
 
 
-                        <div class="col-12 rangeOfPrice">
-                            <h6 class="col-12">price filter</h6>
-                            <div class="col-12 line1">
-                                <div class="line"></div>
-                                <h2 class="col-12 txtFilter"></h2>
+                        <div class="col-12 d-flex flex-wrap pt-4">
+                            <div class="col-12 d-flex priceFilter">
+                                <h6>price filter &nbsp; &nbsp;</h6>
+                                <span> &gt;</span>
+                            </div>
+                            <div class="rangeOfPrice" data-status="off">
+                                <div class="col-12 p-2"><input type="number"></div>
+                                <div class="col-12 p-2"><input type="number"></div>
                             </div>
                         </div>
                         <button class="sendDetails">filter</button>

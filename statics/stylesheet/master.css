@@ -586,11 +586,10 @@
 .acc > li {
   width: 100%;
   list-style-type: none;
-  border-bottom: 20px;
 }
 
 .acc > li > .row1 {
-  height: 40px;
+  height: 20px;
   cursor: pointer;
   display: flex;
   flex-wrap: nowrap;
@@ -735,16 +734,26 @@
   background-color: rgb(129, 189, 117);
 }
 
-.line {
-  background-color: rgb(129, 189, 117);
-  height: 16px;
-  width: 0;
-}
-
 .aboutImage {
   width: 474px;
   height: 160px;
   border: 2px solid black;
+}
+
+.rangeOfPrice {
+  display: none;
+}
+
+.priceFilter {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.priceFilter > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
 }
 
 /*# sourceMappingURL=master.css.map */

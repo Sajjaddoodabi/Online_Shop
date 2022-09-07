@@ -746,11 +746,11 @@
 .acc > li {
   width: 100%;
   list-style-type: none;
-  border-bottom: 20px;
+  //border-bottom: 20px;
 }
 
 .acc > li > .row1 {
-  height: 40px;
+  height: 20px;
   cursor: pointer;
   display: flex;
   flex-wrap: nowrap;
@@ -795,14 +795,11 @@
 }
 
 .recentComment {
-  //border: 0.6px solid #2d2d2d;
-  //border-radius: 6px;
   display: flex;
 }
 
 .customer {
   img {
-    //border: 2px solid black;
     width: 100px;
     height: 100px;
   }
@@ -810,7 +807,6 @@
   border: 2px solid black;
   width: 100px;
   height: 100px;
-  //display: inline-block;
 }
 
 .answer{
@@ -818,11 +814,8 @@
   height: 40px;
   >a{
     position: absolute;
-    //border: none;
     border-radius: 6px;
     background-color: rgb(129, 189, 117);
-    //padding: 6px 20px;
-    //margin: 8px 6% 16px 10%;
     width: 80px;
     height: 100%;
     right: 5%;
@@ -832,9 +825,6 @@
   }
 }
 
-//input[type="checkbox"]{
-//  color: rgb(129, 189, 117);
-//}
 .color{
   width: 20px;
   height: 20px;
@@ -842,7 +832,6 @@
   border: 0.4px solid #2d2d2d;
   outline: 0.6px solid #2d2d2d;
   outline-offset: 3px;
-  //padding: 2px;
   cursor: pointer;
   position: relative;
   >.choose{
@@ -877,26 +866,6 @@
     background-color: plum;
   }
 }
-//.chooseColor{
-//  overflow-x: scroll;
-//}
-//.productList{
-//  //display: flex;
-//  //justify-content: space-evenly;
-//  //align-items: center;
-//  //flex-wrap: wrap;
-//  background-color: plum;
-//  >.list{
-//    width: 400px;
-//    height: 300px;
-//    border: 2px solid black;
-//    background-color: plum;
-//  }
-//}
-
-
-
-
 
 .list{
   width: 260px;
@@ -933,14 +902,30 @@
   }
 }
 
-.line{
-  background-color: rgb(129, 189, 117);
-  height: 16px;
-  width: 0;
-}
+//.line{
+//  background-color: rgb(129, 189, 117);
+//  height: 16px;
+//  width: 0;
+//}
 
 .aboutImage{
   width: 474px;
   height: 160px;
   border: 2px solid black;
+}
+
+.rangeOfPrice{
+  display: none;
+}
+
+.priceFilter{
+    display: flex;
+  justify-content: start;
+  align-items: center;
+  >span{
+      display: flex;
+  justify-content: center;
+  align-items: center;
+    transition: 1s;
+  }
 }
