@@ -56,34 +56,44 @@ _mainSliderThumbnail.forEach((item, index) => {
 // ///////////////////////////////////////////////////////////////
 
 
-x2 = document.getElementsByClassName('window2')[0].clientWidth
-_fig2 = document.querySelectorAll('#bus2>figure')
-_bus2 = document.getElementById('bus2')
-let temp = 0
-_bus2.style.width = (_fig2.length * 220 + 320) + 'px'
+let _win = document.querySelectorAll('.window2')
+_win.forEach((item, index) => {
+    item.setAttribute('horizontalMove', '0')
+})
 
-function _right2() {
-    temp += 200
-    _bus2.style.left = -temp + 'px'
-    check2()
-}
-
-function _left2() {
-    temp -= 200
-    _bus2.style.left = -temp + 'px'
-    check2()
-}
-
-function check2() {
-    if (temp >= 200) {
-        document.getElementById('left2').style.display = 'block'
+let moveRight = document.querySelectorAll('.right2')
+moveRight.forEach((item, index) => {
+    // let horizontalMove = parseInt(item.parentElement.getAttribute('horizontalMove'))
+    let _figureContainer = document.getElementsByClassName('bus2')[index]
+    let _imageContainer = _figureContainer.children[1]
+    _figureContainer.style.width = (_imageContainer * 220 + 320) + 'px'
+    if (_figureContainer.clientWidth >= document.getElementsByTagName('body')[0].clientWidth) {
+        item.addEventListener('click', (event) => {
+            document.getElementsByClassName('left2')[index].style.display = 'block'
+            if (parseInt(item.parentElement.getAttribute('horizontalMove')) <= (_figureContainer.clientWidth - document.getElementsByTagName('body')[0].clientWidth)) {
+                item.parentElement.setAttribute('horizontalMove', (parseInt(item.parentElement.getAttribute('horizontalMove')) + 200).toString())
+                _figureContainer.style.left = -parseInt(item.parentElement.getAttribute('horizontalMove')) + 'px'
+            }
+            if (parseInt(item.parentElement.getAttribute('horizontalMove')) >= (_figureContainer.clientWidth - document.getElementsByTagName('body')[0].clientWidth)) {
+                document.getElementsByClassName('right2')[index].style.display = 'none'
+            }
+        })
     } else {
-        document.getElementById('left2').style.display = 'none'
+        item.style.display = 'none'
     }
-    if (temp >= (_bus2.clientWidth - 50 - x2)) {
-        // alert(1)
-        document.getElementById('right2').style.display = 'none'
-    } else {
-        document.getElementById('right2').style.display = 'block'
-    }
-}
+})
+
+
+let moveLeft = document.querySelectorAll('.left2')
+moveLeft.forEach((item, index) => {
+    let _figureContainer = document.getElementsByClassName('bus2')[index]
+    let _imageContainer = _figureContainer.children[1]
+    _figureContainer.style.width = (_imageContainer * 220 + 320) + 'px'
+    item.addEventListener('click', (event) => {
+        item.parentElement.setAttribute('horizontalMove', (parseInt(item.parentElement.getAttribute('horizontalMove')) - 200).toString())
+        _figureContainer.style.left = -parseInt(item.parentElement.getAttribute('horizontalMove')) + 'px'
+        if (parseInt(item.parentElement.getAttribute('horizontalMove')) <= 0) {
+            document.getElementsByClassName('left2')[index].style.display = 'none'
+        }
+    })
+})
