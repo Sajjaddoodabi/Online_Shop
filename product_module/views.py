@@ -1,8 +1,9 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 
 from product_module.forms import PriceFilterForm
-from product_module.models import Product, ProductGallery, ProductCategory, ProductBrand
+from product_module.models import Product, ProductGallery, ProductCategory, ProductBrand, ProductComment
 
 
 class ProductDetail(DetailView):
@@ -15,6 +16,8 @@ class ProductDetail(DetailView):
         context['product_pictures'] = ProductGallery.objects.filter(product_id=loaded_product.id).all()
         context['similar_products'] = Product.objects.filter(brand_id=loaded_product.brand_id).all().exclude(
             id=loaded_product.id)[:10]
+        context['comments'] = ProductComment.objects.filter(product_id=loaded_product.id, is_delete=False).order_by('-date')
+        context['comment_count'] = ProductComment.objects.filter(product_id=loaded_product.id, is_delete=False).count()
 
         return context
 
@@ -58,3 +61,20 @@ class ProductList(ListView):
             query = query.filter(brand__url_title__iexact=brand)
 
         return query
+
+
+def add_product_comment(request: HttpRequest):
+    if request.user.is_authenticated:
+        product_id = request.GET.get('product_id')
+        product_comment = request.GET.get('product_comment')
+
+        new_comment = ProductComment(user_id=request.user.id ,product_id=product_id, text=product_comment)
+        new_comment.save()
+
+        context = {
+            'comments': ProductComment.objects.filter(product_id=product_id, is_delete=False).order_by('-date'),
+            'comment_count': ProductComment.objects.filter(product_id=product_id, is_delete=False).count()
+        }
+        return render(request, 'product_module/includes/product_comment_component.html', context)
+
+    return HttpResponse('salam')

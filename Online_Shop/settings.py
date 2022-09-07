@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     # external_apps
     'phonenumbers',
     'django_render_partial',
-    'sorl.thumbnail'
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

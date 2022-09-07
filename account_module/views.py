@@ -1,7 +1,7 @@
 import re
 from random import randint
 
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.http import HttpRequest, HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -124,24 +124,28 @@ class LoginView(View):
             if user is not None:
                 if not user.is_active:
                     form.add_error('username', 'this account is not active')
-                    print('account not active')
                 else:
                     is_correct_password = user.check_password(password)
                     if is_correct_password:
                         login(request, user)
-                        return HttpResponse('logined')
+                        return redirect(reverse('home_page'))
                     else:
                         form.add_error('username', 'user with this details does not exists')
-                        print('pass not corr')
             else:
                 form.add_error('username', 'user with this details does not exists')
-                print('username not found')
 
         context = {
             'form': form
         }
 
         return render(request, 'account_module/login_page.html', context)
+
+
+class LogoutView(View):
+    def get(self, request: HttpRequest):
+        logout(request)
+
+        return redirect(reverse('home_page'))
 
 
 class ForgotPassView(View):

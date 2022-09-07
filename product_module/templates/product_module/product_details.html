@@ -107,36 +107,54 @@
                         <p><b>name: </b>kdkplp</p>
                         <p><b>name: </b>kdkplp</p>
                     </div>
-                    <div class="col-12 p-4 txt">
-                        <div class="row ps-4">
-                            <h6 class="commentTitle col-4"><i class="bi bi-person"></i>اسم مشتری </h6>
-                            <h6 class="commentTitle col-4 day"></h6>
-                            <h6 class="commentTitle col-4 time"></h6>
-                        </div>
+                    <div class="col-12 p-4 txt" id="comment_area">
+
+                        <h4 class="commentTitle col-4"><i></i>comments({{ comment_count }})</h4>
                         <div class="row ps-5 py-4 recentComment">
-                            <div class="customer col-3 p-0 m-0">
-                                <a>
-                                    100 * 100
-                                </a>
-                            </div>
-                            <div class="customerComment col-6 d-flex flex-wrap">
-                                <h6 class="commentTitle col-4"><i class="bi bi-person"></i>اسم مشتری</h6>
-                                <h6 class="commentTitle col-4"><i class="bi bi-calendar2"></i>تاریخ</h6>
-                                <h6 class="commentTitle col-4"><i class="bi bi-watch"></i>ساعت</h6>
-                                <p class="col-12">نظر</p>
-                                <div class="col-12 answer"><a href="">پاسخ</a></div>
-                            </div>
+                            {% for comment in comments %}
+                                <div class="customer col-3 p-0 m-0">
+                                    <a>
+                                        {% if comment.user.avatar %}
+                                            {% thumbnail comment.user.avatar "100x100" crop='center' as im %}
+                                                <img src="{{ im.url }}" alt="">
+                                            {% endthumbnail %}
+                                        {% else %}
+                                            <img src="/statics/images/Customer.jpg" alt="">
+
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="customerComment col-6 d-flex flex-wrap">
+                                    <h6 class="commentTitle col-4"><i
+                                            class="bi bi-person"></i>{{ comment.user.username }}</h6>
+                                    <h6 class="commentTitle col-4"><i
+                                            class="bi bi-calendar2"></i>{{ comment.date | date }}</h6>
+                                    <h6 class="commentTitle col-4"><i
+                                            class="bi bi-watch"></i>{{ comment.date | time}}</h6>
+                                    <p class="col-12">{{ comment.text }}</p>
+                                </div>
+                            {% endfor %}
+
+                            {% if comment_count == 0 %}
+                                <p>there are no comments here</p>
+                                {% if request.user.is_authenticated %}
+                                    <p>Be the First one...</p>
+                                {% endif %}
+                            {% endif %}
+
                         </div>
-                        <form class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
-                              action="registerForm.php" method="post" autocomplete="off">
-                        <textarea class="col-10 col-lg-6 me-5" name="comment" id="" cols="30" rows="10"
+                        {% if request.user.is_authenticated %}
+                            <div class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
+                                 action="registerForm.php" method="post" autocomplete="off">
+                        <textarea class="col-10 col-lg-6 me-5" name="comment" id="text_area" cols="30" rows="10"
                                   placeholder="write here..."></textarea>
-                            <button class="col-4 me-5">send</button>
-                        </form>
+                                <button onclick="addProductComment({{ product.id }})" class="col-4 me-5">send</button>
+                            </div>
+                        {% else %}
+                            <p>you should <a href="{% url 'login_page' %}"> login </a> if you want to add comment</p>
+                        {% endif %}
                     </div>
                 </div>
-
-
             </div>
 
 
@@ -169,7 +187,8 @@
                                 </div>
                                 <figcaption
                                         class="d-flex justify-content-center align-items-center">{{ similar_product.title }}</figcaption>
-                                <a href="{% url 'product_detail' slug=similar_product.slug %}" class="d-flex justify-content-center align-items-center">show details</a>
+                                <a href="{% url 'product_detail' slug=similar_product.slug %}"
+                                   class="d-flex justify-content-center align-items-center">show details</a>
                                 <a href="" class="d-flex justify-content-center align-items-center">add to cart<i
                                         class="bi bi-cart-plus"></i></a>
                             </figure>
