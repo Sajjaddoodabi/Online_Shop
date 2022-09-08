@@ -796,9 +796,13 @@
 
 .recentComment {
   display: flex;
+  //border: 2px solid black;
+  width: 75%;
 }
 
 .customer {
+  //width: 25%;
+
   img {
     width: 100px;
     height: 100px;
@@ -807,7 +811,14 @@
   border: 2px solid black;
   width: 100px;
   height: 100px;
+  //padding-bottom: 10px;
 }
+
+//.customerComment{
+//  //border: 2px solid black;
+//  //margin-bottom: 10px;
+//  //width: 75%;
+//}
 
 .answer{
   position: relative;
@@ -901,12 +912,6 @@
     background-color: rgb(129, 189, 117);
   }
 }
-
-//.line{
-//  background-color: rgb(129, 189, 117);
-//  height: 16px;
-//  width: 0;
-//}
 
 .aboutImage{
   width: 474px;

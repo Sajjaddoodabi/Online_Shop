@@ -628,6 +628,7 @@
 
 .recentComment {
   display: flex;
+  width: 75%;
 }
 
 .customer {
