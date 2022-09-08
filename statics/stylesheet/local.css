@@ -5,6 +5,15 @@
   .footerS {
     border-bottom: 2px solid #282828;
   }
+  .customerComment {
+    width: 100%;
+  }
+  .commentTitle {
+    width: 50%;
+  }
+  .commentTitle:nth-of-type(1) {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 576px) {
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
@@ -12,6 +21,15 @@
   }
   .footerS {
     border-bottom: 2px solid #282828;
+  }
+  .customerComment {
+    width: 100%;
+  }
+  .commentTitle {
+    width: 50%;
+  }
+  .commentTitle:nth-of-type(1) {
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -34,6 +52,15 @@
   }
   .copy {
     height: 100px;
+  }
+  .customerComment {
+    width: 80%;
+  }
+  .commentTitle {
+    width: 33%;
+  }
+  .commentTitle:nth-of-type(1) {
+    width: 34%;
   }
 }
 
