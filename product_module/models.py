@@ -54,3 +54,16 @@ class ProductGallery(models.Model):
 
     def __str__(self):
         return self.product.title
+
+
+class ProductComment(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    text = models.TextField()
+    is_delete = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.product.title} - {self.user.username}'
+
+

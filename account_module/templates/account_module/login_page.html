@@ -9,11 +9,21 @@
         <div class="container-xxl d-flex justify-content-center align-items-center">
             <form class="loginForm d-flex justify-content-center align-items-center flex-wrap h-50 p-4"
                   action="{% url 'login_page' %}" method="post" name="log">
+                {% csrf_token %}
                 {% comment %}<input class="col-9" type="text" placeholder="enter your user name or email" name="fullName">
             <span class="error col-9"></span>
             <input class="col-9" type="password" placeholder="password" name="pass">
             <span class="error col-9"></span>{% endcomment %}
-                {{ form }}
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+                <br>
+
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {{ form.password.errors }}
+
+
                 <button class="col-9">send</button>
             </form>
         </div>

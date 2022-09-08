@@ -12,24 +12,46 @@
 
             <header class="col-9 col-lg-9 h-50 p-0 m-0 row">
                 <ul class="col-12 h-100 d-flex justify-content-end align-items-center p-0">
-                    <li class="h-100">
-                        <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="">account <i
-                                class="bi bi-person"></i></a>
-                    </li>
-                    <li class="h-100">
-                        <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="">cart <i class="bi bi-cart"></i></a>
-                    </li>
-                    <li class="h-100">
-                        <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="">favorites <i
-                                class="bi bi-star-fill"></i></a>
-                    </li>
-                    <li class="h-100">
-                        <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href=""><i class="bi bi-bell"></i></a>
-                    </li>
-                    <li class="h-100 px-1">
-                        <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="{% url 'login_page' %}">login <i
-                                class="bi bi-box-arrow-in-left"></i></a>
-                    </li>
+                    {% if request.user.is_authenticated %}
+
+                        <li class="h-100">
+                            <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="{% url 'logout_page' %}"> exist <i
+                                    class="fa fa-sign-out"></i> </a>
+                        </li>
+
+
+                        <li class="h-100">
+                            <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="">cart <i class="bi bi-cart"></i></a>
+                        </li>
+                        <li class="h-100">
+                            <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="">favorites <i
+                                    class="bi bi-star-fill"></i></a>
+                        </li>
+
+
+                        <li class="h-100">
+                            <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href=""><i class="bi bi-bell"></i></a>
+                        </li>
+
+                        <li class="h-100">
+                            <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="">account <i
+                                    class="bi bi-person"></i></a>
+                        </li>
+
+                    {% else %}
+                        <li class="h-100 px-1">
+                            <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="{% url 'login_page' %}">login <i
+                                    class="bi bi-box-arrow-in-left"></i></a>
+                        </li>
+
+                        <li class="h-100 px-1">
+                            <a class="d-block h-100 w-100 py-4 px-1 px-lg-3" href="{% url 'register_email_page' %}">
+                                register <i
+                                    class="bi bi-box-arrow-in-left"></i></a>
+                        </li>
+                    {% endif %}
+
+
                 </ul>
             </header>
 
@@ -60,6 +82,8 @@
                                                     </svg>
                                                     {{ category.title }}</a>
                                                 <div class="box2">
+                                                    <a href="{% url 'product_list' category=category.url_title %}">all
+                                                        products in this category -> </a>
                                                     {% for sub_category in category.productcategory_set.all %}
                                                         <a href="{% url 'product_list' category=sub_category.url_title %}">{{ sub_category.title }}</a>
                                                         {% if sub_category.productcategory_set.all %}
