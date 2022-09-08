@@ -7,6 +7,11 @@ function addProductComment(productId) {
     }).then(res => {
         $('#comment_area').html(res);
         $('#text_area').val('');
+        Swal.fire(
+            'Submitted!',
+            'Your comment successfully submitted!',
+            'success'
+        )
 
         document.getElementById('comment_area').scrollIntoView({behavior: 'smooth'})
     })
