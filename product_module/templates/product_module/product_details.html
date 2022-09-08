@@ -73,17 +73,19 @@
                     {% endif %}
                     <div class="add">
                         <div class="w-100 my-2 h-100 py-2">
-                            <span class="addToCart h-100">add to cart</span>
+                            <span class="addToCart h-100"
+                                  onclick="addProductToCart({{ product.id }})">add to cart
+                            </span>
                         </div>
                         <div class="w-100 count">
                             <div class="col-12 p-2 d-flex justify-content-start align-items-center">
-                                <div class="counter d-flex justify-content-center align-items-center">
+                                {% comment %}<div class="counter d-flex justify-content-center align-items-center">
                                     <div class="p-3 d-flex justify-content-center align-items-center">
                                         <i class="bi bi-trash"></i>
                                     </div>
                                     <h4 class="my-2 d-flex justify-content-center align-items-center">1</h4>
                                     <div class="p-2 d-flex justify-content-center align-items-center">+</div>
-                                </div>
+                                </div>{% endcomment %}
                             </div>
                             <div class="col-12 p-3 d-flex justify-content-start align-items-center">
                                 <a href="">برو سبد خریدتو ببین</a>
@@ -130,7 +132,7 @@
                                     <h6 class="commentTitle col-4"><i
                                             class="bi bi-calendar2"></i>{{ comment.date | date }}</h6>
                                     <h6 class="commentTitle col-4"><i
-                                            class="bi bi-watch"></i>{{ comment.date | time}}</h6>
+                                            class="bi bi-watch"></i>{{ comment.date | time }}</h6>
                                     <p class="col-12">{{ comment.text }}</p>
                                 </div>
                             {% endfor %}

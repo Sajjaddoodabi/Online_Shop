@@ -20,9 +20,6 @@ class Order(models.Model):
             else:
                 total_price += order_detail.product.price * order_detail.count
 
-        tax = int(total_price * (9 / 100))
-        total_price += tax
-
         return total_price
 
 

@@ -16,3 +16,9 @@ function addProductComment(productId) {
         document.getElementById('comment_area').scrollIntoView({behavior: 'smooth'})
     })
 }
+
+function addProductToCart(productId) {
+    $.get('/order/add-to-order?product_id=' + productId).then(res => {
+        console.log('done');
+    });
+}
