@@ -47,28 +47,27 @@ _delProduct.forEach((item, index) => {
     })
 })
 
-_returnP.forEach((item , index) =>{
-    item.addEventListener('click' , ()=>{
+_returnP.forEach((item, index) => {
+    item.addEventListener('click', () => {
         _cartProduct[index].style.display = 'flex'
         _returnProduct[index].style.display = 'none'
     })
 })
 
-_deleteP.forEach((item , index) =>{
-    item.addEventListener('click' , ()=>{
+_deleteP.forEach((item, index) => {
+    item.addEventListener('click', () => {
         _returnProduct[index].style.display = 'none'
     })
 })
 
-document.getElementsByClassName('showDiscountCode')[0].addEventListener('click' , ()=>{
-    if(document.getElementsByClassName('showDiscountCode')[0].getAttribute('data-status') == 'off'){
+document.getElementsByClassName('showDiscountCode')[0].addEventListener('click', () => {
+    if (document.getElementsByClassName('showDiscountCode')[0].getAttribute('data-status') == 'off') {
         document.getElementsByClassName('showDiscountCode')[0].children[0].style.transform = 'rotate(90deg)'
-        document.getElementsByClassName('showDiscountCode')[0].setAttribute('data-status' , 'on')
+        document.getElementsByClassName('showDiscountCode')[0].setAttribute('data-status', 'on')
         document.getElementsByClassName('discountCode')[0].style.display = 'block'
-    }
-    else {
+    } else {
         document.getElementsByClassName('showDiscountCode')[0].children[0].style.transform = 'rotate(0deg)'
-        document.getElementsByClassName('showDiscountCode')[0].setAttribute('data-status' , 'off')
+        document.getElementsByClassName('showDiscountCode')[0].setAttribute('data-status', 'off')
         document.getElementsByClassName('discountCode')[0].style.display = 'none'
     }
 })
