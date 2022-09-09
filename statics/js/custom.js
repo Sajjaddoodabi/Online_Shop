@@ -21,10 +21,20 @@ function addProductComment(productId) {
 }
 
 function addProductToCart(productId) {
-    var count = $('#product-count').val();
-    $.get('/order/add-to-order?product_id=' + productId + '&count=' + count).then(res => {
-        // todo add sweet alert
-        console.log('done');
+    $.get('/order/add-to-order?product_id=' + productId).then(res => {
+        Swal.fire({
+            title: 'announce',
+            text: res.text,
+            icon: res.icon,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: res.confirmButtonText
+        }).then((result) => {
+            if (result.isConfirmed && res.status === 'not_auth') {
+                window.location.href = '/account/login'
+            }
+        })
+
     });
 }
 

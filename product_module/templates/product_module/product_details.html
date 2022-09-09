@@ -79,15 +79,19 @@
                         </div>
                         <div class="w-100 count">
                             <div class="col-12 p-2 d-flex justify-content-start align-items-center">
-                                <div class="counter d-flex justify-content-center align-items-center" >
-                                    <div class="p-3 d-flex justify-content-center align-items-center">
+                                <div class="counter d-flex justify-content-center align-items-center">
+                                    <div class="p-3 d-flex justify-content-center align-items-center"
+                                         onclick="changeProductCount({{ detail_order.id }}, 'decrease')">
                                         <i class="bi bi-trash"></i>
                                     </div>
-                                    <h4  class="my-2 d-flex justify-content-center align-items-center">1</h4>
-                                    <div class="p-2 d-flex justify-content-center align-items-center">+</div>
+                                    <h4 class="my-2 d-flex justify-content-center align-items-center">1</h4>
+                                    <div class="p-2 d-flex justify-content-center align-items-center"
+                                         onclick="changeProductCount({{ detail_order.id }}, 'increase')">+
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 p-3 d-flex justify-content-start align-items-center">
+                            <div class=" col-12 p-3 d-flex justify-content-start align-items-center
+                                    ">
                                 <a href="">برو سبد خریدتو ببین</a>
                             </div>
                         </div>
@@ -150,10 +154,12 @@
                                  action="registerForm.php" method="post" autocomplete="off">
                         <textarea class="col-10 col-lg-6 me-5" name="comment" id="text_area" cols="30" rows="10"
                                   placeholder="write here..."></textarea>
-                                <button onclick="addProductComment({{ product.id }})" class="col-4 me-5">send</button>
+                                <button onclick="addProductComment({{ product.id }})" class="col-4 me-5">send
+                                </button>
                             </div>
                         {% else %}
-                            <p>you should <a href="{% url 'login_page' %}"> login </a> if you want to add comment</p>
+                            <p>you should <a href="{% url 'login_page' %}"> login </a> if you want to add comment
+                            </p>
                         {% endif %}
                     </div>
                 </div>
@@ -177,7 +183,8 @@
         <div class="container-xxl slide2 d-flex justify-content-center align-items-center">
             <div class="row slider2 h-100 w-100">
                 <div class="window2 h-100 p-0 m-0  bg-white">
-                    <span class="moveR" id="right2" onclick="_moveR()"><i class="bi bi-arrow-right-short"></i></span>
+                        <span class="moveR" id="right2" onclick="_moveR()"><i
+                                class="bi bi-arrow-right-short"></i></span>
                     <span class="moveL" id="left2" onclick="_moveL()"><i class="bi bi-arrow-left-short"></i></span>
                     <div class="d-flex justify-content-space-start align-items-center m-0 p-4  bg-white" id="bus2">
                         {% for similar_product in similar_products %}

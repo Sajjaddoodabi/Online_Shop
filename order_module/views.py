@@ -7,15 +7,15 @@ from product_module.models import Product
 
 def add_product_to_order(request: HttpRequest):
     product_id = request.GET.get('product_id')
-    count = request.GET.get('count')
-
-    if count < 1 or count > 10:
-        return JsonResponse({
-            'status': 'invalid_count',
-            'text': 'This count is not invalid',
-            'confirmButtonText': 'Ok',
-            'icon': 'warning',
-        })
+    # count = int(request.GET.get('count'))
+    #
+    # if count < 1 or count > 10:
+    #     return JsonResponse({
+    #         'status': 'invalid_count',
+    #         'text': 'This count is not invalid',
+    #         'confirmButtonText': 'Ok',
+    #         'icon': 'warning',
+    #     })
 
     if request.user.is_authenticated:
         product = Product.objects.filter(id=product_id, is_delete=False, is_active=True)
@@ -24,7 +24,7 @@ def add_product_to_order(request: HttpRequest):
             current_order_detail = current_order.orderdetail_set.filter(product_id=product_id).first()
 
             if current_order_detail is not None:
-                current_order_detail.count += count
+                current_order_detail.count += 1
                 current_order_detail.save()
                 return JsonResponse({
                     'status': 'success',

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
@@ -5,6 +6,7 @@ from django.template.loader import render_to_string
 from order_module.models import Order, OrderDetail
 
 
+@login_required
 def user_basket(request: HttpRequest):
     current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(
         user_id=request.user.id, is_paid=False)
@@ -18,6 +20,7 @@ def user_basket(request: HttpRequest):
     return render(request, 'user_panel/cart.html', context)
 
 
+@login_required
 def change_order_detail(request: HttpRequest):
     detail_id = request.GET.get('detail_id')
     state = request.GET.get('state')

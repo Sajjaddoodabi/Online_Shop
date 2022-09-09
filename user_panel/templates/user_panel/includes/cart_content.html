@@ -20,7 +20,11 @@
                 </li>
                 <li class="d-flex justify-content-start align-items-center col-3 h-100 cartDesc flex-wrap ps-2 ps-md-4">
                     <div class="col-12">
-                        <h4 class="col-12">{{ order_detail.product.title }}</h4>
+                        <a href="{% url 'product_detail' slug=order_detail.product.slug %}">
+                            <h4
+                                    class="col-12">{{ order_detail.product.title }}
+                            </h4>
+                        </a>
                         <h6 class="col-12">id : {{ order_detail.product.id }}</h6>
                     </div>
 
