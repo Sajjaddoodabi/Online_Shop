@@ -466,11 +466,13 @@
 .foot {
   background-color: rgb(129, 189, 117);
   height: auto;
-  >*{
+
+  > * {
     background-color: rgb(129, 189, 117);
   }
 }
-.footerS{
+
+.footerS {
   background-color: rgb(129, 189, 117);
 }
 
@@ -820,10 +822,11 @@
 //  //width: 75%;
 //}
 
-.answer{
+.answer {
   position: relative;
   height: 40px;
-  >a{
+
+  > a {
     position: absolute;
     border-radius: 6px;
     background-color: rgb(129, 189, 117);
@@ -831,12 +834,13 @@
     height: 100%;
     right: 5%;
     bottom: 0;
-    display: flex;justify-content: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 }
 
-.color{
+.color {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -845,7 +849,8 @@
   outline-offset: 3px;
   cursor: pointer;
   position: relative;
-  >.choose{
+
+  > .choose {
     position: absolute;
     left: -2px;
     top: -6px;
@@ -853,50 +858,60 @@
     font-size: 20px;
     display: none;
   }
-  &:nth-of-type(1){
+
+  &:nth-of-type(1) {
     background-color: black;
     display: block;
     outline: 2px solid rgb(129, 189, 117);
-    >.choose{
+
+    > .choose {
       display: block;
     }
   }
-    &:nth-of-type(2){
+
+  &:nth-of-type(2) {
     background-color: white;
   }
-    &:nth-of-type(3){
+
+  &:nth-of-type(3) {
     background-color: yellow;
   }
-    &:nth-of-type(4){
+
+  &:nth-of-type(4) {
     background-color: blue;
   }
-    &:nth-of-type(5){
+
+  &:nth-of-type(5) {
     background-color: red;
   }
-    &:nth-of-type(6){
+
+  &:nth-of-type(6) {
     background-color: plum;
   }
 }
 
-.list{
+.list {
   width: 260px;
   height: 360px;
   border: 2px solid black;
-  >div{
+
+  > div {
     width: 220px;
-  height: 200px;
-  border: 2px solid black;
+    height: 200px;
+    border: 2px solid black;
     margin: 10px auto;
-    >img{
+
+    > img {
       width: 100%;
       height: 100%;
     }
   }
 }
 
-.productList{
+.productList {
   display: none;
-  &:nth-of-type(1){
+
+  &:nth-of-type(1) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -904,44 +919,46 @@
   }
 }
 
-.showList{
+.showList {
   width: 40px;
   height: 40px;
   border: 2px solid rgb(129, 189, 117);
-  &:nth-of-type(1){
+
+  &:nth-of-type(1) {
     background-color: rgb(129, 189, 117);
   }
 }
 
-.aboutImage{
+.aboutImage {
   width: 474px;
   height: 160px;
   border: 2px solid black;
 }
 
-.rangeOfPrice{
+.rangeOfPrice {
   display: none;
 }
 
-.priceFilter{
-    display: flex;
+.priceFilter {
+  display: flex;
   justify-content: start;
   align-items: center;
-  >span{
-      display: flex;
-  justify-content: center;
-  align-items: center;
+
+  > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 1s;
   }
 }
 
-.cartTitle{
+.cartTitle {
   //border: 2px solid black;
   height: 60px;
   background-color: rgb(129, 189, 117);
 }
 
-.cartProduct{
+.cartProduct {
   //border: 2px solid black;
   height: 140px;
   display: flex;
@@ -950,7 +967,7 @@
   //margin: 10px 0;
 }
 
-.cartImage{
+.cartImage {
   border: 2px solid black;
   width: 120px;
   height: 120px;
@@ -968,47 +985,105 @@
     //border: 2px solid black;
     font-size: 20px;
   }
-  >h4{
+
+  > h4 {
     width: 50px;
   }
-  .bi{
+
+  .bi {
     font-size: 16px;
   }
 }
 
-.returnProduct{
+.returnProduct {
   display: none;
   //height: 60px;
 }
 
-.returnP , .deleteP , .cartDelete{
+.returnP, .deleteP, .cartDelete {
   cursor: pointer;
 }
 
-.cartDelete{
+.cartDelete {
   color: rgb(129, 189, 117);
 }
 
-.showDiscountCodeChild{
+.showDiscountCodeChild {
   width: 20px;
   height: 20px;
   //border: 2px solid black;
   transition: 1s;
 }
 
-.discountCode{
+.discountCode {
   display: none;
 }
 
-.sendDiscountCode , .cartButton{
+.sendDiscountCode, .cartButton {
   border: none;
-    border-radius: 6px;
-    background-color: rgb(129, 189, 117);
-    padding: 6px 20px;
-    //margin: 8px 6% 16px 10%;
+  border-radius: 6px;
+  background-color: rgb(129, 189, 117);
+  padding: 6px 20px;
+  //margin: 8px 6% 16px 10%;
 }
 
-.detailsOfCartPrice{
+.detailsOfCartPrice {
   border: 1px solid rgb(129, 189, 117);
   border-radius: 6px;
+}
+
+//.summeryOfActivities{
+//  border: 2px solid black;
+//}
+
+.accountSection {
+  > div {
+    display: none;
+    //border: 2px solid black;
+    border-radius: 10px;
+    border: 0.6px solid #414141;
+    padding: 20px;
+    //margin-top: 20px;
+
+    &:nth-of-type(1) {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.summeryOfActivities, .orders, .opinions, .addresses, .messages, .recentVisits, .userAccountInformation {
+  cursor: pointer;
+}
+
+.orderStatus {
+  height: 140px;
+  border: 2px solid black;
+  //margin-top: 20px;
+
+  .bi-bag, .bi-bag-check {
+    font-size: 80px;
+  }
+}
+
+.summeryOfActivitiesSection {
+  padding: 20px;
+}
+
+.editInformation {
+  border-radius: 6px;
+  border: 0.6px solid #858585;
+  padding: 10px 6px;
+}
+
+.userMenu {
+  border-radius: 10px;
+  border: 0.6px solid #414141;
+  >ul{
+    >li{
+      border-radius: 10px;
+    }
+  }
 }

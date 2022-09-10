@@ -826,4 +826,47 @@
   border-radius: 6px;
 }
 
+.accountSection > div {
+  display: none;
+  border-radius: 10px;
+  border: 0.6px solid #414141;
+  padding: 20px;
+}
+.accountSection > div:nth-of-type(1) {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.summeryOfActivities, .orders, .opinions, .addresses, .messages, .recentVisits, .userAccountInformation {
+  cursor: pointer;
+}
+
+.orderStatus {
+  height: 140px;
+  border: 2px solid black;
+}
+.orderStatus .bi-bag, .orderStatus .bi-bag-check {
+  font-size: 80px;
+}
+
+.summeryOfActivitiesSection {
+  padding: 20px;
+}
+
+.editInformation {
+  border-radius: 6px;
+  border: 0.6px solid #858585;
+  padding: 10px 6px;
+}
+
+.userMenu {
+  border-radius: 10px;
+  border: 0.6px solid #414141;
+}
+.userMenu > ul > li {
+  border-radius: 10px;
+}
+
 /*# sourceMappingURL=master.css.map */
