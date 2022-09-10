@@ -26,6 +26,7 @@ def add_product_to_order(request: HttpRequest):
             if current_order_detail is not None:
                 current_order_detail.count += 1
                 current_order_detail.save()
+                print(current_order_detail.count)
                 return JsonResponse({
                     'status': 'success',
                     'text': 'This product successfully added to your cart',

@@ -35,7 +35,7 @@
                         <div class="p-2 d-flex justify-content-center align-items-center decrease"
                              onclick="changeProductCount({{ order_detail.id }}, 'decrease')">
                             {% if order_detail.count == 1 %}
-                                <i class=" bi bi-trash"></i>
+                                <i class=" bi bi-trash" onclick="removeProductFromCart({{ order_detail.id }})"></i>
                             {% else %}
                                 -
                             {% endif %}
@@ -50,7 +50,7 @@
                 </li>
                 <li class="d-flex justify-content-center align-items-center col-2 h-100 cartTotal">{% multiply order_detail.count order_detail.product.price %}</li>
                 <li class="d-flex justify-content-center align-items-center col-1 h-100 cartDelete"><i
-                        class="bi bi-x-circle"></i></li>
+                        class="bi bi-x-circle" onclick="removeProductFromCart({{ order_detail.id }})"></i></li>
             </ul>
             <div class="returnProduct col-12">
                 <div class="col-12 d-flex justify-content-start align-items-center pt-3 flex-wrap">
@@ -84,6 +84,16 @@
         <div class="col-12 d-flex flex-wrap justify-content-between my-3">
             <button class="cartButton">update cart</button>
             <button class="cartButton">پرداخت</button>
+        </div>
+    </div>
+{% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-warning">
+                    <p> Your cart is empty</p>
+                </div>
+            </div>
         </div>
     </div>
 {% endif %}

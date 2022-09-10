@@ -46,6 +46,20 @@ function changeProductCount(detailId, state) {
     });
 }
 
+function removeProductFromCart(detailId) {
+    $.get('/user/remove-order-detail?detail_id=' + detailId).then(res => {
+        Swal.fire({
+            title: 'Deleted',
+            text: "Product successfully deleted from your cart",
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok'
+        })
+        if (res.status === 'success') {
+            $('#order-detail-content').html(res.body);
+        }
+    });
+}
 
 document.getElementsByClassName('showDiscountCode')[0].addEventListener('click', () => {
     if (document.getElementsByClassName('showDiscountCode')[0].getAttribute('data-status') == 'off') {
