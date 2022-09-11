@@ -46,10 +46,10 @@ function _left3() {
 }
 
 let num = 1
-document.getElementsByClassName('addToCart')[0].addEventListener('click', () => {
-    document.getElementsByClassName('addToCart')[0].parentElement.style.display = 'none'
-    document.getElementsByClassName('count')[0].style.display = 'block'
-})
+// document.getElementsByClassName('addToCart')[0].addEventListener('click', () => {
+//     document.getElementsByClassName('addToCart')[0].parentElement.style.display = 'none'
+//     document.getElementsByClassName('count')[0].style.display = 'block'
+// })
 
 document.getElementsByClassName('counter')[0].children[0].addEventListener('click', () => {
     if (num == 1) {
