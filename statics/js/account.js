@@ -68,3 +68,9 @@ function cleaner() {
         _accountSection[i].style.display = 'none'
     }
 }
+
+// document.querySelectorAll('.order').forEach((item , index) =>{
+//     item.addEventListener('click' , ()=>{
+//         item.style.height = 'auto'
+//     })
+// })
