@@ -992,4 +992,41 @@
   padding: 6px;
 }
 
+.error404 {
+  width: 500px;
+  height: 300px;
+  margin: 100px auto;
+}
+.error404 > * {
+  width: 100%;
+  height: 100%;
+}
+
+.goToMainPage {
+  font-size: 24px;
+  padding: 6px 10px;
+  background-color: rgb(129, 189, 117);
+  display: block;
+  width: 244px;
+  height: 60px;
+  margin: 10px auto;
+  border-radius: 40px;
+  position: relative;
+  transition: 0.4s;
+}
+.goToMainPage:hover {
+  width: 260px;
+}
+.goToMainPage > * {
+  position: absolute;
+}
+.goToMainPage > span {
+  left: 20px;
+  top: 14%;
+}
+.goToMainPage .bi {
+  right: 20px;
+  top: 20%;
+}
+
 /*# sourceMappingURL=master.css.map */

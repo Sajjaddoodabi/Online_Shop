@@ -1240,3 +1240,44 @@
   box-shadow: 0 0 4px #868686;
   padding: 6px;
 }
+
+.error404{
+  width: 500px;
+  height: 300px;
+  //border: 2px solid black;
+  margin: 100px auto;
+  >*{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.goToMainPage{
+  font-size: 24px;
+  padding: 6px 10px;
+  background-color: rgb(129, 189, 117);
+  //margin: 10px auto;
+  display: block;
+  width: 244px;
+  height: 60px;
+  margin: 10px auto;
+  //justify-content: center;
+  //align-items: center;
+  border-radius: 40px;
+  position: relative;
+  transition: 0.4s;
+  &:hover{
+    width: 260px;
+  }
+  >*{
+    position: absolute;
+  }
+  >span{
+    left: 20px;
+    top: 14%;
+  }
+  .bi{
+    right: 20px;
+    top: 20%;
+  }
+}
