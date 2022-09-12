@@ -15,7 +15,7 @@
 <body>
 <div class="container-fluid w-100 mt-5 d-flex justify-content-center align-items-center">
     <div class="container-fluid container-xxl d-flex justify-content-evenly align-items-start w-100 h-100 flex-wrap p-0 m-0">
-        <div class="row col-12 col-lg-3  h-100 p-0 m-0 flex-wrap userMenu">
+        <div class="row col-11 col-lg-3  h-100 p-0 m-0 flex-wrap userMenu mb-5">
             <h2 class="col-12">name</h2>
             <ul class="col-12">
                 <li class="py-1 col-12 summeryOfActivities"><h5>summery of activities</h5></li>
@@ -30,15 +30,15 @@
         </div>
         <div class="row col-12 col-lg-9 p-0 m-0 accountSection justify-content-center">
             <div class="col-11 summeryOfActivitiesSection">
-                <h4 class="col-12">orders</h4>
-                <div class="d-flex justify-content-evenly align-items-center col-12">
-                    <div class="col-6 d-flex flex-wrap orderStatus justify-content-center align-items-center">
+                <h4 class="col-12 ps-3">orders</h4>
+                <div class="d-flex justify-content-evenly align-items-center col-12 mb-4">
+                    <div class="col-5 d-flex flex-wrap orderStatus justify-content-center align-items-center">
                         <div class="col-6 h-100 d-flex justify-content-center align-items-center">
                             <i class="bi bi-bag-check"></i>
                         </div>
-                        <div class="col-6 h-100 d-flex justify-content-center align-items-start flex-wrap">
+                        <div class="col-5 h-100 d-flex justify-content-center align-items-start flex-wrap">
                             <h5 class="col-12 pt-5">delivered</h5>
-                            <h6 class="col-12">ijjok</h6>
+                            <h6 class="col-12">1</h6>
                         </div>
                     </div>
                     <div class="col-6 d-flex flex-wrap orderStatus justify-content-center align-items-center">
@@ -47,15 +47,112 @@
                         </div>
                         <div class="col-6 h-100 d-flex justify-content-center align-items-start flex-wrap">
                             <h5 class="col-12 pt-5">current</h5>
-                            <h6 class="col-12">ijjok</h6>
+                            <h6 class="col-12">1</h6>
                         </div>
                     </div>
                 </div>
+                <h4 class="col-12 ps-3 mb-3">پربازدیدترین ها</h4>
+                <div class="sliderContainer col-12 mb-4">
+                    <span class="rightMove"><i class="bi bi-arrow-right-circle-fill"></i></span>
+                    <span class="leftMove"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <div class="busSlider d-flex">
+                        <figure class="ordersSlider">300*300</figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                    </div>
+                </div>
+
+                <h4 class="col-12 ps-3 mb-3">بازدید های اخیر</h4>
+                <div class="sliderContainer col-12 mb-4">
+                    <span class="rightMove"><i class="bi bi-arrow-right-circle-fill"></i></span>
+                    <span class="leftMove"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <div class="busSlider d-flex">
+                        <figure class="ordersSlider">300*300</figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                    </div>
+                </div>
             </div>
-            <div class="col-12 bg-info ordersSection">
-                hijokpkpp
+            <div class="col-11 ordersSection">
+                <div class="col-12 d-flex pb-3">
+                    <h4 data-status="on" class="ps-2 pe-4 recentOrder">recent</h4>
+                    <h4 data-status="off" class="ps-2 pe-4 deliveredOrders">delivered</h4>
+                </div>
+                <div class="sliderContainer col-12 recentProductsSlider">
+                    <span class="rightMove"><i class="bi bi-arrow-right-circle-fill"></i></span>
+                    <span class="leftMove"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <div class="busSlider d-flex">
+                        <figure class="ordersSlider">300*300</figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                    </div>
+                </div>
+
+                <div class="sliderContainer col-12 deliveredProductsSlider mb-4">
+                    <span class="rightMove"><i class="bi bi-arrow-right-circle-fill"></i></span>
+                    <span class="leftMove"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <div class="busSlider d-flex recentProductsSlider">
+                        <figure class="ordersSlider">300*300</figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                    </div>
+                </div>
+                <div class="sliderContainer col-12 deliveredProductsSlider mb-4">
+                    <span class="rightMove"><i class="bi bi-arrow-right-circle-fill"></i></span>
+                    <span class="leftMove"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <div class="busSlider d-flex recentProductsSlider">
+                        <figure class="ordersSlider">300*300</figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                        <figure class="ordersSlider"></figure>
+                    </div>
+                </div>
             </div>
-            <div class="col-10 opinionsSection">
+            <div class="col-11 opinionsSection">
                 <div class="customer col-3 p-0 m-0">
                     <a>
                         <img src="/statics/images/Customer.jpg" alt="">
@@ -64,24 +161,88 @@
                 <div class="customerComment col-6 d-flex flex-wrap">
                     <h6 class="commentTitle col-5 px-2"><i
                             class="bi bi-calendar2"></i>تاریخ</h6>
-                    <h6 class="commentTitle col-5"><i
+                    <h6 class="commentTitle col-6"><i
                             class="bi bi-watch"></i>ساعت</h6>
+                    <div class="threeDotsMenuOpinion"><i class="bi bi-three-dots-vertical"></i></div>
                     <p class="col-12 px-2">نظر</p>
+                    <div class="opinionOptions" data-status="off">
+                        <div><i class="bi bi-trash"></i> delete address</div>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 bg-info addressesSection">
-                mrkeokpep4
+            <div class="col-11 addressesSection">
+                <div class="col-12 d-flex mb-2 flex-wrap">
+                    <h3 class="col-12 col-lg-6">addresses</h3>
+                    <div class="col-12 col-lg-6 addLocation d-flex align-items-center justify-content-start justify-content-lg-end"><h4><i class="bi bi-geo-alt-fill"></i> register new address</h4></div>
+                </div>
+                <div class="col-12 address pb-3">
+                    <h5 class="col-12 d-flex">
+                        <p class="col-11"><i class="bi bi-globe"></i> shahr, khiaban, kooche, ...</p>
+                        <div class="threeDotsMenu"><i class="bi bi-three-dots-vertical"></i></div>
+                    </h5>
+                    <p class="px-2"><i class="bi bi-envelope"></i>کد پستی </p>
+                    <p class="px-2"><i class="bi bi-telephone"></i>تلفن </p>
+                    <p class="px-2"><i class="bi bi-person"></i>گیرنده </p>
+                    <div class="addressOptions" data-status="off">
+                        <div><i class="bi bi-pencil"></i> edit address</div>
+                        <div><i class="bi bi-trash"></i> delete address</div>
+                    </div>
+                </div>
+                <div class="col-12 address pb-3">
+                    <h5 class="col-12 d-flex">
+                        <p class="col-11"><i class="bi bi-globe"></i> shahr, khiaban, kooche, ...</p>
+                        <div class="threeDotsMenu"><i class="bi bi-three-dots-vertical"></i></div>
+                    </h5>
+                    <p class="px-2"><i class="bi bi-envelope"></i>کد پستی </p>
+                    <p class="px-2"><i class="bi bi-telephone"></i>تلفن </p>
+                    <p class="px-2"><i class="bi bi-person"></i>گیرنده </p>
+                    <div class="addressOptions" data-status="off">
+                        <div><i class="bi bi-pencil"></i> edit address</div>
+                        <div><i class="bi bi-trash"></i> delete address</div>
+                    </div>
+                </div>
+                <div class="col-12 address pb-3">
+                    <h5 class="col-12 d-flex">
+                        <p class="col-11"><i class="bi bi-globe"></i> shahr, khiaban, kooche, ...</p>
+                        <div class="threeDotsMenu"><i class="bi bi-three-dots-vertical"></i></div>
+                    </h5>
+                    <p class="px-2"><i class="bi bi-envelope"></i>کد پستی </p>
+                    <p class="px-2"><i class="bi bi-telephone"></i>تلفن </p>
+                    <p class="px-2"><i class="bi bi-person"></i>گیرنده </p>
+                    <div class="addressOptions" data-status="off">
+                        <div><i class="bi bi-pencil"></i> edit address</div>
+                        <div><i class="bi bi-trash"></i> delete address</div>
+                    </div>
+                </div>
             </div>
             <div class="col-11 messagesSection">
                 <div class="col-11 order">
                     <h5>lkpl[;]]</h5>
-                    <p>kppepr io ii0io io o oi oio i iqii0-qwoo  opopi2p o o popo  opqoopp[ kppepr io ii0io io o oi oio i iqii0-qwoo  opopi2p o o popo</p>
+                    <p>kppepr io ii0io io o oi oio i iqii0-qwoo opopi2p o o popo opqoopp[ kppepr io ii0io io o oi oio i
+                        iqii0-qwoo opopi2p o o popo</p>
                 </div>
             </div>
-            <div class="col-12 bg-info recentVisitsSection">
-                mrkeokpep6
+            <div class="col-11 recentVisitsSection">
+                <figure class="recentVisitedProduct">
+                    200*200
+                </figure>
+                <figure class="recentVisitedProduct">
+                    200*200
+                </figure>
+                <figure class="recentVisitedProduct">
+                    200*200
+                </figure>
+                <figure class="recentVisitedProduct">
+                    200*200
+                </figure>
+                <figure class="recentVisitedProduct">
+                    200*200
+                </figure>
+                <figure class="recentVisitedProduct">
+                    200*200
+                </figure>
             </div>
-            <div class="col-10 col-lg-5 userAccountInformationSection">
+            <div class="col-11 userAccountInformationSection">
                 <label class="col-11 py-2">first name : </label>
                 <div class="col-1 py-2"><a href=""><i class="bi bi-pencil"></i></a></div>
                 <h6 class="col-12 editInformation">elham</h6>

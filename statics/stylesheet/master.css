@@ -841,7 +841,6 @@
 
 .orderStatus {
   height: 140px;
-  border: 2px solid black;
 }
 .orderStatus .bi-bag, .orderStatus .bi-bag-check {
   font-size: 80px;
@@ -864,10 +863,133 @@
 .userMenu > ul > li {
   border-radius: 10px;
 }
+.userMenu > ul > li:nth-of-type(1) {
+  color: rgb(129, 189, 117);
+}
 
 .order {
   margin-bottom: 10px;
   height: 60px;
+}
+
+.bi-three-dots-vertical {
+  cursor: pointer;
+}
+
+.address {
+  position: relative;
+}
+
+.addressOptions {
+  width: 160px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  transition: 1s;
+  display: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #868686;
+}
+.addressOptions > * {
+  padding: 6px;
+}
+
+.threeDotsMenu {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+.addLocation > * {
+  width: 300px;
+  height: 60px;
+  color: rgb(129, 189, 117);
+  border-radius: 6px;
+  border: 0.6px rgb(129, 189, 117);
+  cursor: pointer;
+}
+
+.recentVisitedProduct {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.sliderContainer {
+  height: 300px;
+  position: relative;
+  overflow-x: hidden;
+}
+.sliderContainer > span {
+  position: absolute;
+  top: 44%;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  color: gray;
+}
+.sliderContainer > span:hover {
+  color: rgb(129, 189, 117);
+}
+.sliderContainer .rightMove {
+  right: 4%;
+}
+.sliderContainer .leftMove {
+  left: 4%;
+  display: none;
+}
+.sliderContainer .busSlider {
+  height: 100%;
+  transition: 1s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sliderContainer .busSlider > .ordersSlider {
+  width: 300px;
+  height: 300px;
+  border: 2px solid black;
+  margin: 0 10px;
+}
+
+.recentOrder {
+  color: rgb(129, 189, 117);
+}
+
+.deliveredProductsSlider {
+  display: none;
+}
+
+.customerComment {
+  position: relative;
+}
+
+.threeDotsMenuOpinion {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.opinionOptions {
+  width: 160px;
+  position: absolute;
+  right: 10px;
+  top: 24px;
+  transition: 1s;
+  display: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #868686;
+  padding: 6px;
 }
 
 /*# sourceMappingURL=master.css.map */
