@@ -1060,7 +1060,7 @@
 
 .orderStatus {
   height: 140px;
-  border: 2px solid black;
+  //border: 2px solid black;
   //margin-top: 20px;
 
   .bi-bag, .bi-bag-check {
@@ -1081,16 +1081,203 @@
 .userMenu {
   border-radius: 10px;
   border: 0.6px solid #414141;
-  >ul{
-    >li{
+
+  > ul {
+    > li {
       border-radius: 10px;
+      &:nth-of-type(1){
+        color: rgb(129, 189, 117);
+      }
     }
   }
 }
 
-.order{
+.order {
   //padding: 10px;
   margin-bottom: 10px;
   //overflow: hidden;
   height: 60px;
+}
+
+//.address{
+//  border-radius: 10px;
+//  border: 0.6px solid #414141;
+//}
+
+//.addressesSection{
+//  border: none;
+//  padding: 0;
+//  margin: 0;
+//}
+
+.bi-three-dots-vertical {
+  cursor: pointer;
+}
+
+.address {
+  position: relative;
+}
+
+.addressOptions {
+  width: 160px;
+  //border: 0.6px solid #414141;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  transition: 1s;
+  display: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #868686;
+
+  > * {
+    padding: 6px;
+  }
+}
+
+.threeDotsMenu {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+.addLocation {
+  > * {
+    width: 300px;
+    height: 60px;
+    color: rgb(129, 189, 117);
+    border-radius: 6px;
+    border: 0.6px rgb(129, 189, 117);
+    cursor: pointer;
+  }
+}
+
+.recentVisitedProduct {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.sliderContainer {
+  height: 300px;
+  position: relative;
+  overflow-x: hidden;
+
+  > span {
+    position: absolute;
+    top: 44%;
+    width: 40px;
+    height: 40px;
+    //border: 2px solid black;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: gray;
+    &:hover{
+      color: rgb(129, 189, 117);
+    }
+  }
+
+  .rightMove {
+    right: 4%;
+  }
+
+  .leftMove {
+    left: 4%;
+    display: none;
+  }
+
+  .busSlider {
+    height: 100%;
+    transition: 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    //overflow-x: hidden;
+
+    > .ordersSlider {
+      width: 300px;
+      height: 300px;
+      border: 2px solid black;
+      margin: 0 10px;
+    }
+  }
+}
+
+.recentOrder{
+  color: rgb(129, 189, 117);
+}
+
+.deliveredProductsSlider{
+  display: none;
+}
+
+.customerComment{
+  position: relative;
+}
+
+.threeDotsMenuOpinion{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.opinionOptions{
+  width: 160px;
+  position: absolute;
+  right: 10px;
+  top: 24px;
+  transition: 1s;
+  display: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #868686;
+  padding: 6px;
+}
+
+.error404{
+  width: 500px;
+  height: 300px;
+  //border: 2px solid black;
+  margin: 100px auto;
+  >*{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.goToMainPage{
+  font-size: 24px;
+  padding: 6px 10px;
+  background-color: rgb(129, 189, 117);
+  //margin: 10px auto;
+  display: block;
+  width: 244px;
+  height: 60px;
+  margin: 10px auto;
+  //justify-content: center;
+  //align-items: center;
+  border-radius: 40px;
+  position: relative;
+  transition: 0.4s;
+  &:hover{
+    width: 260px;
+  }
+  >*{
+    position: absolute;
+  }
+  >span{
+    left: 20px;
+    top: 14%;
+  }
+  .bi{
+    right: 20px;
+    top: 20%;
+  }
 }
