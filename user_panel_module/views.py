@@ -18,8 +18,8 @@ class EditUserInfo(View):
             'current_user': current_user,
             'edit_profile_form': edit_profile_form
         }
-        # return render(request, 'user_panel/account.html', context)
-        return render(request, 'user_panel/edit_user_info.html', context)
+        return render(request, 'user_panel/account.html', context)
+        # return render(request, 'user_panel/edit_user_info.html', context)
 
     def post(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()

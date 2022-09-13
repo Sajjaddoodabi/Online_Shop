@@ -839,6 +839,12 @@
   cursor: pointer;
 }
 
+.summeryOfActivitiesSection, .ordersSection, .opinionsSection, .addressesSection, .messagesSection, .recentVisitsSection, .userAccountInformationSection {
+  border-radius: 10px;
+  border: 0.6px solid #414141;
+  padding: 20px;
+}
+
 .orderStatus {
   height: 140px;
 }
@@ -1027,6 +1033,13 @@
 .goToMainPage .bi {
   right: 20px;
   top: 20%;
+}
+
+.chosen {
+  color: rgb(129, 189, 117);
+}
+.chosen:hover {
+  color: rgb(129, 189, 117);
 }
 
 /*# sourceMappingURL=master.css.map */
