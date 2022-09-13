@@ -3,22 +3,37 @@
 {% load poll_extras %}
 
 {% block title %}
-    {{ loaded_category }} products
+    products
 {% endblock %}
 
 {% block content %}
     <div class="container-fluid d-flex justify-content-center p-0 m-0 screenF">
         <div class="container-xxl d-flex justify-content-center h-100 p-0 m-0 w-100 flex-wrap">
             <div class="col-12 col-lg-8 p-0 m-0 d-flex justify-content-between flex-wrap pt-5">
-                {% include 'product_module/includes/product_list_component.html' %}
+                {% if products %}
+                    <div class="col-12 productList">
 
-                <div class="col-12 bg-white d-flex justify-content-center align-items-center">
-                    <span class="showList d-flex justify-content-center align-items-center" href="">1</span>
-                    <span class="showList d-flex justify-content-center align-items-center" href="">2</span>
-                    <span class="showList d-flex justify-content-center align-items-center" href="">3</span>
-                </div>
+                        <div class="col-12 d-flex justify-content-evenly flex-wrap">
+                            {% for product in products %}
+                                {% include 'product_module/includes/product_list_component.html' %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-12 bg-white d-flex justify-content-center align-items-center">
+                        <ul class="paginator">
+                            {% for page in paginator.page_range %}
+                                <a class="cursor-pointer" onclick="fillPage({{ page }})">
+                                    {{ page }}
+                                </a>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning">
+                        <p>No products Found...</p>
+                    </div>
+                {% endif %}
             </div>
-
 
             <div class="col-12 col-lg-4 productCategory h-100 p-0 m-0 pt-5">
                 <h5 class="pb-1">category</h5>
@@ -32,7 +47,7 @@
                                 </div>
                                 <div class="row2">
                                     {% for sub_category in category.productcategory_set.all %}
-                                        <a href="">{{ sub_category.title }}</a>
+                                        <a href="{% url 'product_list' category=sub_category.url_title %}">{{ sub_category.title }}</a>
                                     {% endfor %}
                                 </div>
                             </li>
@@ -45,12 +60,14 @@
                         <h4 class="h-100 col-6">brand </h4>
                     </div>
                     <form class="col-12 d-flex justify-content-between align-items-center py-2 flex-wrap"
-                          action="registerForm.php" method="post" name="filter">
+                          action="" method="get" name="filter_form" id="filter_form">
+
+                        <input type="hidden" name="page" id="page" value="1">
+
                         {% for brand in brands %}
                             <input class="col-1" id="yes_{{ brand.id }}" type="checkbox" name="brand1">
                             <label class="col-11" for="yes_{{ brand.id }}"><h5>{{ brand.title }}</h5></label>
                         {% endfor %}
-
 
                         <div class="col-12 d-flex flex-wrap pt-4">
                             <div class="col-12 d-flex priceFilter">
@@ -58,11 +75,26 @@
                                 <span> &gt;</span>
                             </div>
                             <div class="rangeOfPrice" data-status="off">
-                                <div class="col-12 p-2"><input type="number"></div>
-                                <div class="col-12 p-2"><input type="number"></div>
+                                <form action="" method="get">
+                                    <div class="col-12 p-2">
+                                        <input
+                                                type="text"
+                                                value="0"
+                                                id="starting_price"
+                                                name="starting_price">
+                                    </div>
+                                    <div class="col-12 p-2">
+                                        <input
+                                                type="text"
+                                                value="{{ db_max_price }}"
+                                                max="{{ db_max_price }}"
+                                                id="ending_price"
+                                                name="ending_price">
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <button class="sendDetails">filter</button>
+                        <button class="sendDetails" onclick="filterProducts()">filter</button>
                     </form>
                 </div>
             </div>

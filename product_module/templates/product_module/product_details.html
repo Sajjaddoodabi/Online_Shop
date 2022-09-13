@@ -72,17 +72,11 @@
                         <h4 class="py-2 pb-3">brand: {{ product.brand }} </h4>
                     {% endif %}
                     <div class="add">
-                        <div class="w-100 my-2 h-100 py-2">
-                            <span class="addToCart h-100"
-                                  onclick="addProductToCart({{ product.id }})">add to cart
-                            </span>
-                        </div>
                         <div class="w-100 count">
                             <div class="col-12 p-2 d-flex justify-content-start align-items-center">
                                 <div class="counter d-flex justify-content-center align-items-center">
                                     <div class="p-3 d-flex justify-content-center align-items-center"
-                                         onclick="changeProductCount({{ detail_order.id }}, 'decrease')">
-                                        <i class="bi bi-trash"></i>
+                                         onclick="changeProductCount({{ detail_order.id }}, 'decrease')">-
                                     </div>
                                     <h4 class="my-2 d-flex justify-content-center align-items-center">1</h4>
                                     <div class="p-2 d-flex justify-content-center align-items-center"
@@ -90,6 +84,13 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="w-100 my-2 h-100 py-2">
+                            <span class="addToCart h-100"
+                                  onclick="addProductToCart({{ product.id }})">add to cart
+                            </span>
+                            </div>
+
                             <div class=" col-12 p-3 d-flex justify-content-start align-items-center">
                                 <a href="">برو سبد خریدتو ببین</a>
                             </div>

@@ -20,8 +20,18 @@ function addProductComment(productId) {
     })
 }
 
+function filterProducts() {
+    $('#filter_form').submit();
+}
+
+function fillPage(page) {
+    $('#page').val(page);
+    $('#filter_form').submit();
+}
+
 function addProductToCart(productId) {
-    $.get('/order/add-to-order?product_id=' + productId).then(res => {
+    var count = document.getElementsByClassName('counter')[0].children[1].innerHTML;
+    $.get('/order/add-to-order?product_id=' + productId + '&count=' + count).then(res => {
         Swal.fire({
             title: 'announce',
             text: res.text,

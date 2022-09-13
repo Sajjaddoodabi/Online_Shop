@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.views import View
 from django.views.generic import DetailView, ListView
 
 from order_module.models import OrderDetail
@@ -28,30 +29,28 @@ class ProductDetail(DetailView):
 
 class ProductList(ListView):
     template_name = 'product_module/product_list.html'
+    context_object_name = 'products'
     model = Product
-    paginate_by = 10
+    paginate_by = 3
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProductList, self).get_context_data()
-        loaded_category = self.kwargs.get('category')
-        form = PriceFilterForm
         product: Product = Product.objects.filter(is_active=True, is_delete=False).order_by('-price').first()
         db_max_price = product.price if product is not None else 0
-        context['products'] = Product.objects.filter(is_active=True, is_delete=False)
+        context['brands'] = ProductBrand.objects.filter(is_active=True)
         context['categories'] = ProductCategory.objects.filter(
             is_active=True, is_delete=False, parent=None).prefetch_related(
             'productcategory_set')
-        context['brands'] = ProductBrand.objects.filter(is_active=True)
         context['starting_price'] = self.request.GET.get('starting_price') or 0
         context['ending_price'] = self.request.GET.get('ending_price') or db_max_price
-        context['loaded_category'] = loaded_category
-        context['form'] = form
+        context['db_max_price'] = db_max_price
 
         return context
 
     def get_queryset(self):
         query = super(ProductList, self).get_queryset()
         brand = self.kwargs.get('brand')
+        category = self.kwargs.get('category')
         starting_price = self.request.GET.get('starting_price')
         ending_price = self.request.GET.get('ending_price')
 
@@ -64,7 +63,18 @@ class ProductList(ListView):
         if brand is not None:
             query = query.filter(brand__url_title__iexact=brand)
 
+        if category is not None:
+            query = query.filter(category__url_title__iexact=category)
+
         return query
+
+
+class FilterProduct(View):
+    def get(self, request: HttpRequest):
+        pass
+
+    def post(self, request: HttpRequest):
+        pass
 
 
 def add_product_comment(request: HttpRequest):

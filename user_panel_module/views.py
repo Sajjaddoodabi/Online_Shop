@@ -2,9 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
-
 from order_module.models import Order, OrderDetail
-
 
 @login_required
 def user_basket(request: HttpRequest):
@@ -42,7 +40,6 @@ def change_order_detail(request: HttpRequest):
         if order_detail.count < 10:
             order_detail.count += 1
             order_detail.save()
-            print(order_detail.count)
 
     elif state == 'decrease':
         if order_detail.count == 1:
@@ -50,7 +47,6 @@ def change_order_detail(request: HttpRequest):
         else:
             order_detail.count -= 1
             order_detail.save()
-            print(order_detail.count)
     else:
         return JsonResponse({
             'status': 'invalid state'

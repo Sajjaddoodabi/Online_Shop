@@ -1,32 +1,23 @@
 {% load poll_extras %}
 {% load thumbnail %}
 
-<div class="col-12 productList">
-    <div class="col-12 d-flex justify-content-evenly flex-wrap">
-        {% for product in products %}
-            {% for category in product.category.all %}
-                {% if category.url_title == loaded_category %}
-                    <figure class="list">
-                        <div>
-                            {% thumbnail product.image "220x200" crop='center' as im %}
-                                <img src="{{ im.url }}" alt="">
-                            {% endthumbnail %}
-                        </div>
-                        <p class="d-flex justify-content-center align-items-center">
-                            {{ product.title }}</p>
-
-                        <h6 class="d-flex justify-content-center align-items-center">
-                            price: {{ product.price|three_digits_price }}</h6>
-
-                        <a class="d-flex justify-content-center align-items-center"
-                           href="{% url 'product_detail' slug=product.slug%}">detail
-                        </a>
-                        <a class="d-flex justify-content-center align-items-center" href="">add to
-                            cart<i
-                                    class="bi bi-cart-plus"></i></a>
-                    </figure>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+<figure class="list">
+    <div>
+        {% thumbnail product.image "220x200" crop='center' as im %}
+            <img src="{{ im.url }}" alt="">
+        {% endthumbnail %}
     </div>
-</div>
+    <p class="d-flex justify-content-center align-items-center">
+        {{ product.title }}</p>
+
+    <h6 class="d-flex justify-content-center align-items-center">
+        price: {{ product.price|three_digits_price }}</h6>
+
+    <a class="d-flex justify-content-center align-items-center"
+       href="{% url 'product_detail' slug=product.slug %}">detail
+    </a>
+    <a class="d-flex justify-content-center align-items-center" href="">add to
+        cart<i
+                class="bi bi-cart-plus"></i></a>
+</figure>
+

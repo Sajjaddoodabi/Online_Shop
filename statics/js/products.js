@@ -54,23 +54,26 @@ let num = 1
 document.getElementsByClassName('counter')[0].children[0].addEventListener('click', () => {
     if (num == 1) {
         // num--
-        document.getElementsByClassName('addToCart')[0].parentElement.style.display = 'flex'
+        /*document.getElementsByClassName('addToCart')[0].parentElement.style.display = 'flex'
         document.getElementsByClassName('count')[0].style.display = 'none'
-        document.getElementsByClassName('counter')[0].children[0].innerHTML = '<i class="bi bi-trash"></i>'
+        document.getElementsByClassName('counter')[0].children[0].innerHTML = '<i class="bi bi-trash"></i>'*/
     } else if (num == 2) {
         num--
-        document.getElementsByClassName('counter')[0].children[0].innerHTML = '<i class="bi bi-trash"></i>'
+        /*document.getElementsByClassName('counter')[0].children[0].innerHTML = '<i class="bi bi-trash"></i>'*/
         document.getElementsByClassName('counter')[0].children[1].innerHTML = num
-    } else {
+    } else if (num) {
         num--
         document.getElementsByClassName('counter')[0].children[1].innerHTML = num
     }
 })
 
 document.getElementsByClassName('counter')[0].children[2].addEventListener('click', () => {
-    num++
-    document.getElementsByClassName('counter')[0].children[1].innerHTML = num
-    document.getElementsByClassName('counter')[0].children[0].innerHTML = '-'
+    if (num < 10) {
+        num++
+        document.getElementsByClassName('counter')[0].children[1].innerHTML = num
+        document.getElementsByClassName('counter')[0].children[0].innerHTML = '-'
+    }
+
 })
 
 let _show = document.querySelectorAll('.details>.show')
