@@ -9,7 +9,7 @@ from django.utils.crypto import get_random_string
 from django.views import View
 
 from account_module.forms import RegisterWithMobile, RegisterWithEmail, LoginForm, ResetPassForm, ForgotPassForm
-from account_module.models import User
+from account_module.models import User, AdminMessages
 from utils.email_service import send_email
 
 
@@ -93,6 +93,12 @@ class RegisterMobileView(View):
                     new_user.set_password(password_mobile)
                     new_user.save()
 
+                    message_title = 'you successfully registered to the site'
+                    message_text = 'For using this site at the maximum level pls active your account'
+
+                    new_message = AdminMessages(user_id=new_user.id, title=message_title, text=message_text)
+                    new_message.save()
+
                     # todo send sms active code
 
                     return HttpResponse("done")
@@ -128,7 +134,7 @@ class LoginView(View):
                     is_correct_password = user.check_password(password)
                     if is_correct_password:
                         login(request, user)
-                        return redirect(reverse('home_page'))
+                        return redirect(reverse('dashboard'))
                     else:
                         form.add_error('username', 'user with this details does not exists')
             else:

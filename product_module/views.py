@@ -5,7 +5,8 @@ from django.views.generic import DetailView, ListView
 
 from order_module.models import OrderDetail
 from product_module.forms import PriceFilterForm
-from product_module.models import Product, ProductGallery, ProductCategory, ProductBrand, ProductComment
+from product_module.models import Product, ProductGallery, ProductCategory, ProductBrand, ProductComment, ProductVisit
+from utils.client_service import get_client_ip
 
 
 class ProductDetail(DetailView):
@@ -23,6 +24,18 @@ class ProductDetail(DetailView):
         context['comment_count'] = ProductComment.objects.filter(product_id=loaded_product.id, is_delete=False).count()
         context['detail_order'] = OrderDetail.objects.filter(product_id=loaded_product.id,
                                                              order__user_id=self.request.user.id).first()
+
+        user_ip = get_client_ip(self.request)
+        user_id = None
+
+        if self.request.user.is_authenticated:
+            user_id = self.request.user.id
+
+        has_been_visited = ProductVisit.objects.filter(ip__iexact=user_ip, product_id=loaded_product.id).exists()
+
+        if not has_been_visited:
+            new_visit = ProductVisit(ip=user_ip, user_id=user_id, product_id=loaded_product.id)
+            new_visit.save()
 
         return context
 
