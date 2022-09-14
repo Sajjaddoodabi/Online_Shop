@@ -14,6 +14,10 @@
   .commentTitle:nth-of-type(1) {
     width: 100%;
   }
+  .blogMainImage {
+    width: 400px;
+    height: 200px;
+  }
 }
 @media screen and (min-width: 576px) {
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
@@ -30,6 +34,10 @@
   }
   .commentTitle:nth-of-type(1) {
     width: 100%;
+  }
+  .blogMainImage {
+    width: 400px;
+    height: 200px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -61,6 +69,13 @@
   }
   .commentTitle:nth-of-type(1) {
     width: 34%;
+  }
+  .blogMainImage {
+    width: 800px;
+    height: 400px;
+  }
+  .blogContent {
+    column-count: 2;
   }
 }
 
