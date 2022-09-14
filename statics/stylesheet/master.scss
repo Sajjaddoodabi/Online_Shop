@@ -1376,3 +1376,27 @@
     border: none;
   }
 }
+
+.blogSingleContainer{
+  background-color: rgb(216, 245, 211);
+  padding: 100px 0;
+}
+
+.blogSingle{
+  //border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  //margin: 100px 0;
+}
+
+.blogMainImage{
+  border: 2px solid black;
+}
+
+.blogContent{
+  text-align: justify;
+}
+
+.bi-star-fill , .bi-star-half , .bi-star{
+  color: #d7d712;
+}
