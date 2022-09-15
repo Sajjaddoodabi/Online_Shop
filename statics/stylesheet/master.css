@@ -1008,7 +1008,7 @@
   height: 100%;
 }
 
-.goToMainPage {
+.goToMainPage, .blogLink {
   font-size: 24px;
   padding: 6px 10px;
   background-color: rgb(129, 189, 117);
@@ -1020,17 +1020,17 @@
   position: relative;
   transition: 0.4s;
 }
-.goToMainPage:hover {
+.goToMainPage:hover, .blogLink:hover {
   width: 260px;
 }
-.goToMainPage > * {
+.goToMainPage > *, .blogLink > * {
   position: absolute;
 }
-.goToMainPage > span {
+.goToMainPage > span, .blogLink > span {
   left: 20px;
   top: 14%;
 }
-.goToMainPage .bi {
+.goToMainPage .bi, .blogLink .bi {
   right: 20px;
   top: 20%;
 }
@@ -1115,16 +1115,44 @@
   background-color: white;
 }
 
-.blogMainImage {
-  border: 2px solid black;
-}
-
 .blogContent {
   text-align: justify;
 }
 
 .bi-star-fill, .bi-star-half, .bi-star {
   color: #d7d712;
+}
+
+.blogImage {
+  height: 360px;
+}
+.blogImage > * {
+  width: 400px;
+  height: 360px;
+  border: 2px solid black;
+}
+
+.article {
+  min-height: 360px;
+}
+
+.blogLink {
+  margin: 10px 0;
+}
+
+.blogImage2 {
+  width: 320px;
+  height: 240px;
+  border: 2px solid black;
+}
+
+.article2 {
+  max-height: 240px;
+}
+.article2 > div {
+  height: 2px;
+  border-radius: 40px;
+  background-color: gray;
 }
 
 /*# sourceMappingURL=master.css.map */
