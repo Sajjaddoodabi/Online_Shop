@@ -65,7 +65,7 @@
                         <input type="hidden" name="page" id="page" value="1">
 
                         {% for brand in brands %}
-                            <input class="col-1" id="yes_{{ brand.id }}" type="checkbox" name="brand1">
+                            <input class="col-1" id="yes_{{ brand.id }}" type="checkbox" name="brands" value="{{ brand.id }}">
                             <label class="col-11" for="yes_{{ brand.id }}"><h5>{{ brand.title }}</h5></label>
                         {% endfor %}
 

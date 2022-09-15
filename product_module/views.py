@@ -44,13 +44,21 @@ class ProductList(ListView):
     template_name = 'product_module/product_list.html'
     context_object_name = 'products'
     model = Product
+    ordering = '-price'
     paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProductList, self).get_context_data()
-        product: Product = Product.objects.filter(is_active=True, is_delete=False).order_by('-price').first()
+
+        loaded_category = self.kwargs.get('category')
+        category = ProductCategory.objects.filter(url_title=loaded_category).first()
+
+        product: Product = Product.objects.filter(is_active=True, is_delete=False,
+                                                  category__product__category=category.id).order_by('-price').first()
         db_max_price = product.price if product is not None else 0
-        context['brands'] = ProductBrand.objects.filter(is_active=True)
+
+        context['brands'] = ProductBrand.objects.filter(is_active=True,
+                                                        category__productbrand__category=category.id).distinct()
         context['categories'] = ProductCategory.objects.filter(
             is_active=True, is_delete=False, parent=None).prefetch_related(
             'productcategory_set')
@@ -62,10 +70,12 @@ class ProductList(ListView):
 
     def get_queryset(self):
         query = super(ProductList, self).get_queryset()
-        brand = self.kwargs.get('brand')
+        brand = self.request.GET.getlist('brands')
         category = self.kwargs.get('category')
         starting_price = self.request.GET.get('starting_price')
         ending_price = self.request.GET.get('ending_price')
+
+        print(brand)
 
         if starting_price is not None:
             query = query.filter(price__gt=starting_price)
@@ -73,11 +83,11 @@ class ProductList(ListView):
         if ending_price is not None:
             query = query.filter(price__lte=ending_price)
 
-        if brand is not None:
-            query = query.filter(brand__url_title__iexact=brand)
-
         if category is not None:
             query = query.filter(category__url_title__iexact=category)
+
+        if brand:
+            query = query.filter(brand__in=brand)
 
         return query
 
