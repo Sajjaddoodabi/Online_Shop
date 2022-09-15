@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'polls',
     'order_module',
     'user_panel_module',
+    'contact_module',
     # external_apps
     'phonenumbers',
     'django_render_partial',

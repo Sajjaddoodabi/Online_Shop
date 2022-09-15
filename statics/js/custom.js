@@ -1,7 +1,7 @@
 function addProductComment(productId) {
     var comment = $('#text_area').val();
 
-    $.get('/product/add-product-comment/', {
+    $.get('/products/add-product-comment/', {
         'product_comment': comment,
         'product_id': productId,
     }).then(res => {
@@ -15,8 +15,6 @@ function addProductComment(productId) {
             'Your comment successfully submitted!',
             'success'
         )
-
-
     })
 }
 
@@ -69,6 +67,10 @@ function removeProductFromCart(detailId) {
             $('#order-detail-content').html(res.body);
         }
     });
+}
+
+function hey(){
+    console.log('salam')
 }
 
 document.getElementsByClassName('showDiscountCode')[0].addEventListener('click', () => {

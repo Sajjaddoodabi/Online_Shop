@@ -1,0 +1,69 @@
+{% extends 'shared/_layout.html' %}
+
+{% block content %}
+    <div class="container-fluid w-100 d-flex justify-content-center align-items-start contactContainer">
+        <div class="container-fluid container-xxl d-flex justify-content-start align-items-start flex-wrap p-0 m-0 contact">
+            <div class="row col-12 col-lg-5 p-0 m-0 flex-wrap contactWays justify-content-start align-items-start">
+                <div class="circles my-2">
+                    <i class="bi bi-circle-fill"></i>
+                    <i class="bi bi-circle-fill"></i>
+                    <i class="bi bi-circle-fill"></i>
+                </div>
+                <div class="contactContent">
+                    <h4 class="mx-2">contact us</h4>
+                    <p class="mb-4 mx-4">we love to hear from you. our friendly team is always here chat.</p>
+                    <h5 class="mb-2 mx-2"><i class="bi bi-envelope"></i> Chat to us</h5>
+                    <h6 class="mb-2 mx-4">we are here to help you.</h6>
+                    <p class="mb-4 mx-4"> Our email : {{ site_setting.email }}</p>
+                    <h5 class="mb-2 mx-2"><i class="bi bi-telephone"></i> Address</h5>
+                    <p class="mx-4">{{ site_setting.address }}</p>
+                    <h5 class="mb-2 mx-2"><i class="bi bi-telephone"></i> Telephone</h5>
+                    <h6 class="mb-2 mx-4">every day, every time</h6>
+                    <p class="mx-4">{{ site_setting.phone }}</p>
+                    {% if site_setting.fax %}
+                        <h5 class="mb-2 mx-2"><i class="bi bi-telephone"></i> Fax</h5>
+                        <p class="mx-4">{{ site_setting.fax }}</p>
+                    {% endif %}
+                </div>
+                <div class="contactLinks mx-2">
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="" class="ms-2"><i class="bi bi-github"></i></a>
+                    <a href="" class="ms-2"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="row col-12 col-lg-7 p-0 m-0 flex-wrap contactUs justify-content-start align-items-start">
+                <h3 class="mt-4">contact with us</h3>
+                <form action="{% url 'contact_us' %}" method="post">
+                    {% csrf_token %}
+
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                    {{ form.first_name.errors }}
+
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                    {{ form.email.errors }}
+
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+                    {{ form.title.errors }}
+
+                    {{ form.text.label_tag }}
+                    {{ form.text }}
+                    {{ form.text.errors }}
+
+                    <br>
+
+                    <div>
+                        <button type="submit" class=" mb-5">send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

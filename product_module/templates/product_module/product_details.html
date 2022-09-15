@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-5 text p-4 ms-5">
-                    <h2 class="pt-3">name: {{ product.title }}</h2>
+                    <h2 class="pt-3">{{ product.title }}</h2>
                     <h6 class="py-2">id: {{ product.id }}</h6>
                     <h4 class="py-2">price: {{ product.price|three_digits_price }} </h4>
                     <h4 class="py-2">موجودی: available </h4>
@@ -91,9 +91,9 @@
                             </span>
                             </div>
 
-                            <div class=" col-12 p-3 d-flex justify-content-start align-items-center">
+                            {% comment %}<div class=" col-12 p-3 d-flex justify-content-start align-items-center">
                                 <a href="">برو سبد خریدتو ببین</a>
-                            </div>
+                            </div>{% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                         </div>
                         {% if request.user.is_authenticated %}
                             <div class="comment mt-4 d-flex justify-content-start align-items-center flex-wrap"
-                                 action="registerForm.php" method="post" autocomplete="off">
+                                 method="post" autocomplete="off">
                         <textarea class="col-10 col-lg-6 me-5" name="comment" id="text_area" cols="30" rows="10"
                                   placeholder="write here..."></textarea>
                                 <button onclick="addProductComment({{ product.id }})" class="col-4 me-5">send

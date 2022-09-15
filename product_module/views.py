@@ -95,6 +95,9 @@ def add_product_comment(request: HttpRequest):
         product_id = request.GET.get('product_id')
         product_comment = request.GET.get('product_comment')
 
+        print(product_id)
+        print(product_comment)
+
         new_comment = ProductComment(user_id=request.user.id, product_id=product_id, text=product_comment)
         new_comment.save()
 
@@ -104,4 +107,4 @@ def add_product_comment(request: HttpRequest):
         }
         return render(request, 'product_module/includes/product_comment_component.html', context)
 
-    return HttpResponse('salam')
+    return HttpResponse('done')
