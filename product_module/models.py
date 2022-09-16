@@ -2,15 +2,6 @@ from django.db import models
 from account_module.models import User
 
 
-class ProductBrand(models.Model):
-    title = models.CharField(max_length=200)
-    url_title = models.CharField(max_length=200)
-    is_active = models.BooleanField()
-
-    def __str__(self):
-        return self.title
-
-
 class ProductCategory(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/categories', null=True, blank=True)
@@ -18,6 +9,16 @@ class ProductCategory(models.Model):
     url_title = models.CharField(max_length=200)
     is_active = models.BooleanField()
     is_delete = models.BooleanField()
+
+    def __str__(self):
+        return self.title
+
+
+class ProductBrand(models.Model):
+    title = models.CharField(max_length=200)
+    url_title = models.CharField(max_length=200)
+    category = models.ManyToManyField(ProductCategory, null=True, blank=True)
+    is_active = models.BooleanField()
 
     def __str__(self):
         return self.title
@@ -66,5 +67,3 @@ class ProductComment(models.Model):
 
     def __str__(self):
         return f'{self.product.title} - {self.user.username}'
-
-
