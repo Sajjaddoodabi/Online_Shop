@@ -7,12 +7,12 @@
 
 {% block content %}
     <div class="container-fluid w-100 d-flex justify-content-center align-items-center">
-        <div class="container-fluid container-xxl d-flex justify-content-center align-items-center flex-wrap p-0 m-0 col-9">
+        <div class="container-fluid container-xxl d-flex justify-content-start align-items-center flex-wrap p-0 m-0 col-9">
             {% for article in article_list %}
                 {% if forloop.first %}
-                    <div class="row col-12 p-0 m-0 flex-wrap justify-content-evenly align-items-center blog py-4">
+                    <div class="row col-12 p-0 m-0 flex-wrap justify-content-evenly align-items-center blog py-4 ps-2">
                         <figure class="blogImage p-0 m-0 col-10 col-lg-6 d-flex ps-5">
-                            {% thumbnail article.image '400x360' crop='center' as im %}
+                            {% thumbnail article.image '600x360' crop='center' as im %}
                                 <img src="{{ im.url }}" alt="">
                             {% endthumbnail %}
                         </figure>
