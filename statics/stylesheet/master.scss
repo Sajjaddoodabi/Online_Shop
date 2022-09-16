@@ -1122,6 +1122,11 @@
 
 .address {
   position: relative;
+  //display: flex;
+}
+
+.newAddress{
+  display: none;
 }
 
 .addressOptions {
@@ -1148,15 +1153,19 @@
   right: 20px;
 }
 
-.addLocation {
-  > * {
+.addLocation , .showAddresses {
+  //> * {
     width: 300px;
     height: 60px;
-    color: rgb(129, 189, 117);
+    //color: rgb(129, 189, 117);
     border-radius: 6px;
-    border: 0.6px rgb(129, 189, 117);
+    //border: 0.6px rgb(129, 189, 117);
     cursor: pointer;
-  }
+  //}
+}
+
+.showAddresses{
+  color: rgb(129, 189, 117);
 }
 
 .recentVisitedProduct {

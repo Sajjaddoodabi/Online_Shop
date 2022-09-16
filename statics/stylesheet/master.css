@@ -886,6 +886,10 @@
   position: relative;
 }
 
+.newAddress {
+  display: none;
+}
+
 .addressOptions {
   width: 160px;
   position: absolute;
@@ -908,13 +912,15 @@
   right: 20px;
 }
 
-.addLocation > * {
+.addLocation, .showAddresses {
   width: 300px;
   height: 60px;
-  color: rgb(129, 189, 117);
   border-radius: 6px;
-  border: 0.6px rgb(129, 189, 117);
   cursor: pointer;
+}
+
+.showAddresses {
+  color: rgb(129, 189, 117);
 }
 
 .recentVisitedProduct {
