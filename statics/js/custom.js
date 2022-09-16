@@ -90,8 +90,34 @@ function removeProductFromCart(detailId) {
     });
 }
 
-function hey() {
-    console.log('salam')
+function removeAddress(addressId) {
+    $.get('/user/remove-address?address_id=' + addressId).then(res => {
+        Swal.fire({
+            title: 'Deleted',
+            text: "Address successfully deleted",
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok'
+        })
+        if (res.status === 'success') {
+            $('#addresses').html(res.body);
+        }
+    })
+}
+
+function removeComment(commentId) {
+    $.get('/user/remove-comment?comment_id=' + commentId).then(res => {
+        Swal.fire({
+            title: 'Deleted',
+            text: "Address successfully deleted",
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok'
+        })
+        if (res.status === 'success') {
+            $('#opinions').html(res.body);
+        }
+    })
 }
 
 document.getElementsByClassName('showDiscountCode')[0].addEventListener('click', () => {
