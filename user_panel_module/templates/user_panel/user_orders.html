@@ -15,8 +15,8 @@
             </div>
             <div class="col-11 col-lg-8 ordersSection">
                 <div class="col-12 d-flex pb-3">
-                    <h4 data-status="on" class="ps-2 pe-4 recentOrder">current</h4>
-                    <h4 data-status="off" class="ps-2 pe-4 deliveredOrders">delivered</h4>
+                    <h4 onclick="_recentOrder()" data-status="on" class="ps-2 pe-4 recentOrder">current</h4>
+                    <h4 onclick="_deliveredOrders()" data-status="off" class="ps-2 pe-4 deliveredOrders">delivered</h4>
                 </div>
                 {% if current_order %}
                     <div class="sliderContainer col-12 recentProductsSlider">

@@ -126,25 +126,47 @@ _leftMove.forEach((item, index) => {
         }
     })
 })
+
+function _showAddress(){
+    let _address = document.querySelectorAll('.address')
+    for (let i = 0 ; i < _address.length ; i ++){
+        _address[i].style.display = 'block'
+    }
+    document.getElementsByClassName('newAddress')[0].style.display = 'none'
+    // document.getElementsByClassName('showAddress')[0].style.color= 'rgb(129, 189, 117)'
+    // document.getElementsByClassName('addAddress')[0].style.color= 'black'
+}
+
+function _addAddress(){
+    let _address = document.querySelectorAll('.address')
+    for (let i = 0 ; i < _address.length ; i ++){
+        _address[i].style.display = 'none'
+    }
+    document.getElementsByClassName('newAddress')[0].style.display = 'flex'
+    // document.getElementsByClassName('addAddress')[0].style.color= 'rgb(129, 189, 117)'
+    // document.getElementsByClassName('showAddress')[0].style.color= 'black'
+}
+
 let _deliveredProductsSlider = document.querySelectorAll('.deliveredProductsSlider')
 let _recentProductsSlider = document.querySelectorAll('.recentProductsSlider')
-document.getElementsByClassName('recentOrder')[0].addEventListener('click' , ()=>{
+
+function _recentOrder(){
     document.getElementsByClassName('deliveredOrders')[0].style.color = 'black'
     document.getElementsByClassName('recentOrder')[0].style.color = 'rgb(129, 189, 117)'
     for(let i = 0 ; i < _deliveredProductsSlider.length ; i++){
         _deliveredProductsSlider[i].style.display = 'none'
         _recentProductsSlider[i].style.display = 'flex'
     }
-})
+}
 
-document.getElementsByClassName('deliveredOrders')[0].addEventListener('click' , ()=>{
+function _deliveredOrders(){
     document.getElementsByClassName('deliveredOrders')[0].style.color = 'rgb(129, 189, 117)'
     document.getElementsByClassName('recentOrder')[0].style.color = 'black'
     for(let i = 0 ; i < _deliveredProductsSlider.length ; i++){
         _deliveredProductsSlider[i].style.display = 'flex'
         _recentProductsSlider[i].style.display = 'none'
     }
-})
+}
 
 let _opinionOptions = document.querySelectorAll('.opinionOptions')
 let _threeDotsMenuOpinion = document.querySelectorAll('.threeDotsMenuOpinion')
