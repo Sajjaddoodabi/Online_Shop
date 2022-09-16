@@ -1,7 +1,28 @@
+function addArticleComment(articleId) {
+    var comment = $('#comment_text').val();
+
+    $.get('/articles/add-article-comment/', {
+        'article_comment': comment,
+        'article_id': articleId,
+    }).then(res => {
+        $('#article_comment_area').html(res);
+        $('#comment_text').val('');
+
+        document.getElementById('article_comment_area').scrollIntoView({behavior: 'smooth'})
+
+        Swal.fire(
+            'Submitted!',
+            'Your comment successfully submitted!',
+            'success'
+        )
+    })
+}
+
+
 function addProductComment(productId) {
     var comment = $('#text_area').val();
 
-    $.get('/products/add-product-comment/', {
+    $.get('/products/add-product-comment', {
         'product_comment': comment,
         'product_id': productId,
     }).then(res => {
@@ -69,7 +90,7 @@ function removeProductFromCart(detailId) {
     });
 }
 
-function hey(){
+function hey() {
     console.log('salam')
 }
 

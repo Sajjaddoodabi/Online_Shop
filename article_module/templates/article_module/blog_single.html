@@ -1,0 +1,78 @@
+{% extends 'shared/_layout.html' %}
+{% load thumbnail %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid w-100 d-flex justify-content-center align-items-center blogSingleContainer">
+        <div class="container-fluid container-xxl d-flex justify-content-center align-items-center flex-wrap p-0 m-0">
+            <div class="row col-12 col-lg-10 p-0 m-0 flex-wrap blogSingle justify-content-center align-items-center">
+                <p class="px-3 col-6">posted in {{ article.date|date }} by {{ article.author.username }}</p>
+                <div class="col-6 d-flex justify-content-end align-items-center px-3">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                </div>
+                <h3 class=" col-9 px-4 mb-4">{{ article.title }}</h3>
+                <figure class="blogMainImage d-flex justify-content-center align-items-center mb-5">
+                    {% thumbnail article.image '800x400' crop='center' as im %}
+                        <img src="{{ im.url }}" alt="">
+                    {% endthumbnail %}
+                </figure>
+                <div class="blogContent col-9 px-4 mb-4">
+                    <h5>{{ article.short_description }}</h5>
+                    <p>{{ article.text }}</p>
+                </div>
+
+                <div class="col-9 d-flex px-4" id="article_comment_area">
+                    <h4 class="col-9 px-4 mb-3">comments ({{ comments_count }})</h4>
+                    {% for comment in comments %}
+                        <div class="customer col-3 p-0 m-0">
+                            {% if comment.user.avatar %}
+                                {% thumbnail comment.user.avatar '100x100' crop='center' as im %}
+                                    <img src="{{ im.url }}" alt="">
+                                {% endthumbnail %}
+                            {% else %}
+                                <a>
+                                    <img src="/statics/images/Customer.jpg" alt="">
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="customerComment col-6 d-flex flex-wrap">
+                            <h6 class="commentTitle col-12 col-lg-4 px-2">
+                                <i class="bi bi-person"></i>{{ comment.user.username }}</h6>
+                            <h6 class="commentTitle col-6 col-lg-4 px-2">
+                                <i class="bi bi-calendar2"></i>{{ comment.date|date }}</h6>
+                            <h6 class="commentTitle col-6 col-lg-4">
+                                <i class="bi bi-watch"></i>{{ comment.date|time }}</h6>
+                            <p class="col-12 px-2">{{ comment.text }}</p>
+                        </div>
+                    {% endfor %}
+                    {% if comments_count == 0 %}
+                        <h6>There are no comments... <br>
+                            {% if request.user.is_authenticated %}
+                                Be the first one...</h6>
+                            {% endif %}
+                    {% endif %}
+                </div>
+
+                {% if request.user.is_authenticated %}
+                    <h5 class="col-9 px-4 mb-3">comment here</h5>
+                    <div class="comment flex-wrap col-9 mb-3"
+                         action="registerForm.php" method="post" autocomplete="off">
+                        <textarea class="col-10 col-lg-6" name="comment" id="comment_text" cols="30" rows="10"
+                                  placeholder="write here..."></textarea>
+                        <button onclick="addArticleComment({{ article.id }})" class="col-4 mb-3">send
+                        </button>
+                    </div>
+                {% else %}
+                    <p>you should <a href="{% url 'login_page' %}"> login </a> if you want to add comment</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

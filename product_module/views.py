@@ -92,14 +92,6 @@ class ProductList(ListView):
         return query
 
 
-class FilterProduct(View):
-    def get(self, request: HttpRequest):
-        pass
-
-    def post(self, request: HttpRequest):
-        pass
-
-
 def add_product_comment(request: HttpRequest):
     if request.user.is_authenticated:
         product_id = request.GET.get('product_id')

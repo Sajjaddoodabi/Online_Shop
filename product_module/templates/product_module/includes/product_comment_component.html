@@ -1,7 +1,6 @@
 {% load thumbnail %}
 
 <div class="col-12 p-4 txt" id="comment_area">
-
     <h4 class="commentTitle col-12"><i></i>comments({{ comment_count }})</h4>
     <div class="row ps-5 py-4 recentComment">
         {% for comment in comments %}
@@ -13,7 +12,6 @@
                         {% endthumbnail %}
                     {% else %}
                         <img src="/statics/images/Customer.jpg" alt="">
-
                     {% endif %}
                 </a>
             </div>

@@ -1,0 +1,68 @@
+{% extends 'shared/_layout.html' %}
+{% load thumbnail %}
+
+{% block title %}
+    articles
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid w-100 d-flex justify-content-center align-items-center">
+        <div class="container-fluid container-xxl d-flex justify-content-center align-items-center flex-wrap p-0 m-0 col-9">
+            {% for article in article_list %}
+                {% if forloop.first %}
+                    <div class="row col-12 p-0 m-0 flex-wrap justify-content-evenly align-items-center blog py-4">
+                        <figure class="blogImage p-0 m-0 col-10 col-lg-6 d-flex ps-5">
+                            {% thumbnail article.image '400x360' crop='center' as im %}
+                                <img src="{{ im.url }}" alt="">
+                            {% endthumbnail %}
+                        </figure>
+                        <div class="col-10 col-lg-6 article ps-4 pt-2">
+                            <span>{{ article.date|date }}</span>
+                            <span>{{ article.author.username }}</span>
+                            <h2>{{ article.title }}</h2>
+                            <p class="mb-5">{{ article.short_description }}</p>
+                            <a href="{% url 'article_detail' slug=article.slug %}" class="blogLink"><span>continue reading</span><i
+                                    class="bi bi-arrow-right-circle"></i></a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row col-12 col-md-6 col-lg-4 p-0 m-0 flex-wrap justify-content-center align-items-center blog py-4">
+                        <figure class="blogImage2 p-0 m-0">
+                            {% thumbnail article.image '320x240' crop='center' as im %}
+                                <img src="{{ im.url }}" alt="">
+                            {% endthumbnail %}
+                        </figure>
+                        <div class="col-10 article2 m-0 p-0 pt-2 ps-4">
+                            <h4 class="mb-3">{{ article.title }}</h4>
+                            <a href="{% url 'article_detail' slug=article.slug %}" class="blogLink"><span>continue reading</span><i
+                                    class="bi bi-arrow-right-circle"></i></a>
+                            <div></div>
+                            <span class="mt-4">{{ article.date|date }}</span>
+                            <span class="mt-4">{{ article.author.username }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+    <div class="col-12 bg-white d-flex justify-content-center align-items-center">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
+            {% endif %}
+
+            {% for pageNumber in paginator.page_range %}
+                <li class="{% if page_obj.number == pageNumber %} active {% endif %} ">
+                    <a href="?page={{ pageNumber }}"> {{ pageNumber }} </a></li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+{% endblock %}
