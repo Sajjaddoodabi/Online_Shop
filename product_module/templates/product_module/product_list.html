@@ -21,17 +21,17 @@
                     </div>
                     <div class="col-12 bg-white d-flex justify-content-center align-items-center">
                         <ul class="paginator">
+                            {% if page_obj.has_previous %}
+                                <li><a href="?page={{ page_obj.previous_page_number }}">Next</a></li>
+                            {% endif %}
                             {% for page in paginator.page_range %}
-                                {% if page_obj.has_previous %}
-                                    <li><a href="?page={{ page_obj.previous_page_number }}">Next</a></li>
-                                {% endif %}
                                 <a class="cursor-pointer" onclick="fillPage({{ page }})">
                                     {{ page }}
                                 </a>
-                                {% if page_obj.has_next %}
-                                    <li><a href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
-                                {% endif %}
                             {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li><a href="?page={{ page_obj.next_page_number }}">Prev</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 {% else %}
@@ -71,7 +71,8 @@
                         <input type="hidden" name="page" id="page" value="1">
 
                         {% for brand in brands %}
-                            <input class="col-1" id="yes_{{ brand.id }}" type="checkbox" name="brands" value="{{ brand.id }}">
+                            <input class="col-1" id="yes_{{ brand.id }}" type="checkbox" name="brands"
+                                   value="{{ brand.id }}">
                             <label class="col-11" for="yes_{{ brand.id }}"><h5>{{ brand.title }}</h5></label>
                         {% endfor %}
 

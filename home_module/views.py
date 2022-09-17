@@ -20,6 +20,15 @@ class HomeView(TemplateView):
         return context
 
 
+class AboutUs(TemplateView):
+    template_name = 'home_module/about_us.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutUs, self).get_context_data()
+        context['site_setting'] = SiteSetting.objects.filter(is_main_setting=True).first()
+        return context
+
+
 def site_header_component(request: HttpRequest):
     categories = ProductCategory.objects.filter(
         is_active=True, is_delete=False, parent=None).prefetch_related(
