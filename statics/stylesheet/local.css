@@ -18,6 +18,12 @@
     width: 400px;
     height: 200px;
   }
+  .aboutUsImage {
+    height: 300px;
+  }
+  .aboutArea {
+    height: 240px;
+  }
 }
 @media screen and (min-width: 576px) {
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
@@ -39,6 +45,12 @@
     width: 400px;
     height: 200px;
   }
+  .aboutUsImage {
+    height: 300px;
+  }
+  .aboutArea {
+    height: 240px;
+  }
 }
 @media screen and (min-width: 768px) {
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
@@ -46,6 +58,12 @@
   }
   .footerS {
     border-bottom: none;
+  }
+  .aboutUsImage {
+    height: 360px;
+  }
+  .aboutArea {
+    height: 300px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -76,6 +94,12 @@
   }
   .blogContent {
     column-count: 2;
+  }
+  .aboutUsImage {
+    height: 400px;
+  }
+  .aboutArea {
+    height: 400px;
   }
 }
 

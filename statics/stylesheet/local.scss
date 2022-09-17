@@ -2,21 +2,28 @@
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
   }
-  .footerS{
+  .footerS {
     border-bottom: 2px solid #282828;
   }
-  .customerComment{
+  .customerComment {
     width: 100%;
   }
-  .commentTitle{
+  .commentTitle {
     width: 50%;
-    &:nth-of-type(1){
+
+    &:nth-of-type(1) {
       width: 100%;
     }
   }
-  .blogMainImage{
+  .blogMainImage {
     width: 400px;
     height: 200px;
+  }
+  .aboutUsImage {
+    height: 300px;
+  }
+  .aboutArea{
+    height: 240px;
   }
 }
 
@@ -24,21 +31,28 @@
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 80%;
   }
-  .footerS{
+  .footerS {
     border-bottom: 2px solid #282828;
   }
-  .customerComment{
+  .customerComment {
     width: 100%;
   }
-    .commentTitle{
+  .commentTitle {
     width: 50%;
-    &:nth-of-type(1){
+
+    &:nth-of-type(1) {
       width: 100%;
     }
   }
-  .blogMainImage{
+  .blogMainImage {
     width: 400px;
     height: 200px;
+  }
+  .aboutUsImage {
+    height: 300px;
+  }
+    .aboutArea{
+    height: 240px;
   }
 }
 
@@ -46,43 +60,56 @@
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 60%;
   }
-  .footerS{
+  .footerS {
     border-bottom: none;
   }
   //  .window3{
   //  width: 50%;
   //}
+  .aboutUsImage {
+    height: 360px;
+  }
+    .aboutArea{
+    height: 300px;
+  }
 }
 
 @media screen and (min-width: 992px) {
   .regByEmail, .regByPhone, .loginForm, .verifyForm {
     width: 34%;
   }
-  .about{
+  .about {
     height: 200px;
   }
-  .link{
+  .link {
     height: 200px;
   }
-  .copy{
+  .copy {
     height: 100px;
   }
-  .customerComment{
+  .customerComment {
     width: 80%;
   }
-    .commentTitle{
+  .commentTitle {
     width: 33%;
-    &:nth-of-type(1){
+
+    &:nth-of-type(1) {
       width: 34%;
     }
   }
-  .blogMainImage{
+  .blogMainImage {
     width: 800px;
     height: 400px;
   }
-  .blogContent{
-  column-count: 2;
-}
+  .blogContent {
+    column-count: 2;
+  }
+  .aboutUsImage {
+    height: 400px;
+  }
+    .aboutArea{
+    height: 400px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
