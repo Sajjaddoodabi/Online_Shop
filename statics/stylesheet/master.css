@@ -1195,4 +1195,12 @@
   border: none;
 }
 
+.pay {
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(129, 189, 117);
+  padding: 6px 20px;
+  font-size: 20px;
+}
+
 /*# sourceMappingURL=master.css.map */
