@@ -6,9 +6,9 @@ from django.http import HttpRequest, JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.utils.crypto import get_random_string
+from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.generic import TemplateView
-
 from account_module.models import User, Address, AdminMessages
 from order_module.models import Order, OrderDetail
 from product_module.models import Product, ProductComment
@@ -16,6 +16,7 @@ from user_panel_module.forms import EditInformationForm
 from utils.email_service import send_email
 
 
+@method_decorator(login_required, name='dispatch')
 class Dashboard(TemplateView):
     template_name = 'user_panel/dashboard.html'
 
@@ -30,6 +31,7 @@ class Dashboard(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class Addresses(TemplateView):
     template_name = 'user_panel/addresses.html'
 
@@ -40,6 +42,7 @@ class Addresses(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class Opinions(TemplateView):
     template_name = 'user_panel/opinions.html'
 
@@ -49,6 +52,7 @@ class Opinions(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class Messages(TemplateView):
     template_name = 'user_panel/messages.html'
 
@@ -58,6 +62,7 @@ class Messages(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class UserOrders(TemplateView):
     template_name = 'user_panel/user_orders.html'
 
@@ -68,6 +73,7 @@ class UserOrders(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class RecentViews(TemplateView):
     template_name = 'user_panel/resent_visits.html'
 
@@ -78,6 +84,7 @@ class RecentViews(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class EditUserInfo(View):
     def get(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
@@ -123,6 +130,7 @@ class EditUserInfo(View):
         return render(request, 'user_panel/edit_user_info.html', context)
 
 
+@login_required
 def user_panel_menu_component(request: HttpRequest):
     user = request.user
     context = {
@@ -225,6 +233,46 @@ def remove_product_from_cart(request: HttpRequest):
     }
 
     data = render_to_string('user_panel/includes/cart_content.html', context)
+
+    return JsonResponse({
+        'status': 'success',
+        'body': data
+    })
+
+
+@login_required
+def remove_address_from_account(request: HttpRequest):
+    address_id = request.GET.get('address_id')
+
+    address = Address.objects.filter(id=address_id).first()
+    address.delete()
+
+    addresses = Address.objects.filter(user_id=request.user.id)
+
+    context = {
+        'addresses': addresses
+    }
+    data = render_to_string('user_panel/includes/addresses_component.html', context)
+
+    return JsonResponse({
+        'status': 'success',
+        'body': data
+    })
+
+
+@login_required
+def remove_comment_from_account(request: HttpRequest):
+    comment_id = request.GET.get('comment_id')
+
+    comment = ProductComment.objects.filter(id=comment_id).first()
+    comment.delete()
+
+    comments = ProductComment.objects.filter(user_id=request.user.id)
+
+    context = {
+        'comments': comments
+    }
+    data = render_to_string('user_panel/includes/comments_component.html', context)
 
     return JsonResponse({
         'status': 'success',

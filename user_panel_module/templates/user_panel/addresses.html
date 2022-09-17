@@ -15,48 +15,61 @@
                 <div class="col-12 d-flex mb-2 flex-wrap">
                     <h3 onclick="_showAddress()" class="col-12 col-lg-6 showAddresses">addresses</h3>
 
-                    <h4 onclick="_addAddress()" class="col-12 col-lg-6 addLocation addAddress"><i class="bi bi-geo-alt-fill"></i> register new address</h4>
+                    <h4 onclick="_addAddress()" class="col-12 col-lg-6 addLocation addAddress"><i
+                            class="bi bi-geo-alt-fill"></i> register new address</h4>
 
                 </div>
-                {% for address in addresses %}
-                    <div class="col-12 address pb-3">
-                        <h5 class="col-12 d-flex">
-                            <p class="col-11"><i class="bi bi-globe"></i> {{ address.address }}</p>
-                            <div class="threeDotsMenu"><i class="bi bi-three-dots-vertical"></i></div>
-                        </h5>
-                        <p class="px-2"><i class="bi bi-envelope"></i>post code: {{ address.phone }} </p>
-                        <p class="px-2"><i class="bi bi-telephone"></i>phone : {{ address.phone }} </p>
-                        <p class="px-2"><i class="bi bi-person"></i>receiver : {{ address.user.username }} </p>
-                        <div class="addressOptions" data-status="off">
-                            <div><i class="bi bi-pencil"></i> edit address</div>
-                            <div><i class="bi bi-trash"></i> delete address</div>
-                        </div>
-                    </div>
-                {% endfor %}
-            <div class="col-12 newAddress pb-3">
-                <form action="" method="post">
-                    <label class="col-11 py-2">استان</label>
-                    <input type="text">
-                    <label class="col-11 py-2">شهر</label>
-                    <input type="text">
-                    <label class="col-11 py-2">خیابان</label>
-                    <input type="text">
-                    <label class="col-11 py-2">کوچه</label>
-                    <input type="text">
-                    <label class="col-11 py-2">پلاک</label>
-                    <input type="text">
-                    <label class="col-11 py-2">واحد</label>
-                    <input type="text">
-                    <label class="col-11 py-2">گیرنده</label>
-                    <input type="text">
-                    <label class="col-11 py-2">کد پستی</label>
-                    <input type="text">
-                    <label class="col-11 py-2">شماره ی تماس</label>
-                    <input type="text">
-                    <br>
-                    <button type="submit" class="btn btn-success">confirm</button>
-                </form>
-            </div>
+                <div id="addresses">
+                    {% if addresses %}
+                        {% for address in addresses %}
+                            <div class="col-12 address pb-3" id="addresses">
+                                <h5 class="col-12 d-flex">
+                                    <p class="col-11"><i class="bi bi-globe"></i> {{ address.address }}</p>
+                                    <div class="threeDotsMenu"><i class="bi bi-three-dots-vertical"></i></div>
+                                </h5>
+                                <p class="px-2"><i class="bi bi-envelope"></i>post code: {{ address.phone }} </p>
+                                <p class="px-2"><i class="bi bi-telephone"></i>phone : {{ address.phone }} </p>
+                                <p class="px-2"><i class="bi bi-person"></i>receiver : {{ address.user.username }} </p>
+                                <div class="addressOptions" data-status="off">
+                                    <div>
+                                        <button onclick="" class="bi bi-pencil">edit address</button>
+                                    </div>
+                                    <div>
+                                        <button onclick="removeAddress({{ address.id }})" class="bi bi-trash">
+                                            delete address
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>There are no addresses...</p>
+                    {% endif %}
+                </div>
+                <div class="col-12 newAddress pb-3">
+                    <form action="" method="post">
+                        <label class="col-11 py-2">استان</label>
+                        <input type="text">
+                        <label class="col-11 py-2">شهر</label>
+                        <input type="text">
+                        <label class="col-11 py-2">خیابان</label>
+                        <input type="text">
+                        <label class="col-11 py-2">کوچه</label>
+                        <input type="text">
+                        <label class="col-11 py-2">پلاک</label>
+                        <input type="text">
+                        <label class="col-11 py-2">واحد</label>
+                        <input type="text">
+                        <label class="col-11 py-2">گیرنده</label>
+                        <input type="text">
+                        <label class="col-11 py-2">کد پستی</label>
+                        <input type="text">
+                        <label class="col-11 py-2">شماره ی تماس</label>
+                        <input type="text">
+                        <br>
+                        <button type="submit" class="btn btn-success">confirm</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
