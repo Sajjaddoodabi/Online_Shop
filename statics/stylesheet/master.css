@@ -6,9 +6,6 @@
 .header .mobileMenu {
   cursor: pointer;
 }
-.header > .desktopMenu > ul {
-  padding-inline-end: 10px;
-}
 .header > .desktopMenu > ul > li {
   padding: 0;
   margin: 0;
@@ -18,21 +15,6 @@
   color: black;
   padding: 0;
   margin: 0;
-  position: relative;
-}
-.header > .desktopMenu > ul > li .objects::after {
-  padding: 0;
-  margin: 0;
-  content: "";
-  width: 0%;
-  height: 2px;
-  background-color: rgb(129, 189, 117);
-  position: absolute;
-  z-index: 1;
-  opacity: 1;
-  bottom: 0;
-  left: 5%;
-  transition: 0.4s;
 }
 .header > .desktopMenu > ul > li .objects:hover::after {
   width: 90%;
@@ -48,18 +30,19 @@
   transition: 1s;
   display: none;
   opacity: 0;
-  border: 2px solid black;
   position: absolute;
   top: 100px;
   left: 0;
   padding: 10px 0;
   background-color: white;
   z-index: 999;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
 }
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a {
   display: block;
-  width: 100%;
-  padding: 10px;
+  width: 20%;
+  padding: 10px 0;
   color: black;
 }
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a > svg {
@@ -70,23 +53,24 @@
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a:hover {
   color: rgb(129, 189, 117);
 }
-.header > .desktopMenu > ul > li > ul > li .box1 > ul > li:hover .box2 {
+.header > .desktopMenu > ul > li > ul > li .box1 > ul > li > a:hover ~ .box2 {
   opacity: 1;
-  width: 400%;
+  width: 80%;
+  z-index: 999999;
 }
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li .box2 {
   opacity: 0;
-  border: 2px solid black;
   width: 0;
   transition: 1s;
   background-color: white;
   height: 100%;
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 20%;
   column-count: 4;
   padding: 20px 10px;
   z-index: 999;
+  border-radius: 0 0 10px 0;
 }
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li .box2 > * {
   z-index: 996;
@@ -95,6 +79,10 @@
 }
 .header > .desktopMenu > ul > li > ul > li .box1 > ul > li .box2 > ul > li {
   padding: 2px 0 2px 10px;
+}
+.header > .desktopMenu > ul > li > ul > li .box1 > ul > li .box2:hover {
+  opacity: 1;
+  width: 80%;
 }
 
 .bi-list {
