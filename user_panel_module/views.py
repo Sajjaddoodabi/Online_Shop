@@ -3,8 +3,9 @@ import random
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.http import HttpRequest, JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -12,7 +13,7 @@ from django.views.generic import TemplateView
 from account_module.models import User, Address, AdminMessages
 from order_module.models import Order, OrderDetail
 from product_module.models import Product, ProductComment
-from user_panel_module.forms import EditInformationForm
+from user_panel_module.forms import EditInformationForm, AddAddressForm
 from utils.email_service import send_email
 
 
@@ -130,6 +131,30 @@ class EditUserInfo(View):
         return render(request, 'user_panel/edit_user_info.html', context)
 
 
+@method_decorator(login_required, name="dispatch")
+class AddAddress(View):
+    def get(self, request: HttpRequest):
+        add_address_form = AddAddressForm()
+        context = {
+            'add_address_form': add_address_form
+        }
+        return render(request, 'user_panel/addAddress.html', context)
+
+    def post(self, request: HttpRequest):
+        current_user = User.objects.filter(id=request.user.id).first()
+        add_address_form = AddAddressForm(request.POST)
+        if add_address_form.is_valid():
+            form = add_address_form.save(commit=False)
+            form.user = current_user
+            form.save()
+            return redirect(reverse('addresses'))
+
+        context = {
+            'add_address_form': add_address_form
+        }
+        return render(request, 'user_panel/addAddress.html', context)
+
+
 @login_required
 def user_panel_menu_component(request: HttpRequest):
     user = request.user
@@ -245,7 +270,8 @@ def remove_address_from_account(request: HttpRequest):
     address_id = request.GET.get('address_id')
 
     address = Address.objects.filter(id=address_id).first()
-    address.delete()
+    if address is not None:
+        address.delete()
 
     addresses = Address.objects.filter(user_id=request.user.id)
 

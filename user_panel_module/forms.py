@@ -1,7 +1,7 @@
 from django import forms
 from django.core import validators
 
-from account_module.models import User
+from account_module.models import User, Address
 
 
 class EditInformationForm(forms.ModelForm):
@@ -53,3 +53,25 @@ class EditInformationForm(forms.ModelForm):
         }
 
 
+class AddAddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['title', 'address', 'post_code', 'phone']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'title'
+            }),
+            'address': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'address'
+            }),
+            'post_code': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'post code'
+            }),
+            'phone': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'phone'
+            }),
+        }

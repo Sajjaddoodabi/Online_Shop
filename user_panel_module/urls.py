@@ -13,5 +13,6 @@ urlpatterns = [
     path('change-order-detail', views.change_order_detail, name='change_detail_order_page'),
     path('remove-order-detail', views.remove_product_from_cart, name='remove_detail_order_page'),
     path('remove-address/', views.remove_address_from_account, name='remove_address'),
+    path('add-address/', views.AddAddress.as_view(), name='add_address'),
     path('remove-comment/', views.remove_comment_from_account, name='remove_comment'),
 ]
