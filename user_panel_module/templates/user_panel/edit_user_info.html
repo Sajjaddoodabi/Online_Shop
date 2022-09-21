@@ -9,54 +9,48 @@
     <div class="container-fluid w-100 mt-5 d-flex justify-content-center align-items-center">
         <div class="container-fluid container-xxl d-flex justify-content-evenly align-items-start w-100 h-100 flex-wrap p-0 m-0">
             <div class="row col-11 col-lg-3  h-100 p-0 m-0 flex-wrap userMenu mb-5">
-                {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+               {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
 
             </div>
             <div class="col-11 col-lg-8">
-                <div class="col-12 userAccountInformationSection">
-                    <form action="{% url 'edit_user' %}" method="post">
-                        {% csrf_token %}
+            <div class="col-12 userAccountInformationSection">
+                <form action="{% url 'edit_user' %}" method="post">
+                    {% csrf_token %}
 
-                        <label class="col-11 py-2">username : </label>
-                        {{ edit_profile_form.username }}
-                        <label class="col-11 py-2">first name : </label>
-                        {{ edit_profile_form.first_name }}
-                        <label class="col-11 py-2">last name : </label>
-                        {{ edit_profile_form.last_name }}
-                        <label class="col-11 py-2">national code: </label>
-                        {{ edit_profile_form.national_code }}
-                        <label class="col-11 py-2">phone number : </label>
-                        {{ edit_profile_form.mobile }}
-                        <label class="col-11 py-2">email : </label>
-                        {{ edit_profile_form.email }}
-                        <label class="col-11 py-2">date of birth : </label>
-                        {{ edit_profile_form.date_of_birth }}
-                        {% comment %}<label class="col-11 py-2">password : </label>
+                    <label class="col-11 py-2">username : </label>
+                    {{ edit_profile_form.username }}
+                    <label class="col-11 py-2">first name : </label>
+                    {{ edit_profile_form.first_name }}
+                    <label class="col-11 py-2">last name : </label>
+                    {{ edit_profile_form.last_name }}
+                    <label class="col-11 py-2">national code: </label>
+                    {{ edit_profile_form.national_code }}
+                    <label class="col-11 py-2">phone number : </label>
+                    {{ edit_profile_form.mobile }}
+                    <label class="col-11 py-2">email : </label>
+                    {{ edit_profile_form.email }}
+                    <label class="col-11 py-2">date of birth : </label>
+                    {{ edit_profile_form.date_of_birth }}
+                    {% comment %}<label class="col-11 py-2">password : </label>
                     <h6 class="col-12 editInformation">&nbsp;</h6>{% endcomment %}
-                        <br>
-                        <button type="submit" class="btn btn-success">confirm</button>
-                    </form>
-                </div>
-                <div class="col-12 userAccountInformationSection mt-4">
-                    <h4>edit password</h4>
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        {{ edit_pass_form.current_password.label_tag }}
-                        {{ edit_pass_form.current_password }}
-                        {{ edit_pass_form.current_password.errors }}
-
-                        {{ edit_pass_form.new_password.label_tag }}
-                        {{ edit_pass_form.new_password }}
-                        {{ edit_pass_form.new_password.errors }}
-
-                        {{ edit_pass_form.confirm_password.label_tag }}
-                        {{ edit_pass_form.confirm_password }}
-                        {{ edit_pass_form.confirm_password.errors }}
-                        <br>
-                        <button type="submit" class="btn btn-success">confirm</button>
-                    </form>
-                </div>
+                    <br>
+                    <button type="submit" class="btn btn-success">confirm</button>
+                </form>
             </div>
+            <div class="col-12 userAccountInformationSection mt-4">
+                <h4>edit password</h4>
+                <form action="" method="post">
+                    <label class="col-11 py-2">recent password : </label>
+                    <input type="text">
+                    <label class="col-11 py-2">new password : </label>
+                    <input type="text">
+                    <label class="col-11 py-2">repeat password : </label>
+                    <input type="text">
+                    <br>
+                    <button type="submit" class="btn btn-success">confirm</button>
+                </form>
+            </div>
+                </div>
         </div>
 
     </div>

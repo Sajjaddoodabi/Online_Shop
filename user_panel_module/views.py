@@ -3,9 +3,8 @@ import random
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.http import HttpRequest, JsonResponse, HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.template.loader import render_to_string
-from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -13,7 +12,7 @@ from django.views.generic import TemplateView
 from account_module.models import User, Address, AdminMessages
 from order_module.models import Order, OrderDetail
 from product_module.models import Product, ProductComment
-from user_panel_module.forms import EditInformationForm, AddAddressForm, EditAddressForm, EditPassForm
+from user_panel_module.forms import EditInformationForm
 from utils.email_service import send_email
 
 
@@ -90,11 +89,9 @@ class EditUserInfo(View):
     def get(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
         edit_profile_form = EditInformationForm(instance=current_user)
-        edit_pass_form = EditPassForm()
 
         context = {
             'current_user': current_user,
-            'edit_pass_form': edit_pass_form,
             'edit_profile_form': edit_profile_form
         }
         return render(request, 'user_panel/edit_user_info.html', context)
@@ -102,29 +99,6 @@ class EditUserInfo(View):
     def post(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
         edit_profile_form = EditInformationForm(request.POST, request.FILES, instance=current_user)
-        edit_pass_form = EditPassForm(request.POST)
-        user: User = request.user
-        if edit_pass_form.is_valid():
-            user_pass = edit_pass_form.cleaned_data.get('current_password')
-            new_user_pass = edit_pass_form.cleaned_data.get('new_password')
-            new_user_pass_confirm = edit_pass_form.cleaned_data.get('confirm_password')
-
-            is_pass_correct = user.check_password(user_pass)
-            print(is_pass_correct)
-
-            if is_pass_correct:
-                if user_pass == new_user_pass:
-                    edit_pass_form.add_error('new_password', 'you should enter a new password')
-                else:
-                    if new_user_pass == new_user_pass_confirm:
-                        user.set_password(new_user_pass)
-                        user.save()
-                    else:
-                        edit_pass_form.add_error('new_password', 'password not match')
-
-            else:
-                edit_pass_form.add_error('current_password', 'password is not correct')
-
         email = current_user.email
         mobile = current_user.mobile
 
@@ -151,64 +125,9 @@ class EditUserInfo(View):
 
         context = {
             'current_user': current_user,
-            'edit_pass_form': edit_pass_form,
             'edit_profile_form': edit_profile_form
         }
         return render(request, 'user_panel/edit_user_info.html', context)
-
-
-@method_decorator(login_required, name="dispatch")
-class AddAddress(View):
-    def get(self, request: HttpRequest):
-        add_address_form = AddAddressForm()
-        context = {
-            'add_address_form': add_address_form
-        }
-        return render(request, 'user_panel/addAddress.html', context)
-
-    def post(self, request: HttpRequest):
-        current_user = User.objects.filter(id=request.user.id).first()
-        add_address_form = AddAddressForm(request.POST)
-        if add_address_form.is_valid():
-            form = add_address_form.save(commit=False)
-            form.user = current_user
-            form.save()
-            return redirect(reverse('addresses'))
-
-        context = {
-            'add_address_form': add_address_form
-        }
-        return render(request, 'user_panel/addAddress.html', context)
-
-
-@method_decorator(login_required, name='dispatch')
-class EditAddress(View):
-    def get(self, request: HttpRequest, id):
-        address = Address.objects.filter(user_id=request.user.id, id=id).first()
-        edit_address_form = EditAddressForm(instance=address)
-
-        context = {
-            'current_address': address,
-            'edit_address_form': edit_address_form
-        }
-
-        return render(request, 'user_panel/editAddress.html', context)
-
-    def post(self, request: HttpRequest, id):
-        address = Address.objects.filter(user_id=request.user.id, id=id).first()
-
-        edit_address_form = EditAddressForm(request.POST, instance=address)
-
-        if edit_address_form.is_valid():
-            edit_address_form.save()
-            return redirect(reverse('addresses'))
-
-        context = {
-            'current_address': address,
-            'edit_address_form': edit_address_form
-        }
-
-        return render(request, 'user_panel/editAddress.html', context)
 
 
 @login_required
@@ -326,8 +245,7 @@ def remove_address_from_account(request: HttpRequest):
     address_id = request.GET.get('address_id')
 
     address = Address.objects.filter(id=address_id).first()
-    if address is not None:
-        address.delete()
+    address.delete()
 
     addresses = Address.objects.filter(user_id=request.user.id)
 

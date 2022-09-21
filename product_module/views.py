@@ -75,6 +75,8 @@ class ProductList(ListView):
         starting_price = self.request.GET.get('starting_price')
         ending_price = self.request.GET.get('ending_price')
 
+        print(brand)
+
         if starting_price is not None:
             query = query.filter(price__gt=starting_price)
 
@@ -94,6 +96,9 @@ def add_product_comment(request: HttpRequest):
     if request.user.is_authenticated:
         product_id = request.GET.get('product_id')
         product_comment = request.GET.get('product_comment')
+
+        print(product_id)
+        print(product_comment)
 
         new_comment = ProductComment(user_id=request.user.id, product_id=product_id, text=product_comment)
         new_comment.save()

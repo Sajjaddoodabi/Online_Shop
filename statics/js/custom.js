@@ -105,10 +105,6 @@ function removeAddress(addressId) {
     })
 }
 
-function editAddress(addressId) {
-    $.get('/user/edit-address?address_id=' + addressId)
-}
-
 function removeComment(commentId) {
     $.get('/user/remove-comment?comment_id=' + commentId).then(res => {
         Swal.fire({
