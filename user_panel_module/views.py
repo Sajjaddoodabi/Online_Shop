@@ -13,7 +13,7 @@ from django.views.generic import TemplateView
 from account_module.models import User, Address, AdminMessages
 from order_module.models import Order, OrderDetail
 from product_module.models import Product, ProductComment
-from user_panel_module.forms import EditInformationForm, AddAddressForm
+from user_panel_module.forms import EditInformationForm, AddAddressForm, EditAddressForm
 from utils.email_service import send_email
 
 
@@ -153,6 +153,36 @@ class AddAddress(View):
             'add_address_form': add_address_form
         }
         return render(request, 'user_panel/addAddress.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class EditAddress(View):
+    def get(self, request: HttpRequest, id):
+        address = Address.objects.filter(user_id=request.user.id, id=id).first()
+        edit_address_form = EditAddressForm(instance=address)
+
+        context = {
+            'current_address': address,
+            'edit_address_form': edit_address_form
+        }
+
+        return render(request, 'user_panel/editAddress.html', context)
+
+    def post(self, request: HttpRequest, id):
+        address = Address.objects.filter(user_id=request.user.id, id=id).first()
+
+        edit_address_form = EditAddressForm(request.POST, instance=address)
+
+        if edit_address_form.is_valid():
+            edit_address_form.save()
+            return redirect(reverse('addresses'))
+
+        context = {
+            'current_address': address,
+            'edit_address_form': edit_address_form
+        }
+
+        return render(request, 'user_panel/editAddress.html', context)
 
 
 @login_required
