@@ -6,6 +6,27 @@
 .header .mobileMenu {
   cursor: pointer;
 }
+.header .mobileMenu .mobileMenuDetails {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  top: 100px;
+  z-index: 999;
+  border-radius: 0 0 10px 10px;
+  padding: 20px 10px;
+  left: -100%;
+  transition: 1s;
+}
+.header .mobileMenu .mobileMenuDetails > * {
+  padding: 6px 0;
+}
+.header .mobileMenu .mobileMenuDetails > * > span {
+  transition: 1s;
+}
+.header .mobileMenu .mobileMenuDetails .detail {
+  display: none;
+  transition: 1s;
+}
 .header > .desktopMenu > ul > li {
   padding: 0;
   margin: 0;

@@ -5,6 +5,35 @@
 
   .mobileMenu {
     cursor: pointer;
+    //position: relative;
+    .mobileMenuDetails{
+      position: absolute;
+      background-color: white;
+      width: 100%;
+      top: 100px;
+      //left: 0;
+      z-index: 999;
+      //border: 2px solid black;
+      border-radius: 0 0 10px 10px;
+      padding: 20px 10px;
+      //display: none;
+      left: -100%;
+      transition: 1s;
+      >*{
+        padding: 6px 0;
+        //transition: 1s;
+        >span{
+          transition: 1s;
+          //&:hover{
+          //  transform: rotate(90deg);
+          //}
+        }
+      }
+      .detail{
+        display: none;
+        transition: 1s;
+      }
+    }
   }
 
   > .desktopMenu {

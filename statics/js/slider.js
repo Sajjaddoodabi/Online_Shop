@@ -97,3 +97,47 @@ moveLeft.forEach((item, index) => {
         }
     })
 })
+
+function showMobileMenu(){
+    // alert(1)
+    if(document.getElementsByClassName('mobileMenu')[0].getAttribute('data-status') == 'off'){
+        document.getElementsByClassName('mobileMenuDetails')[0].style.left = '0'
+        document.getElementsByClassName('mobileMenu')[0].setAttribute('data-status' , 'on')
+    }
+    else {
+        document.getElementsByClassName('mobileMenuDetails')[0].style.left = '-100%'
+        document.getElementsByClassName('mobileMenu')[0].setAttribute('data-status' , 'off')
+    }
+}
+
+let _mobileMenuCategory = document.querySelectorAll('.mobileMenuCategory')
+let _detail = document.querySelectorAll('.detail')
+for(let i = 0 ; i < _detail.length ; i ++){
+    _detail[i].setAttribute('data-status' , 'off')
+}
+// for (let i = 0 ; i < _mobileMenuCategory.length ; i ++){
+//     _mobileMenuCategory[i].style.transition = i+'s'
+// }
+
+_mobileMenuCategory.forEach((item , index)=>{
+    item.addEventListener('click' , ()=>{
+        if (_detail[index].getAttribute('data-status') == 'off') {
+            for (let i = 0; i < _detail.length; i++) {
+                _detail[i].style.display = 'none'
+                _detail[i].setAttribute('data-status', 'off')
+                _mobileMenuCategory[i].children[0].style.transform = 'rotate(0deg)'
+            }
+            _detail[index].style.display = 'block'
+            _detail[index].setAttribute('data-status', 'on')
+            item.children[0].style.transform = 'rotate(90deg)'
+        } else {
+            for (let i = 0; i < _detail.length; i++) {
+                _detail[i].style.display = 'none'
+                _detail[i].setAttribute('data-status', 'off')
+                _mobileMenuCategory[i].children[0].style.transform = 'rotate(0deg)'
+            }
+            _detail[index].setAttribute('data-status', 'off')
+            _mobileMenuCategory[i].children[0].style.transform = 'rotate(0deg)'
+        }
+    })
+})
