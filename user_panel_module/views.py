@@ -13,7 +13,7 @@ from django.views.generic import TemplateView
 from account_module.models import User, Address, AdminMessages
 from order_module.models import Order, OrderDetail
 from product_module.models import Product, ProductComment
-from user_panel_module.forms import EditInformationForm, AddAddressForm, EditAddressForm
+from user_panel_module.forms import EditInformationForm, AddAddressForm, EditAddressForm, EditPassForm
 from utils.email_service import send_email
 
 
@@ -90,9 +90,11 @@ class EditUserInfo(View):
     def get(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
         edit_profile_form = EditInformationForm(instance=current_user)
+        edit_pass_form = EditPassForm()
 
         context = {
             'current_user': current_user,
+            'edit_pass_form': edit_pass_form,
             'edit_profile_form': edit_profile_form
         }
         return render(request, 'user_panel/edit_user_info.html', context)
@@ -100,6 +102,29 @@ class EditUserInfo(View):
     def post(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
         edit_profile_form = EditInformationForm(request.POST, request.FILES, instance=current_user)
+        edit_pass_form = EditPassForm(request.POST)
+        user: User = request.user
+        if edit_pass_form.is_valid():
+            user_pass = edit_pass_form.cleaned_data.get('current_password')
+            new_user_pass = edit_pass_form.cleaned_data.get('new_password')
+            new_user_pass_confirm = edit_pass_form.cleaned_data.get('confirm_password')
+
+            is_pass_correct = user.check_password(user_pass)
+            print(is_pass_correct)
+
+            if is_pass_correct:
+                if user_pass == new_user_pass:
+                    edit_pass_form.add_error('new_password', 'you should enter a new password')
+                else:
+                    if new_user_pass == new_user_pass_confirm:
+                        user.set_password(new_user_pass)
+                        user.save()
+                    else:
+                        edit_pass_form.add_error('new_password', 'password not match')
+
+            else:
+                edit_pass_form.add_error('current_password', 'password is not correct')
+
         email = current_user.email
         mobile = current_user.mobile
 
@@ -126,6 +151,7 @@ class EditUserInfo(View):
 
         context = {
             'current_user': current_user,
+            'edit_pass_form': edit_pass_form,
             'edit_profile_form': edit_profile_form
         }
         return render(request, 'user_panel/edit_user_info.html', context)
