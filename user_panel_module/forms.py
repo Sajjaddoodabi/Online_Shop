@@ -1,7 +1,7 @@
 from django import forms
 from django.core import validators
-
-from account_module.models import User
+from django.core.exceptions import ValidationError
+from account_module.models import User, Address
 
 
 class EditInformationForm(forms.ModelForm):
@@ -53,3 +53,91 @@ class EditInformationForm(forms.ModelForm):
         }
 
 
+class AddAddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['title', 'address', 'post_code', 'phone']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'title'
+            }),
+            'address': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'address'
+            }),
+            'post_code': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'post code'
+            }),
+            'phone': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'phone'
+            }),
+        }
+
+
+class EditAddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['title', 'address', 'post_code', 'phone']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'title'
+            }),
+            'address': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'address'
+            }),
+            'post_code': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'post code'
+            }),
+            'phone': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'phone'
+            }),
+        }
+
+
+class EditPassForm(forms.Form):
+    current_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'password'
+        }),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
+    )
+
+    new_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'new password'
+        }),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
+    )
+
+    confirm_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'confirm password'
+        }),
+        validators=[
+            validators.MaxLengthValidator(100),
+        ]
+    )
+
+    def password_confirm(self):
+        password = self.cleaned_data.get('new_password')
+        confirm_password = self.cleaned_data.get('confirm_password')
+
+        if password == confirm_password:
+            return confirm_password
+
+        else:
+            raise ValidationError('password does not match')

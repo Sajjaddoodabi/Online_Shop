@@ -15,8 +15,8 @@
                 <div class="col-12 d-flex mb-2 flex-wrap">
                     <h3 onclick="_showAddress()" class="col-12 col-lg-6 showAddresses">addresses</h3>
 
-                    <h4 onclick="_addAddress()" class="col-12 col-lg-6 addLocation addAddress"><i
-                            class="bi bi-geo-alt-fill"></i> register new address</h4>
+                    <a href="{% url 'add_address' %}" class="col-12 col-lg-6 addLocation addAddress"><i
+                        class="bi bi-geo-alt-fill"></i> register new address</a>
 
                 </div>
                 <div id="addresses">
@@ -32,7 +32,8 @@
                                 <p class="px-2"><i class="bi bi-person"></i>receiver : {{ address.user.username }} </p>
                                 <div class="addressOptions" data-status="off">
                                     <div>
-                                        <button onclick="" class="bi bi-pencil">edit address</button>
+                                        <a
+                                                href="{% url 'edit_address' id=address.id %}">edit address</a>
                                     </div>
                                     <div>
                                         <button onclick="removeAddress({{ address.id }})" class="bi bi-trash">
@@ -45,30 +46,6 @@
                     {% else %}
                         <p>There are no addresses...</p>
                     {% endif %}
-                </div>
-                <div class="col-12 newAddress pb-3">
-                    <form action="" method="post">
-                        <label class="col-11 py-2">استان</label>
-                        <input type="text">
-                        <label class="col-11 py-2">شهر</label>
-                        <input type="text">
-                        <label class="col-11 py-2">خیابان</label>
-                        <input type="text">
-                        <label class="col-11 py-2">کوچه</label>
-                        <input type="text">
-                        <label class="col-11 py-2">پلاک</label>
-                        <input type="text">
-                        <label class="col-11 py-2">واحد</label>
-                        <input type="text">
-                        <label class="col-11 py-2">گیرنده</label>
-                        <input type="text">
-                        <label class="col-11 py-2">کد پستی</label>
-                        <input type="text">
-                        <label class="col-11 py-2">شماره ی تماس</label>
-                        <input type="text">
-                        <br>
-                        <button type="submit" class="btn btn-success">confirm</button>
-                    </form>
                 </div>
             </div>
         </div>
