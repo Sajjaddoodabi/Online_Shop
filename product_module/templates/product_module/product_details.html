@@ -9,40 +9,61 @@
 {% block content %}
     <div class="container-fluid slideC3 d-flex justify-content-center p-0 m-0 pb-4">
         <div class="container-xxl slide3 d-flex justify-content-center h-100 p-0 m-0 w-100 flex-wrap">
-            <div class="slider3 w-100 h-100 productSection p-0 m-0 d-flex justify-content-start flex-wrap">
-                <div class="window3 p-0 m-0 col-12 col-lg-6 h-100 mx-5">
-                    <span onclick="_right3()" id="right3"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                    <span onclick="_left3()" id="left3"><i class="bi bi-arrow-left-circle-fill"></i></span>
-                    <div id="bus3" class="w-100 h-100 p-0 m-0">
+            <div class="slider3 w-100 h-100 productSection p-0 m-0 d-flex justify-content-center flex-wrap">
+                <div class="window3 p-0 m-0 h-100 mt-5 d-flex flex-wrap">
+                    {#                    <span onclick="_right3()" id="right3"><i class="bi bi-arrow-right-circle-fill"></i></span>#}
+                    {#                    <span onclick="_left3()" id="left3"><i class="bi bi-arrow-left-circle-fill"></i></span>#}
+                    <div id="bus3" class="h-100 w-100 p-0 m-0 d-flex justify-content-start align-items-start flex-wrap">
 
-                        <figure class="col-12">
-                            <div>
-                                {% thumbnail product.image "300x360" crop='center' as im %}
+                        <figure class="d-flex justify-content-start align-items-start">
+                            <div class="d-flex justify-content-start align-items-start">
+                                {% thumbnail product.image "380x400" crop='center' as im %}
                                     <img src="{{ im.url }}" alt="">
                                 {% endthumbnail %}
                             </div>
                         </figure>
-                        {% for product_picture in product_pictures %}
-                            <figure class="col-12">
-                                <div>
-                                    {% thumbnail product_picture.image "300x360" crop='center' as im %}
-                                        <img src="{{ im.url }}" alt="">
-                                    {% endthumbnail %}
-                                </div>
-                            </figure>
-                        {% endfor %}
+                        <div class="productPictures d-flex justify-content-end flex-wrap">
+                            <div class="moveToTop d-flex justify-content-center align-items-center p-0 m-0"><i
+                                    onclick="_moveTop(this)" class="bi bi-arrow-up"></i>
+                            </div>
+                            <div class="pictureContainer p-0 m-0">
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                                <figure class="col-12 p-0 m-0">100*100</figure>
+                            </div>
+                            <div class="moveToBottom d-flex justify-content-center align-items-center p-0 m-0"><i
+                                    onclick="_moveBottom(this)" class="bi bi-arrow-down"></i></div>
+                        </div>
+                        {#                        {% for product_picture in product_pictures %}#}
+                        {#                            <figure class="col-3 d-flex justify-content-start align-items-start">#}
+                        {#                                <div>#}
+                        {#                                    {% thumbnail product_picture.image "100x100" crop='center' as im %}#}
+                        {#                                        <img src="{{ im.url }}" alt="">#}
+                        {#                                    {% endthumbnail %}#}
+                        {#                                </div>#}
+                        {#                            </figure>#}
+                        {#                        {% endfor %}#}
 
 
                     </div>
-                    <div class="thumbnail">
-                        <div class="thumb"></div>
-                        {% for product_picture in product_pictures %}
-                            <div class="thumb"></div>
-                        {% endfor %}
-
-                    </div>
+                    {#                    <div class="thumbnail">#}
+                    {#                        <div class="thumb"></div>#}
+                    {#                        {% for product_picture in product_pictures %}#}
+                    {#                            <div class="thumb"></div>#}
+                    {#                        {% endfor %}#}
+                    {##}
+                    {#                    </div>#}
                 </div>
-                <div class="col-12 col-lg-5 text p-4 ms-5">
+                <div class="col-12 col-md-5 text p-4">
                     <h2 class="pt-3">{{ product.title }}</h2>
                     <h6 class="py-2">id: {{ product.id }}</h6>
                     <h4 class="py-2">price: {{ product.price|three_digits_price }} </h4>

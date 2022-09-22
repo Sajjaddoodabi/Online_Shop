@@ -1,49 +1,41 @@
-let b = 0
-let x3 = document.getElementsByClassName('window3')[0].clientWidth
-let _fig3 = document.querySelectorAll('#bus3>figure')
-document.getElementById('bus3').style.width = x3 * (_fig3.length) + 'px'
-
-for (let i = 0; i < _fig3.length; i++) {
-    _fig3[i].style.width = x3 + 'px'
+let verticalMove = 0
+function _moveTop(self) {
+    document.getElementsByClassName('moveToBottom')[0].children[0].style.color = 'black'
+    if (verticalMove == ((document.querySelectorAll('.pictureContainer>figure').length * 100) - 600)) {
+        verticalMove += 300
+        document.getElementsByClassName('pictureContainer')[0].style.transform = 'translateY(-' + verticalMove + 'px)'
+        self.style.color = 'gray'
+    }
+    else if (verticalMove < ((document.querySelectorAll('.pictureContainer>figure').length * 100) - 600)) {
+        verticalMove += 300
+        document.getElementsByClassName('pictureContainer')[0].style.transform = 'translateY(-' + verticalMove + 'px)'
+        self.style.color = 'black'
+    }
 }
 
-let y3 = document.querySelectorAll('.thumbnail>.thumb')
-y3[0].style.backgroundColor = 'rgb(129, 189, 117)'
-
-function _right3() {
-    y3[b].style.backgroundColor = 'grey'
-    b++
-    document.getElementById('bus3').style.transform = 'translateX(-' + (b * x3) + 'px)'
-    if (b == (_fig3.length - 1)) {
-        document.getElementById('right3').style.display = 'none'
-    } else {
-        document.getElementById('right3').style.display = 'block'
+function _moveBottom(self) {
+    document.getElementsByClassName('moveToTop')[0].children[0].style.color = 'black'
+    if(verticalMove == 300){
+        verticalMove -= 300
+        document.getElementsByClassName('pictureContainer')[0].style.transform = 'translateY(-' + verticalMove + 'px)'
+        self.style.color = 'gray'
     }
-    if (b == 0) {
-        document.getElementById('left3').style.display = 'none'
-    } else if (b > 0) {
-        document.getElementById('left3').style.display = 'block'
+    else if (verticalMove > 300) {
+        verticalMove -= 300
+        document.getElementsByClassName('pictureContainer')[0].style.transform = 'translateY(-' + verticalMove + 'px)'
+        self.style.color = 'black'
     }
-    y3[b].style.backgroundColor = 'rgb(129, 189, 117)'
 }
 
-function _left3() {
-    y3[b].style.backgroundColor = 'grey'
-    b--
-    document.getElementById('bus3').style.transform = 'translateX(-' + (b * x3) + 'px)'
-    // check3()
-    if (b == 0) {
-        document.getElementById('left3').style.display = 'none'
-    } else if (b > 0) {
-        document.getElementById('left3').style.display = 'block'
-    }
-    if (b == (_fig3.length - 1)) {
-        document.getElementById('right3').style.display = 'none'
-    } else {
-        document.getElementById('right3').style.display = 'block'
-    }
-    y3[b].style.backgroundColor = 'rgb(129, 189, 117)'
-}
+// document.getElementsByClassName('moveToTop')[0].addEventListener('click' , ()=>{
+//     verticalMove += 300
+//     // alert(verticalMove)
+//     document.getElementsByClassName('pictureContainer')[0].style.transform = 'translateY(-' + verticalMove + 'px)'
+// })
+
+
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 let num = 1
 // document.getElementsByClassName('addToCart')[0].addEventListener('click', () => {
@@ -164,6 +156,7 @@ document.getElementsByClassName('day')[0].innerHTML = "<i class=\"bi bi-calendar
 
 let _color = document.querySelectorAll('.chooseColor>.color')
 _color.forEach((item, index) => {
+    alert(1)
     item.addEventListener('click', () => {
         for (let i = 0; i < _color.length; i++) {
             _color[i].style.outline = '0.6px solid #2d2d2d'
@@ -189,13 +182,3 @@ _showList.forEach((item, index) => {
         // item.children[0].style.display = 'block'
     })
 })
-// alert(document.getElementsByTagName('body')[0].)
-// document.getElementsByClassName('line')[0].addEventListener('click', (event) => {
-//     alert(1)
-//     num = ((event.screenX))
-//     console.log(num)
-//         /// (m.clientWidth))
-//     // document.getElementsByClassName('line')[0].style.width = event. + '%'
-//     // num = (num * height) / 100
-//     // m.scrollTo(0, num)
-// })
