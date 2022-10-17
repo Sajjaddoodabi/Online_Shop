@@ -4,7 +4,7 @@ a django base online shop site using sqlite as the database
 main page with header is all dynamic costume sliders , sliders for most viewed products, most visited products and ... , footer with dynamic box and links, there is a 
 site setting in that you can dynamicly costume your setting such as logo , name , address, phone, link boxes and links in footer , copy right text and ...
 account page with edit information page, previous basket details and all order details, slider of the latest viewed producs, user comments, user addresses , login and log out page , resset password page, forget password page, emali service
-for registering into site, u need to be logged in in order to use these parts , if u are not logged in it will redirect u to login page
+for registering into site, u can use either phone number or email address in order to register to site , u need to be logged in in order to use these parts , if u are not logged in it will redirect u to login page
 Article page with a articles list and a page for it to show full description of the article with a ajax and js base comment section on it that it doesent need to refresh to
 add the comment to the page, you will right your comment and sumbit it, it will add it immediately add the comment and roll into it, and also there is responde to the comment
 part that add you can add a response to a specific comment, and like the main comment it will add it immediately and roll the page smoothly to that parent comment
