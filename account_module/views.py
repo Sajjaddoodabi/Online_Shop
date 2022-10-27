@@ -1,4 +1,3 @@
-import re
 from random import randint
 
 from django.contrib.auth import login, logout

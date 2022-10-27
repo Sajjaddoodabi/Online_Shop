@@ -1,0 +1,101 @@
+{% extends 'shared/_layout.html' %}
+{% load poll_extras %}
+{% load thumbnail %}
+
+{% block title %}
+    checkout
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid w-100 d-flex justify-content-center align-items-center">
+        <div class="container-fluid container-xxl d-flex justify-content-center align-items-center flex-wrap p-0 m-0 w-100">
+            <div class="row col-12 p-0 m-0 flex-wrap justify-content-evenly align-items-start">
+                <h4 class="py-2">checkout shipping</h4>
+                <div>
+                    <form action="" method="post" class="d-flex flex-wrap py-2">
+                        <h6>payment way: </h6>
+                        <label class="col-2 d-flex justify-content-end align-items-center">online</label>
+                        <input type="radio" name="pay" checked>
+                        <label class="col-2 d-flex justify-content-end align-items-center">in place</label>
+                        <input type="radio" name="pay">
+                        {% comment %}<a class="col-3 d-flex justify-content-end align-items-center" href="">
+                            انصراف از خرید<i class="bi bi-x-circle"></i></a>{% endcomment %}
+                    </form>
+                </div>
+                <div class="my-4">
+                    <ul class="cartTitle d-flex justify-content-center align-items-center p-0 m-0 w-100 px-4">
+                        <li class="col-2 d-flex justify-content-start align-items-center h-100">image</li>
+                        <li class="col-3 d-flex justify-content-start align-items-center h-100">description</li>
+                        <li class="col-2 d-flex justify-content-start align-items-center h-100">price</li>
+                        <li class="col-2 d-flex justify-content-start align-items-center h-100">quantity</li>
+                        <li class="col-2 d-flex justify-content-start align-items-center h-100">total price</li>
+                        <li class="col-1 d-flex justify-content-start align-items-center h-100">delete</li>
+                    </ul>
+                    {% for order_detail in order.orderdetail_set.all %}
+                        <ul class="p-0 m-0 w-100 cartProduct px-lg-4">
+                            <li class="d-flex justify-content-start align-items-center col-2 cartImage">
+                                {% thumbnail order_detail.product.image "100x100" crop='center' as im %}
+                                    <img src="{{ im.url }}" alt="">
+                                {% endthumbnail %}
+                            </li>
+                            <li class="d-flex justify-content-start align-items-center col-3 h-100 cartDesc flex-wrap ps-2 ps-md-4">
+                                <div class="col-12">
+                                    <a href="{% url 'product_detail' slug=order_detail.product.slug %}">
+                                        <h4
+                                                class="col-12">{{ order_detail.product.title }}
+                                        </h4>
+                                    </a>
+                                    <h6 class="col-12">id : {{ order_detail.product.id }}</h6>
+                                </div>
+
+                            </li>
+                            <li class="d-flex justify-content-start align-items-center col-1 h-100 cartPrice">{{ order_detail.product.price|three_digits_price }}</li>
+                            <li class="d-flex justify-content-start align-items-center col-2 h-100 cartQuantity">
+                                <div class="quantity d-flex justify-content-center align-items-center">
+                                    <div class="p-2 d-flex justify-content-center align-items-center decrease"
+                                         onclick="changeProductCount({{ order_detail.id }}, 'decrease')">
+                                        <i class=" bi bi-trash"
+                                           onclick="removeProductFromCart({{ order_detail.id }})"></i>
+                                    </div>
+                                    <h4 class="p-2 my-2 d-flex justify-content-center align-items-center"
+                                        id="order-detail-content">{{ order_detail.count }}</h4>
+                                    <div class="p-2 d-flex justify-content-center align-items-center increase"
+                                         onclick="changeProductCount({{ order_detail.id }}, 'increase')">+
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="d-flex justify-content-center align-items-center col-2 h-100 cartTotal">{% multiply order_detail.count order_detail.product.price %}</li>
+                            <li class="d-flex justify-content-center align-items-center col-1 h-100 cartDelete"><i
+                                    class="bi bi-x-circle" onclick="removeProductFromCart({{ order_detail.id }})"></i>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="mb-4">
+                    <div class="col-12 px-4 d-flex justify-content-center align-items-center flex-wrap detailsOfCartPrice my-1">
+                        <p class="col-6 d-flex justify-content-start align-items-center pt-2">total price</p>
+                        <p class="col-6 d-flex justify-content-end align-items-center pt-2">{{ total_price|three_digits_price }}</p>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="ps-4 pb-2">Pick an address</h6>
+                    <form action="" method="post" class="d-flex flex-wrap justify-content-end align-items-start">
+                        {% for address in addresses %}
+                            <input class="col-1 d-flex flex-wrap justify-content-start align-items-start" type="radio"
+                                   name="pay" checked>
+                            <label class="col-11 d-flex flex-wrap justify-content-start align-items-start">
+                                <p>{{ address.address }}</p>
+                                <p class="col-12">receiver : {{ address.user.username }}</p>
+                                <p class="col-12">telephone : {{ address.phone }}</p>
+                                <p class="col-12">post code : {{ address.post_code }}</p>
+                            </label>
+                        {% endfor %}
+
+                    </form>
+                </div>
+                <div class="my-4"><a href="" class="pay">Payment</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

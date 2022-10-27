@@ -110,7 +110,6 @@ class EditUserInfo(View):
             new_user_pass_confirm = edit_pass_form.cleaned_data.get('confirm_password')
 
             is_pass_correct = user.check_password(user_pass)
-            print(is_pass_correct)
 
             if is_pass_correct:
                 if user_pass == new_user_pass:
@@ -232,6 +231,23 @@ def user_basket(request: HttpRequest):
     }
 
     return render(request, 'user_panel/cart.html', context)
+
+
+@login_required
+def shipping(request: HttpRequest):
+    current_order = Order.objects.prefetch_related('orderdetail_set').filter(
+        user_id=request.user.id, is_paid=False).first()
+
+    addresses = Address.objects.filter(user_id=request.user.id)
+
+    total_amount = current_order.calculate_total_price()
+    context = {
+        'order': current_order,
+        'addresses': addresses,
+        'total_price': total_amount,
+    }
+
+    return render(request, 'user_panel/chechout.html', context)
 
 
 @login_required
