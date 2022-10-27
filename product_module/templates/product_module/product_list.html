@@ -22,7 +22,7 @@
                     <div class="col-12 bg-white d-flex justify-content-center align-items-center">
                         <ul class="paginator">
                             {% if page_obj.has_previous %}
-                                <li><a href="?page={{ page_obj.previous_page_number }}">Next</a></li>
+                                <li><a href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
                             {% endif %}
                             {% for page in paginator.page_range %}
                                 <a class="cursor-pointer" onclick="fillPage({{ page }})">
@@ -30,7 +30,7 @@
                                 </a>
                             {% endfor %}
                             {% if page_obj.has_next %}
-                                <li><a href="?page={{ page_obj.next_page_number }}">Prev</a></li>
+                                <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
                             {% endif %}
                         </ul>
                     </div>
