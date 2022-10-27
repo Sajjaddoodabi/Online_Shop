@@ -1,0 +1,15 @@
+asgiref==3.5.2
+da-vinci==0.3.0
+Django==4.1.2
+django-phonenumber-field==7.0.0
+django-phonenumbers==1.0.1
+django-render-partial==0.4
+django-thumbnails==0.7.0
+mysql-connector-python==8.0.30
+phonenumbers==8.12.57
+Pillow==9.2.0
+protobuf==3.20.1
+shortuuid==1.0.9
+sorl-thumbnail==12.9.0
+sqlparse==0.4.3
+tzdata==2022.5
