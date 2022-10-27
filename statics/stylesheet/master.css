@@ -396,46 +396,60 @@
   position: relative;
 }
 .slide3 .slider3 > .window3 {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 400px;
   overflow: hidden;
   position: relative;
   margin: 20px auto;
 }
-.slide3 .slider3 > .window3 > span {
-  position: absolute;
-  top: 44%;
-  font-size: 40px;
-  cursor: pointer;
-  opacity: 1;
-  z-index: 10;
-  color: gray;
-}
-.slide3 .slider3 > .window3 > span:hover {
-  color: rgb(129, 189, 117);
-}
-.slide3 .slider3 #right3 {
-  right: 14%;
-}
-.slide3 .slider3 #left3 {
-  left: 14%;
-  display: none;
-  z-index: 900;
-}
 .slide3 .slider3 #bus3 {
   height: 100%;
-  display: flex;
   transition: 1s;
 }
+.slide3 .slider3 #bus3 > .productPictures {
+  width: 100px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+.slide3 .slider3 #bus3 > .productPictures > .pictureContainer {
+  height: 75%;
+  transition: 1s;
+  position: absolute;
+  top: 12.5%;
+  right: 0;
+}
+.slide3 .slider3 #bus3 > .productPictures > .pictureContainer > figure {
+  width: 100px;
+  height: 100px;
+}
+.slide3 .slider3 #bus3 > .productPictures > div {
+  position: absolute;
+  width: 100px;
+  height: 12.5%;
+}
+.slide3 .slider3 #bus3 > .productPictures .moveToTop {
+  top: 0;
+  right: 0;
+  background-color: white;
+  z-index: 10;
+}
+.slide3 .slider3 #bus3 > .productPictures .moveToBottom {
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  z-index: 10;
+}
+.slide3 .slider3 #bus3 > .productPictures .moveToBottom > * {
+  color: gray;
+}
 .slide3 .slider3 #bus3 > figure {
-  width: 600px;
-  height: 600px;
-  padding: 50px 0;
+  width: 380px;
+  height: 400px;
 }
 .slide3 .slider3 #bus3 > figure > div {
-  border: 2px solid black;
-  width: 560px;
-  height: 500px;
+  width: 380px;
+  height: 400px;
   object-fit: cover;
   margin: 0 auto;
 }
