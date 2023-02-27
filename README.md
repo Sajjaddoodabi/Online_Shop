@@ -1,4 +1,4 @@
-# Online_Shop (NOT COMPLETE)
+# Online_Shop
 
 a django base online shop site using sqlite as the database
 main page with header is all dynamic costume sliders , sliders for most viewed products, most visited products and ... , footer with dynamic box and links, there is a 
